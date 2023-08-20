@@ -2,7 +2,7 @@
 title: '.nojekyll 文件是什么'
 description: '.nojekyll 文件是什么 '
 pubDate: 'Jul 02 2022'
-heroImage: "http://img.blog.loli.wang/2023-8-20-.nojekyll_文件是什么/01.png" 
+heroImage: "http://img.blog.loli.wang/2023-8-20-nojekyll-Why/01.png" 
 ---
 
 ## .nojekyll 文件是什么
