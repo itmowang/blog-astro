@@ -8,5 +8,4 @@ export default defineConfig({
 	site: 'https://blog.loli.wang',
 	integrations: [mdx(), sitemap()],
 	outDir: './docs'
-
 });

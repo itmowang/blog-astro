@@ -14,7 +14,7 @@ export const config = {
     },
     author: {
         name: "Your Name",
-        avatar: logo,
+        avatar: 'https://avatars.githubusercontent.com/u/137391282?v=4',
         bio: "Your bio",
     },
     menus: [
