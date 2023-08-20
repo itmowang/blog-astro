@@ -8,25 +8,25 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://blog.loli.wang/blog/using-mdx/">
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-20-nojekyll_%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88/doc/">
 
 <!-- Primary Meta Tags -->
-<title>Using MDX - 魔王の博客</title>
-<meta name="title" content="Using MDX">
-<meta name="description" content="Lorem ipsum dolor sit amet">
+<title>.nojekyll 文件是什么 - 魔王の博客</title>
+<meta name="title" content=".nojekyll 文件是什么">
+<meta name="description" content=".nojekyll 文件是什么 ">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://blog.loli.wang/blog/using-mdx/">
-<meta property="og:title" content="Using MDX">
-<meta property="og:description" content="Lorem ipsum dolor sit amet">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-20-nojekyll_%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88/doc/">
+<meta property="og:title" content=".nojekyll 文件是什么">
+<meta property="og:description" content=".nojekyll 文件是什么 ">
 <meta property="og:image" content="https://blog.loli.wang/placeholder-social.jpg">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://blog.loli.wang/blog/using-mdx/">
-<meta property="twitter:title" content="Using MDX">
-<meta property="twitter:description" content="Lorem ipsum dolor sit amet">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-20-nojekyll_%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88/doc/">
+<meta property="twitter:title" content=".nojekyll 文件是什么">
+<meta property="twitter:description" content=".nojekyll 文件是什么 ">
 <meta property="twitter:image" content="https://blog.loli.wang/placeholder-social.jpg">
     <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
@@ -62,29 +62,22 @@
             <div class="main-container">
                 <div class="content-container" data-aos="fade-up">
                     <div class="post-detail">
-    <h2 class="post-title">Using MDX</h2>
+    <h2 class="post-title">.nojekyll 文件是什么</h2>
     <div class="post-date">
         <time datetime="2022-07-01T16:00:00.000Z">2022-07-02</time>
     </div>
-    <div class="feature-container" style="background-image: url('/placeholder-hero.jpg');"></div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-20-.nojekyll文件是什么/01.png');"></div>
     <div class="post-content">
         
-                        <p>This theme comes with the <a href="https://docs.astro.build/en/guides/integrations-guide/mdx/">@astrojs/mdx</a> integration installed and configured in your <code>astro.config.mjs</code> config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.</p>
-<h2 id="why-mdx">Why MDX?</h2>
-<p>MDX is a special flavor of Markdown that supports embedded JavaScript &amp; JSX syntax. This unlocks the ability to <a href="https://docs.astro.build/en/guides/markdown-content/#mdx-features">mix JavaScript and UI Components into your Markdown content</a> for things like interactive charts or alerts.</p>
-<p>If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.</p>
-<h2 id="example">Example</h2>
-<p>Here is how you import and use a UI component inside of MDX.
-When you open this page in the browser, you should see the clickable button below.</p>
-
-<p><b><!-- 截取摘要 -->Here is how you import and use a UI component inside of MDX.
-When you open this page in the browser, you should see the clickable button below.</b></p>
-<h2 id="more-links">More Links</h2>
-<ul>
-<li><a href="https://mdxjs.com/docs/what-is-mdx">MDX Syntax Documentation</a></li>
-<li><a href="https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages">Astro Usage Documentation</a></li>
-<li><strong>Note:</strong> <a href="https://docs.astro.build/en/reference/directives-reference/#client-directives">Client Directives</a> are still required to create interactive components. Otherwise, all components in your MDX will render as static HTML (no JavaScript) by default.</li>
-</ul>
+                        <h2 id="nojekyll-文件是什么">.nojekyll 文件是什么</h2>
+<p>使用 Nuxt 的过程中，发现在 generate 生成的 dist 文件夹下会有一个名为 .nojekyll 的空白文件，它是干什么用的呢？</p>
+<p>Github Pages 默认是基于 Jekyll 构建，Jekyll 是一个将纯文本转换为静态网站的工具，它构建的网站下各种目录都是特定的以下划线开头命名的文件夹，例如 _layouts、_posts ，它会忽略掉其它的以下划线开头的文件夹和文件。</p>
+<p>.nojekyll 就是告诉 Github Pages 当前网站不是基于 Jekyll 构建的，不要忽略掉下划线开头的文件和文件夹。</p>
+<p>可见 .nojekyll 主要就是用于 Github Pages 这种有默认规则的网站部署平台，如果是部署在自己的服务器上，可以把它删掉。</p>
+<p>反之，如果你的网站不是 Jekyll 构建的，要部署到 Github Pages ，并且包含下划线开头的文件或文件夹，那么你就需要在根目录添加一个 .nojekyll 空文件。</p>
+<p>参考：
+Jekyll 官网 <a href="http://jekyllcn.com/" title=" Jekyll 官网 ">http://jekyllcn.com/</a>
+Bypassing Jekyll on GitHub Pages [<a href="https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/">https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/</a>]</p>
                     
     </div>
 </div>
