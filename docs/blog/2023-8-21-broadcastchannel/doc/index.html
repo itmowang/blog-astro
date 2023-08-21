@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-21-broadcastchannel/doc/">
+
+<!-- Primary Meta Tags -->
+<title>使用BroadcastChannel跨页面通信 - 魔王の博客</title>
+<meta name="title" content="使用BroadcastChannel跨页面通信">
+<meta name="description" content="使用BroadcastChannel跨页面通信">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-21-broadcastchannel/doc/">
+<meta property="og:title" content="使用BroadcastChannel跨页面通信">
+<meta property="og:description" content="使用BroadcastChannel跨页面通信">
+<meta property="og:image" content="https://blog.loli.wang/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-21-broadcastchannel/doc/">
+<meta property="twitter:title" content="使用BroadcastChannel跨页面通信">
+<meta property="twitter:description" content="使用BroadcastChannel跨页面通信">
+<meta property="twitter:image" content="https://blog.loli.wang/placeholder-social.jpg">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Your Name - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Your Name" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">使用BroadcastChannel跨页面通信</h2>
+    <div class="post-date">
+        <time datetime="2022-07-01T16:00:00.000Z">2022-07-02</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-21-BroadcastChannel/01.png');"></div>
+    <div class="post-content">
+        
+                        <h3 id="为什么会有需要用到跨浏览器通信的需求">为什么会有需要用到跨浏览器通信的需求</h3>
+<p>因公司老项目一次线上出现bug，发现一个用户开了多个浏览器窗口， 发现登录不同用户不同存在浏览器缓存的token已经更换， 但是用户已经更改，页面没有登出，原本的页面还是可以提交最新的数据， 但是因为token变化了， 后端拿取提交人出错， 出现不可描述的问题 。</p>
+<h3 id="使用">使用</h3>
+<p>因为是vue项目 我为了在所有地方都可以访问，选择全局挂载</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">构建全局广播</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">channel</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">BroadcastChannel</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"channel-name"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">Vue.prototype.$channel</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">channel</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+<p>点击退出登录， 发送广播</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">logout</span><span style="color: #E1E4E8">(){</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">发送通知</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">this.$channel.postMessage(</span><span style="color: #9ECBFF">`logout`</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>在全局地方编写接收广播的逻辑， 例如Vue的App.vue内</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">created</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">通知其他浏览器窗口是否有退出登录</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">this.$channel.onmessage</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">function</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">e</span><span style="color: #E1E4E8">) </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">e.data</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"logout"</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">location.href</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"/"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">      }</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span></code></pre>
+<p>因为本质上退出登录会走接口， 也清理了Store中的数据， 我们只需要通知其他窗口退出即可</p>
+<p><img src="http://img.blog.loli.wang/2023-8-21-BroadcastChannel/02.png" alt="结果"></p>
+<h4 id="参考资料">参考资料</h4>
+<p>MDN - BroadcastChannel <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel">https://developer.mozilla.org/zh-CN/docs/Web/API/BroadcastChannel</a></p>
+                    
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
