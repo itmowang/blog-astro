@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-22-eventloop/doc/">
+
+<!-- Primary Meta Tags -->
+<title>JS 微任务和宏任务  - 魔王の博客</title>
+<meta name="title" content="JS 微任务和宏任务 ">
+<meta name="description" content="JS 微任务和宏任务">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-22-eventloop/doc/">
+<meta property="og:title" content="JS 微任务和宏任务 ">
+<meta property="og:description" content="JS 微任务和宏任务">
+<meta property="og:image" content="https://blog.loli.wang/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-22-eventloop/doc/">
+<meta property="twitter:title" content="JS 微任务和宏任务 ">
+<meta property="twitter:description" content="JS 微任务和宏任务">
+<meta property="twitter:image" content="https://blog.loli.wang/placeholder-social.jpg">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Your Name - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Your Name" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">JS 微任务和宏任务 </h2>
+    <div class="post-date">
+        <time datetime="2023-07-01T16:00:00.000Z">2023-07-02</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-22-EventLoop/01.awebp');"></div>
+    <div class="post-content">
+        
+                        <h3 id="js-是单线程">JS 是单线程</h3>
+<p>js 特性单线程，js 是主要和用户互动，和操作 DOM，决定了他只能是个单线程，否则会出现很复杂的同步问题 。 单线程就意味着，所有任务必须要排队执行，只有执行完前面的，后面的才会执行， 如果前一个任务消耗时间很长， <strong>后面的任务就必须等待前面的任务等着</strong>。</p>
+<h3 id="js-中的同步异步">JS 中的同步异步</h3>
+<p>同步</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">必须要从上至下执行完毕，后一个任务必须要等待上一个任务执行完毕</span></span></code></pre>
+<p>异步</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">前一个任务没有执行完， 没有关系 ， 他也会执行下一个任务，直到执行结束</span></span></code></pre>
+<h3 id="微任务和宏任务">微任务和宏任务</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">对同步异步有一定的划分后， 已经知道同步任务是按顺序执行，从上至下。</span></span></code></pre>
+<p>那么异步任务也有他的执行顺序的， 他也是从上至下， 但是在异步任务里，还有进一层的划分，就是微任务和宏任务，<strong>[微任务比宏任务优先执行]</strong></p>
+<h4 id="微任务代表">微任务代表</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">process.nextTick、 Promise、 MutationObserver 等</span></span></code></pre>
+<h4 id="宏任务代表">宏任务代表</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">setTimeout、 setInterval、 setImmediate、 IO操作等</span></span></code></pre>
+<p>注意： Promise有个特殊性，<strong>Promise构造函数中函数体的代码都是立即执行的</strong>，而Promise.then() 和 Promise.catch() 属于微任务， 也就是resolve() 和reject()</p>
+<p><img src="http://img.blog.loli.wang/2023-8-22-EventLoop/01.awebp" alt="掘金补图"></p>
+<h4 id="参考资料">参考资料</h4>
+<p>掘金-辉夜真是太可爱了  <a href="https://juejin.cn/post/6886602875225833480">https://juejin.cn/post/6886602875225833480</a></p>
+                    
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
