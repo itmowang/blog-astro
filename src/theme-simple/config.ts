@@ -1,4 +1,3 @@
-import logo from "@/theme-simple/assets/media/logo.png";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const today = new Date();
@@ -9,6 +8,8 @@ export const config = {
         url: "/",
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
+        favicon: "/favicon.svg",
+        image: "/placeholder-social.jpg", // default image for meta tag.
         copy: copy,
         locales: "zh-CN", // 'en-us'
     },

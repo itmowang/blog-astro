@@ -3,6 +3,12 @@ title: "JS 微任务和宏任务 "
 description: "JS 微任务和宏任务"
 pubDate: "Jul 02 2023"
 heroImage: "http://img.blog.loli.wang/2023-8-22-EventLoop/01.awebp"
+tags:
+ - 微任务
+ - 宏任务
+ - 同步异步
+ - Promise
+ - 学习折腾
 ---
 
 ### JS 是单线程

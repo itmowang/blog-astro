@@ -1,8 +1,13 @@
 ---
-title: '使用BroadcastChannel跨页面通信'
-description: '使用BroadcastChannel跨页面通信'
+title: '使用 BroadcastChannel 跨页面通信'
+description: '使用 BroadcastChannel 跨页面通信'
 pubDate: 'Jul 02 2022'
 heroImage: "http://img.blog.loli.wang/2023-8-21-BroadcastChannel/01.png" 
+tags:
+ - BroadcastChannel
+ - Web API
+ - 跨页面通信
+ - 学习折腾
 ---
 
 ### 为什么会有需要用到跨浏览器通信的需求

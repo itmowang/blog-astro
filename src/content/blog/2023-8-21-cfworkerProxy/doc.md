@@ -3,6 +3,10 @@ title: 'CloudFlare Worker 反向代理 github 给静态博客做图床'
 description: 'CloudFlare Worker 反向代理 github 给静态博客做图床 '
 pubDate: 'Jul 02 2022'
 heroImage: "http://img.blog.loli.wang/2023-8-21-cfworkerProxy/01.png" 
+tags:
+ - CloudFlare Worker
+ - 反向代理
+ - 学习折腾
 ---
 
 ## CloudFlare Worker 反向代理 github 博客做图床

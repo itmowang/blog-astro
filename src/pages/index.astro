@@ -5,16 +5,17 @@ import BaseFoot from "@/theme-simple/_blocks/BaseFoot.astro";
 import { config } from "@/theme-simple/config";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
-import { getCollection } from "astro:content";
 import FormattedDate from "@/theme-simple/components/FormattedDate.astro";
 import GetAbstract from "@/theme-simple/components/GetAbstract.astro";
+
+import { getCollection } from "astro:content";
 const posts = await getCollection("blog");
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <BaseHead title={SITE_TITLE} subtitle={SITE_DESCRIPTION} description={SITE_DESCRIPTION} />
+        <BaseHead title={SITE_TITLE} subtitle={SITE_DESCRIPTION} description={SITE_DESCRIPTION} image={config.site.image}/>
     </head>
     <body>
         <div id="app" class="main">
@@ -26,6 +27,7 @@ const posts = await getCollection("blog");
             <div class="main-container">
                 <div class="content-container" data-aos="fade-up">
                     {
+
                         posts.map((post) => (
 
                             <article class="post-item">

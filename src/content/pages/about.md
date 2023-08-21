@@ -2,6 +2,8 @@
 title: 留言本 / 关于
 pubDate: 2021-03-27 09:45:11
 description: "意志，热血，充满希望，绝不懦弱，绝不成为一个自己都不相信自己的废物！努力必须要有收获，成功就在眼前。"
+# heroImage: "/placeholder-about.jpg"
+tags: []
 ---
 
 
