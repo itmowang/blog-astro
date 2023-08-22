@@ -14,8 +14,8 @@ export const config = {
         locales: "zh-CN", // 'en-us'
     },
     author: {
-        name: "Your Name",
-        avatar: "/avatar.png",
+        name: "Mowang",
+        avatar: "https://avatars.githubusercontent.com/u/137391282?v=4",
         bio: "Your bio",
     },
     menus: [
