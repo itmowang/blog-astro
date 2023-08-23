@@ -157,7 +157,36 @@ ref.current
 
 ```
 
-暂时先写这么点。。。晚上再补充
+##### 5. useReducer
+useReducer 是 useState 的替代方案,用来进行性能优化，用于处理复杂的状态逻辑,他不会改变原有的状态，而是返回一个新的状态。
+
+``` bash
+# 示例
+
+import React, { useReducer } from "react";
+
+// 初始化状态
+const initState = { name: '123' }
+
+// reducer 函数
+const reducer = (state: any, action: any) => {
+    return action.type === 'add' ? { name: '456' } : { name: '789' }
+}
+
+// useReducer 接收两个参数，第一个参数为reducer函数，第二个参数为初始化状态
+const [state, dispatch] = useReducer(reducer, initState);
+
+# 修改状态
+dispatch({ type: 'add' })
+
+```
+![切图2](http://img.blog.loli.wang/2023-8-24-ReactExperience/02.png)
+
+
+
+
+
+
 参考文档 [React Hooks](https://react.docschina.org/docs/hooks-intro.html)
 
 

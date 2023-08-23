@@ -186,8 +186,28 @@ something 为状态变量，setSomething 为改变状态变量的方法</p>
 <span class="line"><span style="color: #6A737D"># 获取变量</span></span>
 <span class="line"><span style="color: #B392F0">ref.current</span></span>
 <span class="line"></span></code></pre>
-<p>暂时先写这么点。。。晚上再补充
-参考文档 <a href="https://react.docschina.org/docs/hooks-intro.html">React Hooks</a></p>
+<h5 id="5-usereducer">5. useReducer</h5>
+<p>useReducer 是 useState 的替代方案,用来进行性能优化，用于处理复杂的状态逻辑,他不会改变原有的状态，而是返回一个新的状态。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 示例</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">React,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">useReducer</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"react"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">初始化状态</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">initState</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'123'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">reducer</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">函数</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">reducer</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> (state: </span><span style="color: #9ECBFF">any,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">action:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">any</span><span style="color: #E1E4E8">) =</span><span style="color: #F97583">></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">action.type</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">===</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'add'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">?</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'456'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'789'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">useReducer</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">接收两个参数，第一个参数为reducer函数，第二个参数为初始化状态</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> [state, </span><span style="color: #9ECBFF">dispatch]</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">useReducer</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">reducer,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">initState</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 修改状态</span></span>
+<span class="line"><span style="color: #B392F0">dispatch(</span><span style="color: #E1E4E8">{ </span><span style="color: #9ECBFF">type:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'add'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2023-8-24-ReactExperience/02.png" alt="切图2"></p>
+<p>参考文档 <a href="https://react.docschina.org/docs/hooks-intro.html">React Hooks</a></p>
                     
     </div>
     <div class="tag-container">
