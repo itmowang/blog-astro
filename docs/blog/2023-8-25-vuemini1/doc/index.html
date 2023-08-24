@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-25-vuemini1/doc/">
+
+<!-- Primary Meta Tags -->
+<title>Vue3源码学习 - 1.搭建项目雏形 - 魔王の博客</title>
+<meta name="title" content="Vue3源码学习 - 1.搭建项目雏形 - 魔王の博客">
+<meta name="description" content="React之路 - 知识累计篇">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-25-vuemini1/doc/">
+<meta property="og:title" content="Vue3源码学习 - 1.搭建项目雏形 - 魔王の博客">
+<meta property="og:description" content="React之路 - 知识累计篇">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-8-25-vuemini1/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-25-vuemini1/doc/">
+<meta property="twitter:title" content="Vue3源码学习 - 1.搭建项目雏形 - 魔王の博客">
+<meta property="twitter:description" content="React之路 - 知识累计篇">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-25-vuemini1/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">Vue3源码学习 - 1.搭建项目雏形</h2>
+    <div class="post-date">
+        <time datetime="2023-07-01T16:00:00.000Z">2023-07-02 00:00</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-25-vuemini1/01.png');"></div>
+    <div class="post-content">
+        
+                        <h1 id="vue3-源码准备">Vue3 源码准备</h1>
+<p>项目项目源码地址：<a href="https://github.com/itmowang/mini-vue">itmowang/mini-vue</a></p>
+<h3 id="项目所用包管理工具请一切使用-pnpm">项目所用包管理工具请一切使用 PNPM</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span></span></code></pre>
+<h3 id="项目目录结构">项目目录结构</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">packages/</span><span style="color: #E1E4E8"> </span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">compiler-core/</span><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># 编译器核心模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">compoler-dom/</span><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># 浏览器部分编译模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">reactivity/</span><span style="color: #E1E4E8">    </span><span style="color: #6A737D"># 响应性模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">runtime-core/</span><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># 运行时核心模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">runtime-dom/</span><span style="color: #E1E4E8">   </span><span style="color: #6A737D"># 浏览器部分运行时模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">shared/</span><span style="color: #E1E4E8">        </span><span style="color: #6A737D"># 共享公共方法模块</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"><span style="color: #B392F0">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vue/</span><span style="color: #E1E4E8">           </span><span style="color: #6A737D"># 打包测试项目整体入口模块</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">┣</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">src/</span></span>
+<span class="line"><span style="color: #B392F0">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┃</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">index.ts</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">┗</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">README.md</span></span>
+<span class="line"></span></code></pre>
+<h4 id="安装typescript">安装Typescript</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8"> pnpm install typescript</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8"> tsc --init # 生成配置文件</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">编辑器配置</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"compilerOptions"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">根目录</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"rootDir"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">".",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">严格模式标志</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"strict"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">指定类型脚本如何从给定的模块说明符查找文件。</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"moduleResolution"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"node",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://www.typescriptlang.org/tsconfig#esModuleInterop</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"esModuleInterop"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">JS</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">语言版本</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"target"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"es5",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">允许未读取局部变量</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"noUnusedLocals"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">允许未读取的参数</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"noUnusedParameters"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">允许解析</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">json</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"resolveJsonModule"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">支持语法迭代：https://www.typescriptlang.org/tsconfig#downlevelIteration</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"downlevelIteration"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">允许使用隐式的</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">any</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">类型（这样有助于我们简化</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ts</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">的复杂度，从而更加专注于逻辑本身）</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"noImplicitAny"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">模块化</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"module"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"esnext",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">转换为</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">JavaScript</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">时从</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">TypeScript</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">文件中删除所有注释。</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"removeComments"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">禁用</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">sourceMap</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"sourceMap"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://www.typescriptlang.org/tsconfig#lib</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"lib"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> [</span><span style="color: #9ECBFF">"esnext"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"dom"],</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">入口</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"include"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> [</span><span style="color: #9ECBFF">"packages/*/src"</span><span style="color: #E1E4E8">]</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h3 id="安装rollup-打包工具">安装rollup 打包工具</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">rollup</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@rollup/plugin-node-resolve</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 模块导入路径补全</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@rollup/plugin-commonjs</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 将代码引用转换为 es2015</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@rollup/plugin-typescript</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># ts 支持</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">tslib</span><span style="color: #E1E4E8"> </span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">import resolve from '@rollup/plugin-node-resolve'</span></span>
+<span class="line"><span style="color: #e1e4e8">import commonjs from '@rollup/plugin-commonjs'</span></span>
+<span class="line"><span style="color: #e1e4e8">import typescript from '@rollup/plugin-typescript'</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">// rollup的配置文件</span></span>
+<span class="line"><span style="color: #e1e4e8">export default [</span></span>
+<span class="line"><span style="color: #e1e4e8">  {</span></span>
+<span class="line"><span style="color: #e1e4e8">    // 入口文件</span></span>
+<span class="line"><span style="color: #e1e4e8">    input: 'packages/vue/src/index.ts',</span></span>
+<span class="line"><span style="color: #e1e4e8">    // 打包的输出文件</span></span>
+<span class="line"><span style="color: #e1e4e8">    output: [</span></span>
+<span class="line"><span style="color: #e1e4e8">      {</span></span>
+<span class="line"><span style="color: #e1e4e8">        // 开启sourcemap</span></span>
+<span class="line"><span style="color: #e1e4e8">        sourcemap: true,</span></span>
+<span class="line"><span style="color: #e1e4e8">        file: 'packages/vue/dist/vue.js',</span></span>
+<span class="line"><span style="color: #e1e4e8">        format: 'iife',</span></span>
+<span class="line"><span style="color: #e1e4e8">        name: 'Vue'</span></span>
+<span class="line"><span style="color: #e1e4e8">      }</span></span>
+<span class="line"><span style="color: #e1e4e8">    ],</span></span>
+<span class="line"><span style="color: #e1e4e8">    plugins: [</span></span>
+<span class="line"><span style="color: #e1e4e8">      // ts 支持</span></span>
+<span class="line"><span style="color: #e1e4e8">      typescript({</span></span>
+<span class="line"><span style="color: #e1e4e8">        sourceMap: true</span></span>
+<span class="line"><span style="color: #e1e4e8">      }),</span></span>
+<span class="line"><span style="color: #e1e4e8">      // 模块导入路径补全</span></span>
+<span class="line"><span style="color: #e1e4e8">      resolve(),</span></span>
+<span class="line"><span style="color: #e1e4e8">      // commonjs 模块转换成 es2015</span></span>
+<span class="line"><span style="color: #e1e4e8">      commonjs()</span></span>
+<span class="line"><span style="color: #e1e4e8">    ]</span></span>
+<span class="line"><span style="color: #e1e4e8">  }</span></span>
+<span class="line"><span style="color: #e1e4e8">]</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span></code></pre>
+<p>在package.json文件中新加一个scripts</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">    "build":"rollup -c -w"</span></span></code></pre>
+<p>如果出现以下这样证明成功了</p>
+<p><img src="http://img.blog.loli.wang/2023-8-25-vuemini1/02.png" alt="rollup打包成功"></p>
+<p>项目的雏形，一个标准的monorepo项目。</p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/Vue" class="tag" title="Vue">Vue</a><a href="/tags/Vue3源码学习" class="tag" title="Vue3源码学习">Vue3源码学习</a><a href="/tags/Vue3源码学习 - 1.搭建项目雏形" class="tag" title="Vue3源码学习 - 1.搭建项目雏形">Vue3源码学习 - 1.搭建项目雏形</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
