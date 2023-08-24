@@ -30,7 +30,5 @@ QQ: 1531780018
 
 
 ## 待办事项
-``` bash
-  [ ] JavaScript-集合引用类型 new WeakMap (ES6 新特性)
-  [ ] JavaScript之Reflect
-```
+[x] JavaScript-集合引用类型 new WeakMap (ES6 新特性)
+[ ] JavaScript之Reflect
