@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-27-reflect/doc/">
+
+<!-- Primary Meta Tags -->
+<title>JavaScript-内置对象-Reflect - 魔王の博客</title>
+<meta name="title" content="JavaScript-内置对象-Reflect - 魔王の博客">
+<meta name="description" content="JavaScript-内置对象-Reflect">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-27-reflect/doc/">
+<meta property="og:title" content="JavaScript-内置对象-Reflect - 魔王の博客">
+<meta property="og:description" content="JavaScript-内置对象-Reflect">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-8-27-Reflect/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-27-reflect/doc/">
+<meta property="twitter:title" content="JavaScript-内置对象-Reflect - 魔王の博客">
+<meta property="twitter:description" content="JavaScript-内置对象-Reflect">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-27-Reflect/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">JavaScript-内置对象-Reflect</h2>
+    <div class="post-date">
+        <time datetime="2023-08-24T13:31:24.000Z">2023-08-24 21:31</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-27-Reflect/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="reflect">Reflect</h2>
+<p>Reflect 是一个<strong>内置的对象</strong>，他提供了一些方法来 <strong>操作对象</strong> 的属性和方法， 并且它还提供 <strong>拦截 JavaScript 操作</strong> 的方法。这些方法与 proxy handler (en-US) 的方法相同。Reflect 不是一个函数对象，因此它是不可构造的。</p>
+<h4 id="reflectgettarget-propertykey-receiver-获取对象的属性值">Reflect.get(target, propertyKey[, receiver]) 获取对象的属性值</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">obj</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{name:'Mowang',age:20}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(Reflect.get(obj,</span><span style="color: #B392F0">'name'</span><span style="color: #E1E4E8">)) // 输出 Mowang</span></span>
+<span class="line"></span></code></pre>
+<h4 id="reflectsettarget-propertykey-value-receiver-设置对象的属性值">Reflect.set(target, propertyKey, value[, receiver]) 设置对象的属性值</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">obj</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{name:'Mowang',age:20}</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">Reflect.set(obj,</span><span style="color: #B392F0">'age'</span><span style="color: #B392F0">,22</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(obj[</span><span style="color: #B392F0">'age'</span><span style="color: #B392F0">]</span><span style="color: #E1E4E8">) // 输出 22</span></span></code></pre>
+<h4 id="reflecthastarget-propertykey-判断对象是否具有指定的属性">Reflect.has(target, propertyKey) 判断对象是否具有指定的属性</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">obj</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{name:'Mowang',age:20}</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">hasName</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.has</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">obj,</span><span style="color: #B392F0">'name'</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(hasName</span><span style="color: #E1E4E8">) // 输出 true</span></span>
+<span class="line"></span></code></pre>
+<h4 id="reflectdeletepropertytarget-propertykey-删除对象的属性">Reflect.deleteProperty(target, propertyKey) 删除对象的属性</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">obj</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{name:'Mowang',age:20}</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">Reflect.deleteProperty(obj,</span><span style="color: #B392F0">'age'</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(obj</span><span style="color: #E1E4E8">) // 输出 { </span><span style="color: #B392F0">name:</span><span style="color: #B392F0">'Mowang'</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span></span>
+<span class="line"></span></code></pre>
+<h4 id="reflectconstructtarget-argumentslist-newtarget-使用给定的参数列表创建一个对象实例">Reflect.construct(target, argumentsList[, newTarget]) 使用给定的参数列表创建一个对象实例</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">class</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Person</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">constructor(name,age</span><span style="color: #E1E4E8">){</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">this.name</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">name</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">this.age</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">age</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">args</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> [</span><span style="color: #9ECBFF">'Mowang'</span><span style="color: #E1E4E8">,20];</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">person</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.construct</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">Person,args</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(person</span><span style="color: #E1E4E8">) // 输出 {</span><span style="color: #B392F0">name:</span><span style="color: #B392F0">'Mowang'</span><span style="color: #B392F0">,age:20}</span></span>
+<span class="line"></span></code></pre>
+<p>这只是他的常用方法，他还有一些其他的函数</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.apply</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">thisArgument,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">argumentsList</span><span style="color: #E1E4E8">)  </span><span style="color: #6A737D"># 通过指定的参数列表发起对目标 (target) 函数的调用</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.get</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">propertyKey[,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">receiver]</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D"># 从已有的对象种读取去属性值</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.has</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">propertyKey</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D"># 判断目标对象中是否存在这个属性</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.set</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">propertyKey,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">value[,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">receiver]</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D"># 修改或者设置一个属性</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.isExtensible</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D"># 判断这个对象是否可拓展 如果可以拓展我们就可以增加新属性 ，比如 Reflect || Object.preventExtensions(target) 设置过的属性就是不可拓展的</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">-</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Reflect.ownKeys</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">target</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D"># 返回一个以目标属性键值的数组 比如 const obj = {name:'Mowang', age:20 }  Reflect.ownKeys(obj) 返回结果为 ['name','age']</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">...</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">举几个常用的</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">剩下的阅读MDN</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect</span></span></code></pre>
+<p>Reflect 是一个内置的 JS 对象，它提供了一系列方法，可以让开发者通过调用这些方法，访问一些 JS 底层功能。也就是说，<strong>从 Reflect 对象上可以拿到语言内部的方法</strong></p>
+<h4 id="配合-proxy-使用">配合 proxy 使用</h4>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #79B8FF">let</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">p</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">a:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'a'</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #79B8FF">let</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">handler</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #79B8FF">set</span><span style="color: #E1E4E8">(target, </span><span style="color: #9ECBFF">key,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">value,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">receiver</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(</span><span style="color: #B392F0">'set'</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">Reflect.set(target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">key,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">value,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">receiver</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">defineProperty(target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">key,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">attribute</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(</span><span style="color: #B392F0">'defineProperty'</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">Reflect.defineProperty(target,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">key,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">attribute</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #79B8FF">let</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">obj</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Proxy</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">p,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">handler</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #B392F0">obj.a</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'A'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">set</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">defineProperty</span></span>
+<span class="line"></span></code></pre>
+<p>如果 Proxy 对象和 Reflect 对象联合使用，前者<strong>拦截赋值</strong>操作，后者完成<strong>赋值的默认行为</strong>，而且传入了 <strong>receiver</strong>，那么 <strong>Reflect.set 会触发 Proxy.defineProperty 拦截</strong>。</p>
+<p>参考文档  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">MDN - Reflect</a></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/JavaScript内置对象" class="tag" title="JavaScript内置对象">JavaScript内置对象</a><a href="/tags/Reflect" class="tag" title="Reflect">Reflect</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
