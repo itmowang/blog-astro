@@ -30,5 +30,5 @@ QQ: 1531780018
 
 
 ## 待办事项
-❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)
+❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)      
 ❌ JavaScript 之 Reflect
