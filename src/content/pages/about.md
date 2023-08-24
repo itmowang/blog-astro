@@ -27,3 +27,9 @@ tags: []
 Github：[https://github.com/itmowang](https://github.com/itmowang " 魔王，应该有魔王的姿态 ")
 
 QQ: 1531780018
+
+
+## 待办事项
+``` bash
+  - JavaScript-集合引用类型 new WeakMap (ES6 新特性)
+```
