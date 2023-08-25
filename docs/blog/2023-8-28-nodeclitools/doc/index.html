@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-28-nodeclitools/doc/">
+
+<!-- Primary Meta Tags -->
+<title>编写一个自己的 Cli 脚手架工具 - 魔王の博客</title>
+<meta name="title" content="编写一个自己的 Cli 脚手架工具 - 魔王の博客">
+<meta name="description" content="编写一个自己的 Cli 脚手架工具">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-28-nodeclitools/doc/">
+<meta property="og:title" content="编写一个自己的 Cli 脚手架工具 - 魔王の博客">
+<meta property="og:description" content="编写一个自己的 Cli 脚手架工具">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-8-27-Reflect/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-28-nodeclitools/doc/">
+<meta property="twitter:title" content="编写一个自己的 Cli 脚手架工具 - 魔王の博客">
+<meta property="twitter:description" content="编写一个自己的 Cli 脚手架工具">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-27-Reflect/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">编写一个自己的 Cli 脚手架工具</h2>
+    <div class="post-date">
+        <time datetime="2023-08-28T13:22:24.000Z">2023-08-28 21:22</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-27-Reflect/01.png');"></div>
+    <div class="post-content">
+        
+                        <p>具体完整代码可以去查看我的github项目，<a href="https://github.com/itmowang/mw-cli">mw-cli - 一个Nodejs脚手架工具</a></p>
+<h2 id="战斗准备">战斗准备</h2>
+<p>建立一个项目文件 <strong>打开命令窗口</strong> 我们所使用的一切为pnpm</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 初始化项目指令</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">init</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装我们所需要会用到的依赖 作用去查去查阅下吧！</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">typescript</span><span style="color: #E1E4E8">  </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Typescript</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">支持</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">💕</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">个人习惯</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">commander</span><span style="color: #E1E4E8">  </span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">copy-dir</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">cross-spawn</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">fs</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">kolorist</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">minimist</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ora</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ts-node</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 生成ts配置文件 tsconfig.json</span></span>
+<span class="line"><span style="color: #B392F0">tsc</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--init</span></span>
+<span class="line"></span></code></pre>
+<h2 id="启动文件">启动文件</h2>
+<p>创建<strong>bin</strong>目录作为启动路径，创建index.ts文件，注意 <strong>#!/usr/bin/env</strong> 是一个常见的约定，用于告诉操作系统在运行脚本时使用指定的解释器。在这种情况下，/usr/bin/env 是一个可执行文件，它会在环境变量中查找指定的解释器（在这里是 node），并使用它来执行脚本。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># /bin/index.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">#!/usr/bin/env node</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">引用cross-spawn</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">spawn</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"cross-spawn"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">调用pkgjson</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pkg</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"../../package.json"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">引用commander</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">program</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"commander"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">引用创建项目逻辑</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">createProject</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"../src/core/create"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//版本号</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-v</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--version</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">选项</span></span>
+<span class="line"><span style="color: #B392F0">program.version(pkg.version,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'-v,--version'</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">创建项目</span></span>
+<span class="line"><span style="color: #B392F0">program.command(</span><span style="color: #B392F0">"create &#x3C;projectName>"</span><span style="color: #E1E4E8">).description(</span><span style="color: #B392F0">"创建项目"</span><span style="color: #E1E4E8">).action((projectName</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> string) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    createProject(projectName);</span></span>
+<span class="line"><span style="color: #E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">program.parse(process.argv</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span></code></pre>
+<h2 id="创建项目配置文件">创建项目配置文件</h2>
+<p>建立<strong>src</strong>目录,创建<strong>config</strong>目录和<strong>core</strong>目录，config 文件夹我们用于存放配置文件，core 文件夹用于存放核心逻辑文件。</p>
+<p>config 文件夹内建立 repo.config.ts , 用于存放我们项目模板地址，原本有考虑是用github的项目地址的，但是个人认为并不适合。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># /src/config/repo.config.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">path</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"path"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">模板地址</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">repoUrl</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8">  </span><span style="color: #9ECBFF">path.resolve</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">__dirname,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"../../template"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">module.exports</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">repoUrl</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+<p>并且创建 <strong>template</strong> 目录,存放我们项目模板</p>
+<p><img src="http://img.blog.loli.wang/2023-8-28-nodeCliTools/01.png" alt="切图1"></p>
+<h2 id="创建模板逻辑">创建模板逻辑</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># /src/core/create.ts </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">读取vue模版</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vueCommand</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"./vueCreate"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">读取node模版</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">nodeCommand</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"./nodeCreate"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">createCommand</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">async</span><span style="color: #E1E4E8"> (projectName </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">""</span><span style="color: #E1E4E8">) =</span><span style="color: #F97583">></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">blue,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">cyan,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">green,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightBlue,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightGreen,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightRed,</span></span>
+<span class="line"><span style="color: #E1E4E8">  } = require(</span><span style="color: #B392F0">"kolorist"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">prompts</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"prompts"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">questions</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> [</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">type</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"text",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"projectName",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">message:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"请输入你需要创建的项目名称",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">initial:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">projectName,</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">type</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"text",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"projectVersion",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">message:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"请输入你需要创建的项目版本号",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">initial:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"1.0.0",</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">type</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"select",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"projectTemplate",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">message:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"请选择你需要创建的项目模板",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">choices:</span><span style="color: #E1E4E8"> [</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">title:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"Vue",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">value:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vue",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">description:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">blue</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"vue类型的一些项目模版"</span><span style="color: #E1E4E8">)</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">title:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"React",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">value:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"react",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">description:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">blue</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"react类型的一些项目模版"</span><span style="color: #E1E4E8">)</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">title:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"Node",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">value:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"node",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">description:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">blue</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"node类型的一些项目模,例如配置好mysql或者orm框架"</span><span style="color: #E1E4E8">)</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">      ],</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #B392F0">async</span><span style="color: #E1E4E8"> () => {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">response</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">await</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">prompts</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">questions</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">projectName,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">projectVersion,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">projectTemplate</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">response</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">projectTemplate</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">===</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vue"</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">vueCommand(response</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    } </span><span style="color: #F97583">else</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">projectTemplate</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">===</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"node"</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">nodeCommand(response</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    } </span><span style="color: #F97583">else</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">console.log(lightRed(</span><span style="color: #B392F0">"暂时只支持vue模版"</span><span style="color: #E1E4E8">));</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">  })();</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">module.exports</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">createCommand</span><span style="color: #E1E4E8">;</span></span></code></pre>
+<h2 id="创建vue模板逻辑">创建vue模板逻辑</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># /src/core/vueCreate.ts </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">interface</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Create</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">projectName:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">string</span><span style="color: #E1E4E8">; </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">项目名称</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">projectVersion:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">string</span><span style="color: #E1E4E8">; </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">项目版本号</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">projectTemplate:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">string</span><span style="color: #E1E4E8">; </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">项目模版</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">读取vue模版</span></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vueCreate</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">async</span><span style="color: #E1E4E8"> (create: </span><span style="color: #9ECBFF">Create</span><span style="color: #E1E4E8">) =</span><span style="color: #F97583">></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">prompts</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"prompts"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">config</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"../config/repo.config"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">blue,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">cyan,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">green,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightBlue,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightGreen,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">lightRed,</span></span>
+<span class="line"><span style="color: #E1E4E8">  } = require(</span><span style="color: #B392F0">"kolorist"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">questions</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> [</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">type</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"select",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">name:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vueTemplate",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">message:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"请选择你需要创建的项目模板",</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">choices:</span><span style="color: #E1E4E8"> [</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">title:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"template-vue3-ts-vite",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">value:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"template-vue3-ts-vite",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">description:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">green</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"vue3 + ts + vite 项目模版"</span><span style="color: #E1E4E8">)</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">title:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"template-vue3-webpack-ts",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">value:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"template-vue3-webpack-ts",</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #B392F0">description:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">green</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"vue3 + ts + webpack 项目模版"</span><span style="color: #E1E4E8">)</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">      ],</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">  ];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #B392F0">async</span><span style="color: #E1E4E8"> () => {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">response</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">await</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">prompts</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">questions</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vueTemplate</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">response</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">走copy-dir</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">不走github了</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">没意义</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">copydir</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"copy-dir"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">进度</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ora</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"ora"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">spinner</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ora</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">blue(</span><span style="color: #B392F0">"下载模版中..."</span><span style="color: #E1E4E8">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">copydir.sync(</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #9ECBFF">`${</span><span style="color: #E1E4E8">config</span><span style="color: #9ECBFF">}/${</span><span style="color: #E1E4E8">vueTemplate</span><span style="color: #9ECBFF">}`</span><span style="color: #B392F0">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #9ECBFF">`</span><span style="color: #B392F0">./$</span><span style="color: #9ECBFF">{create.projectName}`</span><span style="color: #B392F0">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">utimes:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">keep</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">time</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">and</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">modify</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">time</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">mode:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">keep</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">file</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">mode</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">cover:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">cover</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">file</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">when</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">exists,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">default</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">is</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">filter:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">function</span><span style="color: #E1E4E8"> (stat: </span><span style="color: #9ECBFF">string,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">filepath:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">any,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">filename:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">string</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8">; </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">remind</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">to</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">return</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">a</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">value</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">when</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">file</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">check</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">passed.</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">      },</span></span>
+<span class="line"><span style="color: #E1E4E8">      function (</span><span style="color: #B392F0">err:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Error</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">err</span><span style="color: #E1E4E8">) throw err;</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">spinner.fail(lightRed(</span><span style="color: #9ECBFF">`</span><span style="color: #B392F0">项目模版创建失败</span><span style="color: #9ECBFF">`</span><span style="color: #E1E4E8">));</span></span>
+<span class="line"><span style="color: #E1E4E8">      }</span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">spinner.succeed(lightGreen(</span><span style="color: #B392F0">"项目模版创建成功"</span><span style="color: #E1E4E8">));</span></span>
+<span class="line"><span style="color: #E1E4E8">  })();</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">module.exports</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vueCreate</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+<p>从这里整体逻辑就已经编写完了 但是我们还需要在package.json中配置一下,并且修改下tsconfig.json</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># tsconfig.json</span></span>
+<span class="line"><span style="color: #6A737D"># ...</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">"outDir"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"lib"</span></span>
+<span class="line"><span style="color: #6A737D"># ...</span></span></code></pre>
+<p>修改输出目录为lib , 这样我们使用tsc命令编译后的文件就会输出到lib目录下</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"name"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"mw-create",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"version"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"1.0.14",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"description"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"main"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"./lib/bin/index.js",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"bin"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"mwcli"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"./lib/bin/index.js"</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"scripts"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"test"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"ts-node ./bin/index",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"build"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"node ./bin/copyDir.ts &#x26;&#x26; tsc",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"minor"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"npm version minor",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"major"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"npm version major",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"patch"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"npm version patch"</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"publishConfig"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"access"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"public"</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"repository"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"type"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"git",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"url"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"git+https://github.com/itmowang/mw-cli.git"</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"keywords"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> [],</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"author"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"license"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"MIT",</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"devDependencies"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"@types/node"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^20.4.9"</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">"dependencies"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"commander"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^11.0.0",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"copy-dir"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^1.3.0",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"cross-spawn"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^7.0.3",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"download-git-repo"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^3.0.2",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"fs"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"0.0.1-security",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"kolorist"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^1.8.0",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"minimist"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^1.2.8",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"ora"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"5.4.1",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"prompts"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^2.4.2",</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">"ts-node"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"^10.9.1"</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>这里我们需要注意的是  “main”: “./lib/bin/index.js”, main字段指定了程序的主入口文件，bin字段指定了程序的命令名，npm会在全局环境下建立一个软链接，指向我们的主入口文件，这样我们就可以在命令行中使用mwcli命令了。</p>
+<h2 id="测试一下">测试一下</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">link</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">mwcli</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">create</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">test</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2023-8-28-nodeCliTools/02.png" alt="切图1"></p>
+<p>一切大功告成</p>
+<p>具体代码参考github仓库 <a href="https://github.com/itmowang/mw-cli">https://github.com/itmowang/mw-cli</a></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/node相关" class="tag" title="node相关">node相关</a><a href="/tags/nodejs" class="tag" title="nodejs">nodejs</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
