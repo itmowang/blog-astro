@@ -28,7 +28,11 @@ Github：[https://github.com/itmowang](https://github.com/itmowang " 魔王，�
 
 QQ: 1531780018
 
+   
+
 
 ## 待办事项
-❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)      
-❌ JavaScript 之 Reflect
+❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)  
+
+## 已完成
+✅ JavaScript 之 Reflect
