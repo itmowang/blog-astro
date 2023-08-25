@@ -2,7 +2,7 @@
 title: "编写一个自己的 Cli 脚手架工具"
 description: "编写一个自己的 Cli 脚手架工具"
 pubDate: "2023-8-28　21:22:24"
-heroImage: "http://img.blog.loli.wang/2023-8-27-Reflect/01.png"
+heroImage: "http://img.blog.loli.wang/2023-8-28-nodeCliTools/03.png"
 tags:
     - node相关
     - nodejs
