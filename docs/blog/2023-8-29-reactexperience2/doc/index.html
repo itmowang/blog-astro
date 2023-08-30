@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-8-29-reactexperience2/doc/">
+
+<!-- Primary Meta Tags -->
+<title>React之路 - 第二篇  - 魔王の博客</title>
+<meta name="title" content="React之路 - 第二篇  - 魔王の博客">
+<meta name="description" content="React之路 - 知识累计篇">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-8-29-reactexperience2/doc/">
+<meta property="og:title" content="React之路 - 第二篇  - 魔王の博客">
+<meta property="og:description" content="React之路 - 知识累计篇">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-8-24-ReactExperience/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-29-reactexperience2/doc/">
+<meta property="twitter:title" content="React之路 - 第二篇  - 魔王の博客">
+<meta property="twitter:description" content="React之路 - 知识累计篇">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-24-ReactExperience/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">React之路 - 第二篇 </h2>
+    <div class="post-date">
+        <time datetime="2023-07-01T16:00:00.000Z">2023-07-02 00:00</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-24-ReactExperience/01.png');"></div>
+    <div class="post-content">
+        
+                        <p>也算是用React写过几个项目了，不管是实际业务上面感觉都有一定的把握。特此准备写一个脚手架项目模板。</p>
+<h2 id="项目准备">项目准备</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">建立</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">react-admin</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">文件夹</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">init</span><span style="color: #E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装依赖 </span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">typescript</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vite</span><span style="color: #E1E4E8"> </span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">react</span><span style="color: #E1E4E8"> </span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">react-router-dom</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@vitejs/plugin-react-swc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 生成ts配置文件 </span></span>
+<span class="line"><span style="color: #B392F0">tsc</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--init</span></span></code></pre>
+<p>创建 <strong>vite.config.ts</strong> 文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">defineConfig,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">PluginOption</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vite"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #B392F0">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">react</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"@vitejs/plugin-react-swc"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">default</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">defineConfig</span><span style="color: #E1E4E8">({</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">resolve:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">alias</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #B392F0">"@"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"/src",</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">plugins:</span><span style="color: #E1E4E8"> [react()</span><span style="color: #9ECBFF">]</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">as</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">PluginOption[],</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">server:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">port:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">8081</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">preview:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">port:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">3000</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<p>根目录创建 index.html</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span></code></pre>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/React" class="tag" title="React">React</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/React之路 - 第二篇" class="tag" title="React之路 - 第二篇">React之路 - 第二篇</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>

@@ -33,10 +33,11 @@ QQ: 1531780018
 
 ## 待办事项
 ❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)    
-❌ JavaScript - Proxy    
-❌ 一个脚手架从0-1的历程    
+❌ JavaScript - Proxy      
+❌ 一个脚手架从0-1的历程      
 
 
 ## 已完成
-✅ JavaScript 之 Reflect
-✅ 怎样有一个自己的CLI工具    
+✅ JavaScript 之 Reflect      
+✅ 怎样有一个自己的CLI工具     
+✅ css新单位dvh，svh 解释   
