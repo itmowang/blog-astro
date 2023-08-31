@@ -37,8 +37,6 @@ Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的�
     Worker 线程和主线程不在同一个环境，他们不能直接通信，必须通过消息完成 `postMessage` 和 `onMessage`
 
 
-
-
 ### 脚本限制
 
 Worker 线程不能使用 alert() 和 confirm() 方法 ，但是可以使用 ajax 和定时器 setTimeout 等 API
