@@ -15,9 +15,9 @@ tags: []
   - 毅力努力应该会大于天赋
   - 只追求有意义的事情
 技能：
-  - 写前端的，擅长Vue、React,会不少新热门的东西，但是设计比老师还烂;
-  - 比较喜欢写Node程序，尝试着写过一些自用的系统，会 Koa2、Mysql、Prisma...等 ；
-  - 以前做过服务器运营商，对服务器相关比较熟悉，会一点CICD、Directadmin、linux、VPS等相关的东西 有点杂 ；
+  - 写前端的，擅长 Vue、React, 会不少新热门的东西，但是设计比老师还烂;
+  - 比较喜欢写 Node 程序，写过一些自用的系统，会 Koa2、Mysql、Prisma...等 ；
+  - 以前做过服务器运营商，对服务器相关比较熟悉，会一点 CICD、Directadmin、linux、VPS等相关的东西 有点杂 ；
 ```
 
 <!--more-->
@@ -33,7 +33,7 @@ QQ: 1531780018
 
 ## 待办事项
 ❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)    
-❌ JavaScript - Proxy      
+❌ JavaScript - Proxy    
 
 
 ## 已完成
