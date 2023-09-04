@@ -36,3 +36,15 @@ pnpm build
 astro/examples/blog at latest · withastro/astro · GitHub：
 
 [https://github.com/withastro/astro/tree/latest/examples/blog?on=github#astro-starter-kit-blog](https://github.com/withastro/astro/tree/latest/examples/blog?on=github#astro-starter-kit-blog "astro/examples/blog at latest · withastro/astro · GitHub")
+
+
+### 主题预览
+![切图0](http://img.blog.loli.wang/2023-9-01-AsTro/01.png)
+
+![切图1](http://img.blog.loli.wang/2023-9-01-AsTro/02.png)
+
+![切图2](http://img.blog.loli.wang/2023-9-01-AsTro/03.png)
+
+![切图3](http://img.blog.loli.wang/2023-9-01-AsTro/04.png)
+
+

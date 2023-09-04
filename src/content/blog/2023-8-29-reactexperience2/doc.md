@@ -2,7 +2,7 @@
 title: "React之路 - 第二篇 "
 description: "React之路 - 知识累计篇"
 pubDate: "Jul 02 2023"
-heroImage: "http://img.blog.loli.wang/2023-8-24-ReactExperience/01.png"
+heroImage: "http://img.blog.loli.wang/2023-8-29-reactexperience2/01.png"
 tags:
     - React
     - 学习折腾
@@ -53,11 +53,33 @@ export default defineConfig({
 
 ```
 
-根目录创建 index.html
+.......可能介绍不完了 原本打算边写边做记录的 发现代码量和细节太多了
+
+### React Admin
+
+源自于想后续去写一些小的项目，提前给自己写一套模板，利用了空闲时间抽出来了基础部分，方便后续DIY。( 不适应用于开发，参考学习！ )
+
+依赖
 
 ``` bash
-
+  - react (react18)
+  - react-router (6x版本)
+  - redux
+  - antd
+  - axios
+  - react-query
+  - less
+  - redux-persist
+  - rematch
+  - rematch/persist 
+  - typescript
+  - mock
+  - vite
 ```
 
+预览
 
+![切图1](http://img.blog.loli.wang/2023-8-29-reactexperience2/01.png)
+
+![切图2](http://img.blog.loli.wang/2023-8-29-reactexperience2/02.png)
 

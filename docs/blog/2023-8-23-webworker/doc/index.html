@@ -3,7 +3,7 @@
     <head>
         <!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="generator" content="Astro v2.10.9">
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -20,14 +20,14 @@
 <meta property="og:url" content="https://blog.loli.wang/blog/2023-8-23-webworker/doc/">
 <meta property="og:title" content="JS之多线程Web Worker API - 魔王の博客">
 <meta property="og:description" content="JS之多线程Web Worker API">
-<meta property="og:image" content="http://img.blog.loli.wang/2023-8-22-EventLoop/01.png">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-8-23-WebWorker/01.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://blog.loli.wang/blog/2023-8-23-webworker/doc/">
 <meta property="twitter:title" content="JS之多线程Web Worker API - 魔王の博客">
 <meta property="twitter:description" content="JS之多线程Web Worker API">
-<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-22-EventLoop/01.png">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-23-WebWorker/01.png">
     <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
     <body>
@@ -64,16 +64,54 @@
                     <div class="post-detail">
     <h2 class="post-title">JS之多线程Web Worker API</h2>
     <div class="post-date">
-        <time datetime="2023-07-01T16:00:00.000Z">2023-07-02 00:00</time>
+        <time datetime="2023-08-31T15:27:24.000Z">2023-08-31 23:27</time>
     </div>
-    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-22-EventLoop/01.png');"></div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-23-WebWorker/01.png');"></div>
     <div class="post-content">
         
-                        <p>文章正在补充。。。</p>
+                        <h2 id="为什么需要-web-worker">为什么需要 Web Worker</h2>
+<p>由于 JavaScript 语言用的是单线程，同一时刻只能做一件事， 如果又多个同步任务执行完之前，下方代码不会执行。造成了堵塞，页面无响应。</p>
+<p>但如果把这段代码放到 Web Worker 中执行，这段逻辑在执行中依然可以执行下面的代码，用户的操作也就可以正常响应了</p>
+<h2 id="什么是-web-worker">什么是 Web Worker</h2>
+<p>Web Worker 为 Web 内容在后台线程中运行脚本提供了一种简单的方法。线程可以执行任务而不干扰用户界面。但是他不可以操作 dom</p>
+<h2 id="web-worker-的使用限制">Web Worker 的使用限制</h2>
+<h3 id="同源限制">同源限制</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">分配给 Worker 线程运行的脚本文件，必须与主线程的脚本文件同源。</span></span></code></pre>
+<h3 id="文件限制">文件限制</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">Worker 无法读取本地文件('file://') 他加载的协议必须要来自网络</span></span></code></pre>
+<h3 id="通信限制">通信限制</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">Worker 线程所仔的全局对象，与主线程不一样，区别是</span></span>
+<span class="line"><span style="color: #e1e4e8">1. 无法读取主线程所在的网页 DOM 对象</span></span>
+<span class="line"><span style="color: #e1e4e8">2. 无法使用 document 、window 、parent 这些对象</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">Worker 线程和主线程不在同一个环境，他们不能直接通信，必须通过消息完成 `postMessage` 和 `onMessage`</span></span></code></pre>
+<h3 id="脚本限制">脚本限制</h3>
+<p>Worker 线程不能使用 alert() 和 confirm() 方法 ，但是可以使用 ajax 和定时器 setTimeout 等 API</p>
+<h2 id="基本使用">基本使用</h2>
+<p>创建线程</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">worker</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">Worker</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">aURL,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">options</span><span style="color: #E1E4E8">);</span></span></code></pre>
+<p><code>worker.postMessage</code> 向 worker 内部作用域发送一共消息，消息可以由JavaScript任何对象组成</p>
+<p><code>worker.terminate</code>  立刻终止worker。该方法并不会等待woker去完成剩余的操作，会立马停止</p>
+<p><code>worker.onmessage</code> 接收到消息会立马触发message消息</p>
+<p><code>worker.onerror</code> 当worker出现运行中错误时。会被调用</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">worker.addEventListener(</span><span style="color: #B392F0">'error'</span><span style="color: #B392F0">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">function</span><span style="color: #E1E4E8"> (e) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(e.message</span><span style="color: #E1E4E8">) // 可读性良好的错误消息</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(e.filename</span><span style="color: #E1E4E8">) // 发生错误的脚本文件名</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(e.lineno</span><span style="color: #E1E4E8">) // 发生错误时所在脚本文件的行号</span></span>
+<span class="line"><span style="color: #E1E4E8">})</span></span>
+<span class="line"></span></code></pre>
+<h2 id="多数使用场景">多数使用场景</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">    - 打包压缩 另外开辟线程去处理</span></span>
+<span class="line"><span style="color: #e1e4e8">    - 导出图片太大 另外开辟线程去处理</span></span>
+<span class="line"><span style="color: #e1e4e8">    - 压缩图片等等</span></span>
+<span class="line"><span style="color: #e1e4e8">    ....</span></span></code></pre>
+<p>相关文档</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers">MDN - Web Workers API</a></p>
                     
     </div>
     <div class="tag-container">
-        <a href="/tags/Web Worker" class="tag" title="Web Worker">Web Worker</a>
+        <a href="/tags/Web Worker" class="tag" title="Web Worker">Web Worker</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
     </div>
 </div>
                 </div>
