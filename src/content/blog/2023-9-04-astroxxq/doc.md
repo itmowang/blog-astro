@@ -1,13 +1,13 @@
 ---
 title: "个人Astro主题 - SXQ"
 description: "个人Astro主题 - SXQ"
-pubDate: "个人Astro主题 - SXQ"
+pubDate: "2023-9-5　23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-9-04-astroxxq/05.png"
 tags:
-    - css
+    - 个人Astro主题
     - 学习折腾
-    - css新单位dvh，svh 解释
-    - dvh，svh
+    - SXQ
+    - Astro
 ---
 
 ## 个人Astro主题 - SXQ
