@@ -1,5 +1,5 @@
 ---
-title: "mini-webpack - 学习"
+title: "mini-webpack - 学习 - 废弃已经学习了概念后续补充"
 description: "mini-webpack - 学习"
 pubDate: "2023-9-9　23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-9-04-astroxxq/05.png"

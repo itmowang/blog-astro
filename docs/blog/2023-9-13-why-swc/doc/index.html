@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-9-13-why-swc/doc/">
+
+<!-- Primary Meta Tags -->
+<title>什么是swc - 魔王の博客</title>
+<meta name="title" content="什么是swc - 魔王の博客">
+<meta name="description" content="什么是swc">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-9-13-why-swc/doc/">
+<meta property="og:title" content="什么是swc - 魔王の博客">
+<meta property="og:description" content="什么是swc">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-9-13-why-swc/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-9-13-why-swc/doc/">
+<meta property="twitter:title" content="什么是swc - 魔王の博客">
+<meta property="twitter:description" content="什么是swc">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-13-why-swc/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">什么是swc</h2>
+    <div class="post-date">
+        <time datetime="2023-09-09T15:27:24.000Z">2023-09-09 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-13-why-swc/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="什么是-swc">什么是 swc</h2>
+<p>在swc没出现之前，一直是使用 <strong>babel</strong> 来处理转换旧版本 <strong>JavaScript</strong> 的工具，也可以给<strong>typescript</strong>使用，ast解析树，压缩等等.. 是前端工程换不可缺少的一环。</p>
+<p>而 <strong>Babel</strong> 是JavaScript编写的，是JavaScript的编译器，SWC 同样也是JavaScript的编译器，不过是用Rust重写的，比Javascript快的多。性能得到了大幅度提升，目前很多常用的工具库都正在用rust重写。所以还不学Rust？</p>
+<h2 id="swc-的使用">swc 的使用</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 命令</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">init</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@swc/core</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@swc/cli</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># async.js</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">fetch</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"node-fetch"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">async</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">function</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">getData</span><span style="color: #E1E4E8">() </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">let</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">res</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">await</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">fetch</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"https://jsonplaceholder.typicode.com/todos/1"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">let</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">json</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">await</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">res.json</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">console.log(</span><span style="color: #B392F0">'data'</span><span style="color: #B392F0">,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">json</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">getData</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"></span></code></pre>
+<h3 id="配置spack">配置spack</h3>
+<p>在根目录创建 spack.config.js 文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">const</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">config</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">}</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">require</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">"@swc/core/spack"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">module.exports</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">config</span><span style="color: #E1E4E8">({</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">入口</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">entry:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">__dirname</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">+</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"/index.js",</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">输出到哪儿</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">output:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">   </span><span style="color: #B392F0">path:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">__dirname</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">+</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"/dist",</span></span>
+<span class="line"><span style="color: #E1E4E8"> },</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">module:</span><span style="color: #E1E4E8">{}</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">swc编译配置</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">   </span><span style="color: #9ECBFF">options:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">编译规则</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">jsc:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">         </span><span style="color: #9ECBFF">parser:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{},</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">解析配置</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">         </span><span style="color: #9ECBFF">target:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"es5",</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">转义目标</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">         </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">...</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">等可以去官网看具体配置</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://swc.rs/docs/configuration/swcrc</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">},</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">//</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">输出文件配置</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">module:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">type:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"commonjs",</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">strict:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">strictMode:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">true</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">lazy:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">noInterop:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">       </span><span style="color: #9ECBFF">ignoreDynamic:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #9ECBFF">,</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">     </span><span style="color: #9ECBFF">},</span></span>
+<span class="line"><span style="color: #B392F0">//</span><span style="color: #E1E4E8">   </span><span style="color: #9ECBFF">},</span></span>
+<span class="line"><span style="color: #E1E4E8">});</span></span>
+<span class="line"></span></code></pre>
+<h3 id="更改执行脚本">更改执行脚本</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># package.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #B392F0">"scripts"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">   </span><span style="color: #B392F0">"build"</span><span style="color: #79B8FF">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"spack"</span></span>
+<span class="line"><span style="color: #E1E4E8"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 执行</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">build</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2023-9-13-why-swc/02.png" alt="切图2"></p>
+<p><img src="http://img.blog.loli.wang/2023-9-13-why-swc/03.png" alt="切图3"></p>
+<p>参考文档：</p>
+<p><a href="https://swc.rs/docs/usage/bundling">SWC - 官方文档</a></p>
+<p>或许准备些一个自己的swc插件后面持续记录</p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/什么是swc" class="tag" title="什么是swc">什么是swc</a><a href="/tags/swc" class="tag" title="swc">swc</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/swc" class="tag" title="swc">swc</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
