@@ -122,7 +122,7 @@ import fs from "fs";
 
 这样就打包出了我们所需要的目录结构
 
-![切图3](http://img.blog.loli.wang/2023-9-22-multAppliction/03.png)
+![切图3](http://img.blog.loli.wang/2023-9-22-multAppliction/01.png)
 
 
 参考文档：
