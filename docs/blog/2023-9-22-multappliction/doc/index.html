@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-9-22-multappliction/doc/">
+
+<!-- Primary Meta Tags -->
+<title>vite 多页面应用配置 - 魔王の博客</title>
+<meta name="title" content="vite 多页面应用配置 - 魔王の博客">
+<meta name="description" content="vite 多页面应用配置">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-9-22-multappliction/doc/">
+<meta property="og:title" content="vite 多页面应用配置 - 魔王の博客">
+<meta property="og:description" content="vite 多页面应用配置">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-9-22-multAppliction/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-9-22-multappliction/doc/">
+<meta property="twitter:title" content="vite 多页面应用配置 - 魔王の博客">
+<meta property="twitter:description" content="vite 多页面应用配置">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-22-multAppliction/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">vite 多页面应用配置</h2>
+    <div class="post-date">
+        <time datetime="2023-09-22T15:27:24.000Z">2023-09-22 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-22-multAppliction/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="起因">起因</h2>
+<p>一个程序媛妹妹问我vite如何配置多应用，我仔细想了想，什么是多应用？？，后来经过gpt搜索，百度资料，哦~ 原来叫做 <strong>多页面应用</strong> ，然后这就去研究。</p>
+<p>想打包出来的目录结构是这样的:</p>
+<p><img src="http://img.blog.loli.wang/2023-9-22-multAppliction/01.png" alt="切图1"></p>
+<p>妹子是使用rollup配置的，看了下代码， 写的一个插件，导入到vite插件里面。看上去并不合理，也并不友善，同样的查看了vite文档 有相关的处理方案</p>
+<h2 id="自己动手">自己动手</h2>
+<p>看文档，只需要根目录定义好相应的目录结构，在rollupOptions中配置好相应的入口，就可以成功</p>
+<p><img src="http://img.blog.loli.wang/2023-9-22-multAppliction/03.png" alt="切图2"></p>
+<p>但是我们需要动态的读取目录，更好的读取应用, 所以需要使用fs去读取下文件夹内文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> fs </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"fs"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">//...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// 加载所有子目录</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">appliction</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> fs.</span><span style="color: #B392F0">readdirSync</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"./appliction"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// 合并成input入口数组</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">input</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> Object.</span><span style="color: #B392F0">fromEntries</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">    appliction.</span><span style="color: #B392F0">map</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">item</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> [</span></span>
+<span class="line"><span style="color: #E1E4E8">      item,</span></span>
+<span class="line"><span style="color: #E1E4E8">      path.</span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">`${</span><span style="color: #E1E4E8">__dirname</span><span style="color: #9ECBFF">}/appliction/${</span><span style="color: #E1E4E8">item</span><span style="color: #9ECBFF">}/index.html`</span><span style="color: #E1E4E8">),</span></span>
+<span class="line"><span style="color: #E1E4E8">    ])</span></span>
+<span class="line"><span style="color: #E1E4E8">  );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">//...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 获取出来的目录结构</span></span>
+<span class="line"><span style="color: #6A737D">// {</span></span>
+<span class="line"><span style="color: #6A737D">//     app1:'xxx/xxx/appliction/app1/index.html'</span></span>
+<span class="line"><span style="color: #6A737D">// }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">//...</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    base: </span><span style="color: #9ECBFF">"./"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    outDir: </span><span style="color: #9ECBFF">"dist"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    plugins: [</span><span style="color: #B392F0">vue</span><span style="color: #E1E4E8">()],</span></span>
+<span class="line"><span style="color: #E1E4E8">    build: {</span></span>
+<span class="line"><span style="color: #E1E4E8">      target: </span><span style="color: #9ECBFF">"es2015"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      cssCodeSplit: </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      assetsDir: </span><span style="color: #9ECBFF">"appliction"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      rollupOptions: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        input: {</span></span>
+<span class="line"><span style="color: #E1E4E8">          main: path.</span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">(__dirname, </span><span style="color: #9ECBFF">"index.html"</span><span style="color: #E1E4E8">),</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #F97583">...</span><span style="color: #E1E4E8">input,</span></span>
+<span class="line"><span style="color: #E1E4E8">        }, </span></span>
+<span class="line"><span style="color: #E1E4E8">      },</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #6A737D">//...</span></span>
+<span class="line"></span></code></pre>
+<p>这时候我们就打包出来了相应的目录，结构</p>
+<p><img src="http://img.blog.loli.wang/2023-9-22-multAppliction/02.png" alt="切图2"></p>
+<p>不过有个缺点，目录结构都在assets内，想将打包出来的js文件css文件放到他们自己的文件结构内，例如</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> dist</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> page1</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> static</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> index.html    </span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> page2</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> static</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> index.html </span></span>
+<span class="line"><span style="color: #E1E4E8">    index.html</span></span>
+<span class="line"></span></code></pre>
+<p>所以需要配置下rollup的输出格式</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    base: </span><span style="color: #9ECBFF">"./"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    outDir: </span><span style="color: #9ECBFF">"dist"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    plugins: [</span><span style="color: #B392F0">vue</span><span style="color: #E1E4E8">()],</span></span>
+<span class="line"><span style="color: #E1E4E8">    build: {</span></span>
+<span class="line"><span style="color: #E1E4E8">      target: </span><span style="color: #9ECBFF">"es2015"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      cssCodeSplit: </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      assetsDir: </span><span style="color: #9ECBFF">"appliction"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      rollupOptions: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        input: {</span></span>
+<span class="line"><span style="color: #E1E4E8">          main: path.</span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">(__dirname, </span><span style="color: #9ECBFF">"index.html"</span><span style="color: #E1E4E8">),</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #F97583">...</span><span style="color: #E1E4E8">input,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">        output: {</span></span>
+<span class="line"><span style="color: #E1E4E8">          entryFileNames: </span><span style="color: #9ECBFF">"appliction/[name]/static/[name].[hash].js"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">          chunkFileNames: </span><span style="color: #9ECBFF">"appliction/[name]/static/[name].[hash].js"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">          assetFileNames: </span><span style="color: #9ECBFF">"appliction/[name]/static/[name].[hash].[ext]"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">      },</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p>这样就打包出了我们所需要的目录结构</p>
+<p><img src="http://img.blog.loli.wang/2023-9-22-multAppliction/03.png" alt="切图3"></p>
+<p>参考文档：
+<a href="https://github.com/itmowang/mw-cli/tree/master/packages/mw-create/template/multi-application-template"> 我的github仓库 </a></p>
+<p>[vite官方] (<a href="https://vitejs.dev/guide/build.html#multi-page-app">https://vitejs.dev/guide/build.html#multi-page-app</a>)</p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/package" class="tag" title="package">package</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/exports" class="tag" title="exports">exports</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
