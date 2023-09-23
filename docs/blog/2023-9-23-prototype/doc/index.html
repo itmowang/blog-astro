@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-9-23-prototype/doc/">
+
+<!-- Primary Meta Tags -->
+<title>原型链的理解 - 魔王の博客</title>
+<meta name="title" content="原型链的理解 - 魔王の博客">
+<meta name="description" content="原型链的理解">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-9-23-prototype/doc/">
+<meta property="og:title" content="原型链的理解 - 魔王の博客">
+<meta property="og:description" content="原型链的理解">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-9-23-prototype/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-9-23-prototype/doc/">
+<meta property="twitter:title" content="原型链的理解 - 魔王の博客">
+<meta property="twitter:description" content="原型链的理解">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-23-prototype/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">原型链的理解</h2>
+    <div class="post-date">
+        <time datetime="2023-09-23T15:27:24.000Z">2023-09-23 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-23-prototype/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="起因">起因</h2>
+<p>程序媛妹妹问我面试题，怎么好好的解释原型链(或许她问的什么是原型链)，嘛！毕竟写vue都要理解这玩意捏。</p>
+<h2 id="理解">理解</h2>
+<p>每一个对象都有自己的原型链，有自己的内置对象，有自己的prototype 和 proto 。</p>
+<p><strong>prototype</strong> 显式原型，指向一个构造函数
+** <strong>proto</strong> ** 隐式原型，是对象的属性</p>
+<p>如果想从对象中查找某个值，如果没有找到他们就会从原型实例，向上查找，直到找到Object.prototype 为止。</p>
+<p>示例解释</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Object</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">prototype</span><span style="color: #E1E4E8">.abc </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">222</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// 建立构造函数1</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Test1Fun</span><span style="color: #E1E4E8">() {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// 构造函数中写入原型</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Test1Fun</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">prototype</span><span style="color: #E1E4E8">.test </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"111"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// 建立构造函数2</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Test2Fun</span><span style="color: #E1E4E8">() {}</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// 将Test2Fun的原型对象指向一个Test1Fun的实例，实现原型链继承</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Test2Fun</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">prototype</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Test1Fun</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 创建一个Test2Fun的实例对象testObj</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> testObj </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Test2Fun</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">//  从原型链中查找 test </span></span>
+<span class="line"><span style="color: #E1E4E8"> console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(testObj.test);</span></span>
+<span class="line"><span style="color: #6A737D">//  从原型链中查找 abc</span></span>
+<span class="line"><span style="color: #E1E4E8"> console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(testObj.abc);</span></span>
+<span class="line"></span></code></pre>
+<p>是否发现vue中 Vue是一个构造函数，我们经常在上面挂载原型，在所有地方都能方便使用</p>
+<p><img src="http://img.blog.loli.wang/2023-9-23-prototype/01.png" alt="切图1"></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/原型链" class="tag" title="原型链">原型链</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/prototype" class="tag" title="prototype">prototype</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
