@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-9-dplayer-thumbnails/doc/">
+
+<!-- Primary Meta Tags -->
+<title>问答：DPlayer关键帧预览图生成思路  - 魔王の博客</title>
+<meta name="title" content="问答：DPlayer关键帧预览图生成思路  - 魔王の博客">
+<meta name="description" content="问答：DPlayer关键帧预览图生成思路">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-9-dplayer-thumbnails/doc/">
+<meta property="og:title" content="问答：DPlayer关键帧预览图生成思路  - 魔王の博客">
+<meta property="og:description" content="问答：DPlayer关键帧预览图生成思路">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-9-dplayer-thumbnails/doc/">
+<meta property="twitter:title" content="问答：DPlayer关键帧预览图生成思路  - 魔王の博客">
+<meta property="twitter:description" content="问答：DPlayer关键帧预览图生成思路">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">问答：DPlayer关键帧预览图生成思路 </h2>
+    <div class="post-date">
+        <time datetime="2023-09-26T15:27:24.000Z">2023-09-26 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="起因">起因</h2>
+<p>网友学习java工作了，公司领导给了个需求，要播放视频同事鼠标悬停到进度条位置有预览效果</p>
+<p>类似
+<img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png" alt="切图1"></p>
+<p>网友深思熟虑的考虑播放器使用 <strong>DPlayer</strong> ，但是把官网上的Demo复制下来，放上自己的视频后，发现预览图都是白屏。</p>
+<p><img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/02.png" alt="切图2"></p>
+<p>我看了下 <strong>DPlayer</strong> 文档后，发现是有个属性 <strong>thumbnails</strong> 专门存放时间帧的预览图。给出的建议是自己去通过视频工具去切时间帧的图片。</p>
+<h3 id="重新理解需求">重新理解需求</h3>
+<p>发现他的需求并没有描述清楚，常常因为需求没有描述清楚而导致做一些多余的事情</p>
+<p><img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/03.png" alt="切图3"></p>
+<p>嗯… 他是java工程师，在工作中前端的活也要干。。但是居然想着前端切图，，，前端一个弱语言单线程，就算依赖Web Workers 也很不好吧。应用层并不适合处理视频这种场景。</p>
+<h3 id="进一步建议和最后的方案">进一步建议和最后的方案</h3>
+<p>看见 <strong>DPlayer</strong> 作者有个库<strong>DPlayer-thumbnails</strong>，专门处理视频预览图片的，是基于”fluent-ffmpeg”这个库来写的，可惜是Node的，他是java不太适用。但是ffmpeg 连 Node都有相关的库，java这么好的生态会没有? 毕竟不是java 慢慢引导下吧。</p>
+<p><img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/04.png" alt="切图4">
+<img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/05.png" alt="切图5">
+<img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/06.png" alt="切图6">
+<img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/07.png" alt="切图7">
+<img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/08.png" alt="切图8"></p>
+<p>最终结束。。。虽然没帮到什么实际上的，至少思路给引导了下。我想应该足够了</p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/DPlayer" class="tag" title="DPlayer">DPlayer</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/关键帧预览" class="tag" title="关键帧预览">关键帧预览</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
