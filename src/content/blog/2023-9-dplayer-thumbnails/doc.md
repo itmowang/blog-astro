@@ -40,3 +40,14 @@ tags:
 ![切图8](http://img.blog.loli.wang/2023-9-dplayer-thumbnails/08.png)
 
 最终结束。。。虽然没帮到什么实际上的，至少思路给引导了下。我想应该足够了
+
+
+### 后续
+
+后一天问了下网友情况，如何生成 ，他打算的方案是循环生成图片再去拼接，我看官方写的插件Node版本的也是这样的，后来发现他的能力并不能做到相关的操作
+
+``` bash
+ffmpeg -y -i "test.mp4" -frames 1 -vf "thumbnail=n=100,scale=-1:320,tile=4X6:padding=10:color=white" thumbnail.png
+```
+
+![切图9](http://img.blog.loli.wang/2023-9-dplayer-thumbnails/09.png)
