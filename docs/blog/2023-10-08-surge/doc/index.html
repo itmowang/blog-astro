@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-10-08-surge/doc/">
+
+<!-- Primary Meta Tags -->
+<title>记一次折腾 Surge (github pages替代品)  - 魔王の博客</title>
+<meta name="title" content="记一次折腾 Surge (github pages替代品)  - 魔王の博客">
+<meta name="description" content="记一次折腾 Surge (github pages替代品)">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-10-08-surge/doc/">
+<meta property="og:title" content="记一次折腾 Surge (github pages替代品)  - 魔王の博客">
+<meta property="og:description" content="记一次折腾 Surge (github pages替代品)">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-10-08-surge/04.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-10-08-surge/doc/">
+<meta property="twitter:title" content="记一次折腾 Surge (github pages替代品)  - 魔王の博客">
+<meta property="twitter:description" content="记一次折腾 Surge (github pages替代品)">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-10-08-surge/04.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">记一次折腾 Surge (github pages替代品) </h2>
+    <div class="post-date">
+        <time datetime="2023-10-08T15:27:24.000Z">2023-10-08 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-10-08-surge/04.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="起因">起因</h2>
+<p><img src="http://img.blog.loli.wang/2023-10-08-surge/05.png" alt="切图1"></p>
+<p>看到老师发这玩意，不管是什么，总得折腾一番 😁</p>
+<h2 id="如何使用-surgesh-免费部署静态网站">如何使用 Surge.sh 免费部署静态网站</h2>
+<p>Surge.sh 是一个免费的静态网站主机，您可以通过命令行与之交互。它可以快速轻松地在线获取新站点和应用程序，无论是手动还是作为 CI 构建过程的一部分。以下是如何开始使用该服务。类似github 的pages功能</p>
+<h2 id="第一次运行">第一次运行</h2>
+<p>我们假设您已经有了要部署到 Web 的文件目录。如果还没有，请创建一个新文件夹，添加一个 index.html 和一些简单的入门内容。</p>
+<p>Surge 是通过Npm发布的JavaScript的引用程序 ，在这之前必须安装Node.js ，再然后使用npm安装Surge</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">npm install --global surge</span></span></code></pre>
+<p>安装完成后执行指令</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">surge</span></span></code></pre>
+<p>执行后会要求你注册/登录一个相关的账号，填写完后，会要求让你填写需要发布的目录，填写完成后自动发布</p>
+<p><img src="http://img.blog.loli.wang/2023-10-08-surge/02.png" alt="切图2">
+<img src="http://img.blog.loli.wang/2023-10-08-surge/03.png" alt="切图3"></p>
+<p>发布成功</p>
+<p><img src="http://img.blog.loli.wang/2023-10-08-surge/06.png" alt="切图4"></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/Surge" class="tag" title="Surge">Surge</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/pages平替" class="tag" title="pages平替">pages平替</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
