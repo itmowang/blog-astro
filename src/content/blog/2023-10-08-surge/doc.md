@@ -37,6 +37,12 @@ surge
  ![切图3](http://img.blog.loli.wang/2023-10-08-surge/03.png)
 
 
+## 补充，如何绑定域名
+只需要在需要发布的 Web 文件目录，建立一个CNAME文件，内部填写需要绑定的域名即可
+
+ ![切图3](http://img.blog.loli.wang/2023-10-08-surge/07.png)
+
+
 发布成功
 
  ![切图4](http://img.blog.loli.wang/2023-10-08-surge/06.png)
