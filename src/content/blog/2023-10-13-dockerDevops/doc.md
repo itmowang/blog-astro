@@ -1,6 +1,6 @@
 ---
-title: "将前端项目发布到 docker 容器上"
-description: "将前端项目发布到 docker 容器上"
+title: "docker 配置 nginx 环境"
+description: "docker 配置 nginx 环境"
 pubDate: "2023-10-13　23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-10-13-dockerDevops/01.png"
 tags:
