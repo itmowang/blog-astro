@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-11-6-astrosetup/doc/">
+
+<!-- Primary Meta Tags -->
+<title>给表妹的 Astro Blog 搭建流程 - 魔王の博客</title>
+<meta name="title" content="给表妹的 Astro Blog 搭建流程 - 魔王の博客">
+<meta name="description" content="给表妹的 Astro Blog 搭建流程">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-11-6-astrosetup/doc/">
+<meta property="og:title" content="给表妹的 Astro Blog 搭建流程 - 魔王の博客">
+<meta property="og:description" content="给表妹的 Astro Blog 搭建流程">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-11-6-astrosetup/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-11-6-astrosetup/doc/">
+<meta property="twitter:title" content="给表妹的 Astro Blog 搭建流程 - 魔王の博客">
+<meta property="twitter:description" content="给表妹的 Astro Blog 搭建流程">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-11-6-astrosetup/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">给表妹的 Astro Blog 搭建流程</h2>
+    <div class="post-date">
+        <time datetime="2023-11-06T15:27:24.000Z">2023-11-06 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-11-6-astrosetup/01.png');"></div>
+    <div class="post-content">
+        
+                        <p>表妹上大学了，理工类的学科，看来以后绝对优秀人才呢。因此需要一个blog来记录学习过程。</p>
+<h3 id="为什么使用-astro">为什么使用 Astro</h3>
+<p>当然和我是前端工程师是分不开的关系，本来也是推荐使用一些PHP的blog程序，但是需要一些服务器相关的知识，也并非省时省力。顺带还需要给她传授一点 Git 相关的知识，所以对于正在使用astro 的我当然首选 <strong>Astro</strong> 啦 , 也可以讲下web相关的知识。</p>
+<h3 id="在此之前">在此之前</h3>
+<p>安装好nodejs:</p>
+<p><a href="https://nodejs.org/en">https://nodejs.org/en</a></p>
+<p>熟悉md的编写:</p>
+<p><a href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/markdown.html">https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/markdown.html</a></p>
+<h3 id="在-github-克隆一个-astro-项目">在 github 克隆一个 astro 项目</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 首推自己的个人github项目</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">https://github.com/itmowang/sxq-astro</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2023-11-6-astrosetup/01.png" alt="切图1"></p>
+<p>github推出的新功能 <strong>repository templates</strong>  方便快速使用该代码库。使用后会在自己的本地仓库看到该项目</p>
+<h3 id="编写文章">编写文章</h3>
+<p>克隆到自己的私人仓库后 通过 git 工具拉取自己仓库的代码代码。</p>
+<p>「文章」存放于<code>src/content/blog</code>路径内，可自行清空后新建；</p>
+<p><img src="http://img.blog.loli.wang/2023-11-6-astrosetup/02.png" alt="切图2"></p>
+<p>文章内固定格式</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">---</span></span>
+<span class="line"><span style="color: #B392F0">title</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"文章标题"</span><span style="color: #E1E4E8">   # 文章标题</span></span>
+<span class="line"><span style="color: #B392F0">pubDate</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">2021</span><span style="color: #F97583">-</span><span style="color: #79B8FF">03</span><span style="color: #F97583">-</span><span style="color: #79B8FF">27</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">09</span><span style="color: #E1E4E8">:</span><span style="color: #79B8FF">45</span><span style="color: #E1E4E8">:</span><span style="color: #79B8FF">11</span><span style="color: #E1E4E8">  # 发布日期</span></span>
+<span class="line"><span style="color: #B392F0">description</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"文章描述。"</span><span style="color: #E1E4E8">  # 文章描述</span></span>
+<span class="line"><span style="color: #B392F0">heroImage</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"http://img.blog.loli.wang/2023-8-21-cfworkerProxy/01.png"</span><span style="color: #E1E4E8"> # 主页预览图</span></span>
+<span class="line"><span style="color: #F97583">---</span></span>
+<span class="line"><span style="color: #E1E4E8">    # mdx</span></span>
+<span class="line"><span style="color: #E1E4E8">    文章内容</span></span></code></pre>
+<h3 id="发布">发布</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 通过npm发布至线上</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 强烈要求 Node 版本在 18x + </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">i</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pnpm</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">build</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">然后将docs目录内的文件部署到服务器上，同样的也可以直接使用</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">github</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">的</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pages</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">根据自己的喜好来。</span></span>
+<span class="line"></span></code></pre>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/Astro" class="tag" title="Astro">Astro</a><a href="/tags/Blog搭建" class="tag" title="Blog搭建">Blog搭建</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
