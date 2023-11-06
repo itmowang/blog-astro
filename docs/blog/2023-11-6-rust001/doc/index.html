@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-11-6-rust001/doc/">
+
+<!-- Primary Meta Tags -->
+<title>rust开发环境安装以及Cargo - 魔王の博客</title>
+<meta name="title" content="rust开发环境安装以及Cargo - 魔王の博客">
+<meta name="description" content="rust开发环境安装">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-11-6-rust001/doc/">
+<meta property="og:title" content="rust开发环境安装以及Cargo - 魔王の博客">
+<meta property="og:description" content="rust开发环境安装">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-11-6-rust001/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-11-6-rust001/doc/">
+<meta property="twitter:title" content="rust开发环境安装以及Cargo - 魔王の博客">
+<meta property="twitter:description" content="rust开发环境安装">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-11-6-rust001/01.png">
+    <link rel="stylesheet" href="/_astro/about.ade8e24a.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">rust开发环境安装以及Cargo</h2>
+    <div class="post-date">
+        <time datetime="2023-11-06T15:27:24.000Z">2023-11-06 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-11-6-rust001/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="我正在学习准备rust">我正在学习准备rust</h2>
+<p>学习资源：</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">    官方文档 </span></span>
+<span class="line"><span style="color: #e1e4e8">    https://doc.rust-lang.org/book/</span></span>
+<span class="line"><span style="color: #e1e4e8">    第三方中文文档</span></span>
+<span class="line"><span style="color: #e1e4e8">    https://rustwiki.org/zh-CN/book/</span></span></code></pre>
+<h2 id="安装">安装</h2>
+<p>根据官网提供的exe 安装进行下一步就好</p>
+<h3 id="hello-world">hello world!</h3>
+<p>建立一个 <strong>project</strong> 文件夹 创建文件 main.rs 文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># main.rs</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">fn</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">main</span><span style="color: #E1E4E8">() </span><span style="color: #9ECBFF">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">println!(</span><span style="color: #B392F0">"Hello, world!"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>保存文件 在命令行中输入命令</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #B392F0">rustc</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">main.rs</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 会自动生成 main.exe main.pdb 文件 exe 是主要可执行文件 pdb是调试信息文件 方便调试</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">./main.exe</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># Hello, world!</span></span>
+<span class="line"></span></code></pre>
+<h3 id="rust-是预编译语言">Rust 是预编译语言</h3>
+<p>Rust 是一门预编译(ahead-of-time compiled)语言，这意味着你可以编译一个程序，将编译后的可执行文件给别人，即使他们没有安装 Rust 也可以运行程序。</p>
+<h3 id="cargo">Cargo</h3>
+<p>使用 Cargo 创建一个新项目</p>
+<p>查看cargo的版本</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">cargo</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--version</span></span>
+<span class="line"><span style="color: #6A737D"># cargo 1.73.0 (9c4383fb5 2023-08-26)</span></span></code></pre>
+<p>创建项目</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">cargo</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">hello_cargo</span></span>
+<span class="line"><span style="color: #6A737D"># Created binary (application) `hello_cargo` package</span></span>
+<span class="line"><span style="color: #79B8FF">cd</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">hello_cargo</span></span></code></pre>
+<p>目录结构</p>
+<p>src 目录内有个 main.rs 作为主入口</p>
+<p>Cargo.toml 为 Cargo的配置文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># Cargo.toml</span></span>
+<span class="line"><span style="color: #E1E4E8">[package]</span></span>
+<span class="line"><span style="color: #B392F0">name</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"hello_cargo"</span></span>
+<span class="line"><span style="color: #B392F0">version</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"0.1.0"</span></span>
+<span class="line"><span style="color: #B392F0">edition</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"2021"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">[dependencies]</span></span></code></pre>
+<h3 id="构建并运行-cargo-项目">构建并运行 Cargo 项目</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">cargo</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">build</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 构建项目</span></span>
+<span class="line"><span style="color: #B392F0">cargo</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">run</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 一步构建并运行项目</span></span>
+<span class="line"><span style="color: #B392F0">cargo</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">check</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># 检查项目是否可以编译通过</span></span></code></pre>
+<p>看来可以开始Rust之旅了</p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/rust" class="tag" title="rust">rust</a><a href="/tags/rust 环境搭建" class="tag" title="rust 环境搭建">rust 环境搭建</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
