@@ -1,7 +1,7 @@
 ---
 title: "使用rust建立一个简单的web服务器"
 description: "rust开发环境安装"
-pubDate: "2023-11-6　23:27:24"
+pubDate: "2023-11-7　23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-11-6-rust001/01.png"
 tags:
     - rust 
