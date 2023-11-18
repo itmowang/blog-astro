@@ -12,7 +12,6 @@ import { CollectionEntry, getCollection } from 'astro:content';
 export async function getStaticPaths() {
 	const posts = (await getCollection('blog')).sort(config.func.sortPosts);
     
-    
     // 基于 config.opt.postsSize 来分页
     const totalPosts = posts.length;
     const maxPages = Math.ceil(totalPosts / config.opt.postsSize);
@@ -39,7 +38,6 @@ export async function getStaticPaths() {
 
 const { posts, curPage, totalPosts } = Astro.props;
 const pagination = config.func.getPagination(totalPosts, config.opt.postsSize, curPage);
-console.log(getStaticPaths());
 
 ---
 
