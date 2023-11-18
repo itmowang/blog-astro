@@ -1,34 +1,32 @@
 ---
+import { getCollection, getEntry } from 'astro:content';
+import { config } from '../config';
+// 每页显示多少条
+const { postsSize } = config.opt
 const {
     prev,
     next,
-    total: totalPage,
-    current: curPage,
+    total: totalPage, // 总页数
+    current: curPage, // 当前页码
     tpl,
     isBar
 } = Astro.props;
 
-const maxPageNum = Math.min(totalPage, curPage + 5);
-const minPageNum = Math.max(1, maxPageNum - 5);
 
-const arrPages = [];
-for (let pageNum = minPageNum; pageNum < maxPageNum; pageNum++) {
-    const page = {
-        num: pageNum,
-        link: tpl.replace('%num%', pageNum),
-        isCur: pageNum === curPage
-    }
-    arrPages.push(page);
-}
+const blog = await getCollection("blog")
+// 文章总数
+const blogTotal = blog.length; 
+
 ---
+
 <div class={"pagination-container" + (isBar ? " page-bar" : "")}>
     {
         prev.num > 0 && <a href={prev.link} class="prev" title="上一页" > 上一页 </a>
     }
     {
-        isBar && arrPages.map((page) => (
-            <a href={page.link} class={"link" + (page.isCur ? " current" : "")} title={page.num}>{page.num}</a>
-        ))
+        <span class="pagination-info">
+            第 {curPage} 页 / 共 {totalPage} 页
+        </span>
     }
     {
         next.num > 0 && <a href={next.link} class="next" title="下一页" > 下一页 </a>

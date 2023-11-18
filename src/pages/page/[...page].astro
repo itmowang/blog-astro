@@ -4,14 +4,15 @@ import SideBar from "@/theme-simple/_blocks/SideBar.astro";
 import BaseFoot from "@/theme-simple/_blocks/BaseFoot.astro";
 import { config } from "@/theme-simple/config";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
-
 import PageBar from "@/theme-simple/_blocks/PageBar.astro";
 import FormattedDate from "@/theme-simple/components/FormattedDate.astro";
 import GetAbstract from "@/theme-simple/components/GetAbstract.astro";
-
 import { CollectionEntry, getCollection } from 'astro:content';
+
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = (await getCollection('blog')).sort(config.func.sortPosts);
+    
+    
     // 基于 config.opt.postsSize 来分页
     const totalPosts = posts.length;
     const maxPages = Math.ceil(totalPosts / config.opt.postsSize);
@@ -35,8 +36,11 @@ export async function getStaticPaths() {
     return paths;
 }
 
+
 const { posts, curPage, totalPosts } = Astro.props;
 const pagination = config.func.getPagination(totalPosts, config.opt.postsSize, curPage);
+console.log(getStaticPaths());
+
 ---
 
 <!DOCTYPE html>

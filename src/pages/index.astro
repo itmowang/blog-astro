@@ -29,8 +29,7 @@ const pagination = config.func.getPagination(allPost.length, config.opt.postsSiz
             />
             <div class="main-container">
                 <div class="content-container" data-aos="fade-up">
-                    {
-                    // �����б�>>
+                    { 
                         posts.map((post) => (
 
                             <article class="post-item">
@@ -60,8 +59,7 @@ const pagination = config.func.getPagination(allPost.length, config.opt.postsSiz
                                     </a>
                                 )}
                             </article>
-                        ))
-                    // <<�����б�
+                        )) 
                     }
                     {
                         config.opt.postsSize < allPost.length &&
