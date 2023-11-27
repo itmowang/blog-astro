@@ -3,8 +3,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const today = new Date();
 const copy = `© ${today.getFullYear()} YOUR NAME HERE.`;
 
-console.log(123);
-
 
 export const config = {
     site: {
