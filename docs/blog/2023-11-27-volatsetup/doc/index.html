@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-11-27-volatsetup/doc/">
+
+<!-- Primary Meta Tags -->
+<title>Node版本管理Volta的使用 - 魔王の博客</title>
+<meta name="title" content="Node版本管理Volta的使用 - 魔王の博客">
+<meta name="description" content="Node版本管理Volta的使用">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-11-27-volatsetup/doc/">
+<meta property="og:title" content="Node版本管理Volta的使用 - 魔王の博客">
+<meta property="og:description" content="Node版本管理Volta的使用">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-11-27-volatSetup/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-11-27-volatsetup/doc/">
+<meta property="twitter:title" content="Node版本管理Volta的使用 - 魔王の博客">
+<meta property="twitter:description" content="Node版本管理Volta的使用">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-11-27-volatSetup/01.png">
+    <link rel="stylesheet" href="/_astro/about.71be00d0.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Home" class="site-nav">
+                        Home
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">Welcome to my website!</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">Node版本管理Volta的使用</h2>
+    <div class="post-date">
+        <time datetime="2023-11-27T15:27:24.000Z">2023-11-27 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-11-27-volatSetup/01.png');"></div>
+    <div class="post-content">
+        
+                        <h2 id="为什么要有volta">为什么要有Volta</h2>
+<p>一个项目组有多个前端现象，使用的Node版本都不一样，并且有前端工程师一个人管理多个不同node版本的前端项目需要频繁的切换Node版本</p>
+<h2 id="使用-volta">使用 Volta</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">官网：https://volta.sh/</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 安装volta </span></span>
+<span class="line"><span style="color: #B392F0">curl</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://get.volta.sh</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">bash</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装node</span></span>
+<span class="line"><span style="color: #B392F0">volta</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">node</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 指定node版本安装</span></span>
+<span class="line"><span style="color: #B392F0">volta</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">install</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">node@14.15.5</span></span>
+<span class="line"></span></code></pre>
+<p>在前端项目中配置进行自动切换</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// package.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #9ECBFF">"volta"</span><span style="color: #E1E4E8">: {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #9ECBFF">"node"</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"12.20.2"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #9ECBFF">"yarn"</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"1.19.2"</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>通过volta 安装好指定的node版本后可以做到打开当前的项目的命令行，自动切换node版本</p>
+<p><img src="http://img.blog.loli.wang/2023-11-27-volatSetup/02.png" alt="切图1"></p>
+<p><img src="http://img.blog.loli.wang/2023-11-27-volatSetup/03.png" alt="切图2"></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/Node版本管理" class="tag" title="Node版本管理">Node版本管理</a><a href="/tags/Volta的使用" class="tag" title="Volta的使用">Volta的使用</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>

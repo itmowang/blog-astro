@@ -46,4 +46,4 @@ volta install node@14.15.5
 
 ![切图1](http://img.blog.loli.wang/2023-11-27-volatSetup/02.png)
 
-![切图2](http://img.blog.loli.wang/2023-11-27-volatSetup/03.png)
+![切图2](http://img.blog.loli.wang/2023-11-27-volatSetup/03.pngge)
