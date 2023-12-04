@@ -37,6 +37,8 @@ const optMap: MapType = {
     },
 };
 
+const dates = new Date(date);
+
 ---
 
-<time datetime={date.toISOString()}>{date.toLocaleDateString(locales, optMap[locales]).replace(/\//g, "-")}</time>
+<time datetime={dates.toISOString()}>{dates.toLocaleDateString(locales, optMap[locales]).replace(/\//g, "-")}</time>

@@ -1,0 +1,100 @@
+---
+import BaseHead from "@/theme-simple/_blocks/BaseHead.astro";
+import SideBar from "@/theme-simple/_blocks/SideBar.astro";
+import BaseFoot from "@/theme-simple/_blocks/BaseFoot.astro";
+import { config } from "@/theme-simple/config";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import PageBar from "@/theme-simple/_blocks/PageBar.astro";
+import FormattedDate from "@/theme-simple/components/FormattedDate.astro";
+import GetAbstract from "@/theme-simple/components/GetAbstract.astro";
+import { CollectionEntry, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('life')).sort(config.func.sortPosts);
+    
+    // 基于 config.opt.postsSize 来分页
+    const totalPosts = posts.length;
+    const maxPages = Math.ceil(totalPosts / config.opt.postsSize);
+    type Paths = {
+        params: { page: string },
+        props: CollectionEntry<'life'>[]
+    };
+    const paths = [] as Paths[];
+    for (let i = 1; i <= maxPages; i++) {
+        paths.push({
+            params: {
+                page: i.toString(),
+             },
+            props: {
+                posts: posts.slice((i - 1) * config.opt.postsSize, i * config.opt.postsSize),
+                curPage: i,
+                totalPosts
+            }
+        });
+    }
+    return paths;
+}
+
+
+const { posts, curPage, totalPosts } = Astro.props;
+const pagination = config.func.getPagination(totalPosts, config.opt.postsSize, curPage);
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} subtitle={SITE_DESCRIPTION} description={SITE_DESCRIPTION} image={config.site.image}/>
+    </head>
+    <body>
+        <div id="app" class="main">
+            <SideBar
+                menus={config.menus}
+                site={config.site}
+                author={config.author}
+            />
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    {
+                    // 文章列表>>
+                        posts.map((post:any) => (
+                            <article class="post-item">
+                                <div class="left">
+                                    <a href={`/lifeBlog/${post.slug}/`} title={post.data.title}>
+                                        <h2 class="post-title">
+                                            {post.data.title}
+                                        </h2>
+                                    </a>
+                                    <div class="post-date">
+                                        <FormattedDate
+                                            date={post.data.pubDate}
+                                        />
+                                    </div>
+                                    <div class="post-abstract">
+                                        <GetAbstract
+                                            content={post.body}
+                                        />
+                                    </div>
+                                </div>
+                                {post.data.heroImage && (
+                                    <a class="right" href={`/lifeBlog/${post.slug}/`} title={post.data.title}>
+                                        <div
+                                            class="feature-container"
+                                            style={`background-image: url('${post.data.heroImage}');`}
+                                        />
+                                    </a>
+                                )}
+                            </article>
+                        ))
+                    // <<文章列表
+                    }
+                    {
+                        config.opt.postsSize < totalPosts  &&
+                        <PageBar {...pagination} isBar={true} />
+                    }
+                </div>
+            </div>
+        </div>
+        <BaseFoot />
+    </body>
+</html>

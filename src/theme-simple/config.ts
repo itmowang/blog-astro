@@ -20,9 +20,11 @@ export const config = {
         bio: "Your bio",
     },
     menus: [
-        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/' },
+        { name: 'Life', path: '/life' },
         { name: 'Archive', path: '/archive' },
         { name: 'About', path: '/about' },
+        
     ],
     archive: {
         title: "Archive",
