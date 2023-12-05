@@ -1,7 +1,7 @@
 ---
 title: "Tailwind + Antd Css冲突解决方案(按钮颜色透明)"
 description: "Tailwind + Antd Css冲突解决方案(按钮颜色透明)"
-pubDate: "2023-12-4　23:27:24"
+pubDate: "2023-12-04　23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-12-14-tailwindButtionOpe/01.png"
 tags:
     - Antd

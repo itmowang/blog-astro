@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-12-05-directadmin2222ssl/doc/">
+
+<!-- Primary Meta Tags -->
+<title>Directadmin 2222 开启 SSL  - 魔王の博客</title>
+<meta name="title" content="Directadmin 2222 开启 SSL  - 魔王の博客">
+<meta name="description" content="Directadmin 2222 开启 SSL">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-12-05-directadmin2222ssl/doc/">
+<meta property="og:title" content="Directadmin 2222 开启 SSL  - 魔王の博客">
+<meta property="og:description" content="Directadmin 2222 开启 SSL">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-12-05-directadmin2222ssl/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-12-05-directadmin2222ssl/doc/">
+<meta property="twitter:title" content="Directadmin 2222 开启 SSL  - 魔王の博客">
+<meta property="twitter:description" content="Directadmin 2222 开启 SSL">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-12-05-directadmin2222ssl/01.png">
+    <link rel="stylesheet" href="/_astro/about.71be00d0.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+    <body>
+        <div id="app" class="main">
+            <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+            <div class="main-container">
+                <div class="content-container" data-aos="fade-up">
+                    <div class="post-detail">
+    <h2 class="post-title">Directadmin 2222 开启 SSL </h2>
+    <div class="post-date">
+        <time datetime="2023-12-05T15:27:24.000Z">2023-12-05 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-12-05-directadmin2222ssl/01.png');"></div>
+    <div class="post-content">
+        
+                        <p>太久没管理IDC.LA 网站了，这次上去，发现所有服务器面板的SSL都挂了。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">真不是个合格的网站管理者</span></span></code></pre>
+<h4 id="先启动letsencrypt">先启动LetsEncrypt</h4>
+<ol>
+<li>
+<p>在directadmin.conf中启用letsencrypt = 1选项，顺便先把ssl=0改为 ssl=1 ，使DA 2222使用SSL协议</p>
+</li>
+<li>
+<p>重启、build 相关组件</p>
+</li>
+</ol>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #79B8FF">echo</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">“action=directadmin</span><span style="color: #E1E4E8">&#x26;value</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">restart”</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">>></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">/usr/local/directadmin/data/task.queue</span><span style="color: #E1E4E8">; </span><span style="color: #B392F0">/usr/local/directadmin/dataskq</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">d2000</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #79B8FF">cd</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">/usr/local/directadmin/custombuild</span></span>
+<span class="line"><span style="color: #B392F0">./build</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">rewrite_confs</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #79B8FF">cd</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">/usr/local/directadmin/custombuild</span></span>
+<span class="line"><span style="color: #B392F0">./build</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">update</span></span>
+<span class="line"><span style="color: #B392F0">./build</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">letsencrypt</span></span></code></pre>
+<h4 id="为da开启">为DA开启</h4>
+<p>先获得域名证书，设定跳转，使其生效。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">/usr/local/directadmin/scripts/letsencrypt.sh</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">request_single</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">us1.yunloli.com</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">4096</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">/usr/local/directadmin/directadmin</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">set</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">ssl_redirect_host</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">us1.yunloli.com</span></span>
+<span class="line"><span style="color: #B392F0">service</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">directadmin</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">restart</span></span></code></pre>
+<h3 id="相关资料">相关资料</h3>
+<p><a href="https://help.directadmin.com/item.php?id=15">https://help.directadmin.com/item.php?id=15</a></p>
+<p><a href="https://help.directadmin.com/item.php?id=648">https://help.directadmin.com/item.php?id=648</a></p>
+<p><a href="https://help.directadmin.com/item.php?id=629">https://help.directadmin.com/item.php?id=629</a></p>
+                    
+    </div>
+    <div class="tag-container">
+        <a href="/tags/Directadmin" class="tag" title="Directadmin">Directadmin</a><a href="/tags/SSL" class="tag" title="SSL">SSL</a><a href="/tags/Directadmin 开启 SSL" class="tag" title="Directadmin 开启 SSL">Directadmin 开启 SSL</a>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script type="application/javascript">
+    AOS.init();
+</script>
+    </body></html>
