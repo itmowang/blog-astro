@@ -25,6 +25,7 @@ export const config = {
         { name: 'Archive', path: '/archive' },
         { name: 'Link', path: '/link' },
         { name: 'About', path: '/about' },
+        { name: 'Github', path: 'https://github.com/itmowang' },
         
     ],
     link:[
