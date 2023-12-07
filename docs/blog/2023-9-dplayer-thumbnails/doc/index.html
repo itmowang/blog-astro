@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global Metadata --><meta charset="utf-8">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="generator" content="Astro v2.10.9">
@@ -28,11 +28,11 @@
 <meta property="twitter:title" content="问答：DPlayer关键帧预览图生成思路  - 魔王の博客">
 <meta property="twitter:description" content="问答：DPlayer关键帧预览图生成思路">
 <meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png">
-    <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
-    <body>
-        <div id="app" class="main">
-            <div class="sidebar">
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
     <div class="top-container" data-aos="fade-right">
         <div class="top-header-container">
             <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
@@ -65,9 +65,9 @@
         </div>
     </div>
 </div>
-            <div class="main-container">
-                <div class="content-container" data-aos="fade-up">
-                    <div class="post-detail">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
     <h2 class="post-title">问答：DPlayer关键帧预览图生成思路 </h2>
     <div class="post-date">
         <time datetime="2023-09-26T15:27:24.000Z">2023-09-26 23:27</time>
@@ -75,7 +75,7 @@
     <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png');"></div>
     <div class="post-content">
         
-                        <h2 id="起因">起因</h2>
+            <h2 id="起因">起因</h2>
 <p>网友学习java工作了，公司领导给了个需求，要播放视频同事鼠标悬停到进度条位置有预览效果</p>
 <p>类似
 <img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/01.png" alt="切图1"></p>
@@ -98,17 +98,19 @@
 <p>后一天问了下网友情况，如何生成 ，他打算的方案是循环生成图片再去拼接，我看官方写的插件Node版本的也是这样的，后来发现他的能力并不能做到相关的操作</p>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">ffmpeg</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-y</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-i</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"test.mp4"</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-frames</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-vf</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"thumbnail=n=100,scale=-1:320,tile=4X6:padding=10:color=white"</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">thumbnail.png</span></span></code></pre>
 <p><img src="http://img.blog.loli.wang/2023-9-dplayer-thumbnails/09.png" alt="切图9"></p>
-                    
+          
     </div>
     <div class="tag-container">
         <a href="/tags/DPlayer" class="tag" title="DPlayer">DPlayer</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/关键帧预览" class="tag" title="关键帧预览">关键帧预览</a>
     </div>
 </div>
-                </div>
-            </div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
         </div>
-        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script type="application/javascript">
-    AOS.init();
+  AOS.init();
 </script>
-    </body></html>
+  </body></html>

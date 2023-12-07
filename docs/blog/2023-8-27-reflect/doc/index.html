@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global Metadata --><meta charset="utf-8">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="generator" content="Astro v2.10.9">
@@ -28,11 +28,11 @@
 <meta property="twitter:title" content="JavaScript-内置对象-Reflect - 魔王の博客">
 <meta property="twitter:description" content="JavaScript-内置对象-Reflect">
 <meta property="twitter:image" content="http://img.blog.loli.wang/2023-8-27-Reflect/01.png">
-    <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
-    <body>
-        <div id="app" class="main">
-            <div class="sidebar">
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
     <div class="top-container" data-aos="fade-right">
         <div class="top-header-container">
             <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
@@ -65,9 +65,9 @@
         </div>
     </div>
 </div>
-            <div class="main-container">
-                <div class="content-container" data-aos="fade-up">
-                    <div class="post-detail">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
     <h2 class="post-title">JavaScript-内置对象-Reflect</h2>
     <div class="post-date">
         <time datetime="2023-08-24T14:31:24.000Z">2023-08-24 22:31</time>
@@ -75,7 +75,7 @@
     <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-8-27-Reflect/01.png');"></div>
     <div class="post-content">
         
-                        <h2 id="reflect">Reflect</h2>
+            <h2 id="reflect">Reflect</h2>
 <p>Reflect 是一个<strong>内置的对象</strong>，他提供了一些方法来 <strong>操作对象</strong> 的属性和方法， 并且它还提供 <strong>拦截 JavaScript 操作</strong> 的方法。这些方法与 proxy handler (en-US) 的方法相同。Reflect 不是一个函数对象，因此它是不可构造的。</p>
 <h4 id="reflectgettarget-propertykey-receiver-获取对象的属性值">Reflect.get(target, propertyKey[, receiver]) 获取对象的属性值</h4>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
@@ -149,17 +149,19 @@
 <span class="line"></span></code></pre>
 <p>如果 Proxy 对象和 Reflect 对象联合使用，前者<strong>拦截赋值</strong>操作，后者完成<strong>赋值的默认行为</strong>，而且传入了 <strong>receiver</strong>，那么 <strong>Reflect.set 会触发 Proxy.defineProperty 拦截</strong>。</p>
 <p>参考文档  <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect">MDN - Reflect</a></p>
-                    
+          
     </div>
     <div class="tag-container">
         <a href="/tags/JavaScript内置对象" class="tag" title="JavaScript内置对象">JavaScript内置对象</a><a href="/tags/Reflect" class="tag" title="Reflect">Reflect</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
     </div>
 </div>
-                </div>
-            </div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
         </div>
-        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script type="application/javascript">
-    AOS.init();
+  AOS.init();
 </script>
-    </body></html>
+  </body></html>

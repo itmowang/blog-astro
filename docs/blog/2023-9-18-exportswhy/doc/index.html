@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global Metadata --><meta charset="utf-8">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="generator" content="Astro v2.10.9">
@@ -28,11 +28,11 @@
 <meta property="twitter:title" content="package.json 中 exports 的理解 - 魔王の博客">
 <meta property="twitter:description" content="package.json 中 exports 的理解">
 <meta property="twitter:image" content="http://img.blog.loli.wang/2023-9-18-exportswhy/01.png">
-    <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
-    <body>
-        <div id="app" class="main">
-            <div class="sidebar">
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
     <div class="top-container" data-aos="fade-right">
         <div class="top-header-container">
             <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
@@ -65,9 +65,9 @@
         </div>
     </div>
 </div>
-            <div class="main-container">
-                <div class="content-container" data-aos="fade-up">
-                    <div class="post-detail">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
     <h2 class="post-title">package.json 中 exports 的理解</h2>
     <div class="post-date">
         <time datetime="2023-09-18T15:27:24.000Z">2023-09-18 23:27</time>
@@ -75,7 +75,7 @@
     <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-9-18-exportswhy/01.png');"></div>
     <div class="post-content">
         
-                        <h3 id="起因">起因</h3>
+            <h3 id="起因">起因</h3>
 <p>学习某低代码平台代码，看<strong>packages</strong>中有个exports，指向了不同的js文件，疑惑为什么这么做</p>
 <h3 id="解惑">解惑</h3>
 <p>在通常情况下，我们会使用 main:“index.js” 指向单独指向一个所抛出的 <strong>exports</strong></p>
@@ -105,17 +105,19 @@
 <span class="line"><span style="color: #E1E4E8">  }</span></span></code></pre>
 <h3 id="后续疑问">后续疑问</h3>
 <p>exports 为抛出不同的模块,那么ts中的tsconfig 的paths 和 vite的  resolve.alias 区别是什么？</p>
-                    
+          
     </div>
     <div class="tag-container">
         <a href="/tags/package" class="tag" title="package">package</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a><a href="/tags/exports" class="tag" title="exports">exports</a>
     </div>
 </div>
-                </div>
-            </div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
         </div>
-        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script type="application/javascript">
-    AOS.init();
+  AOS.init();
 </script>
-    </body></html>
+  </body></html>

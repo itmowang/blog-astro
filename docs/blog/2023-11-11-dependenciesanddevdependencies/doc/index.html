@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global Metadata --><meta charset="utf-8">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="generator" content="Astro v2.10.9">
@@ -28,11 +28,11 @@
 <meta property="twitter:title" content="dependencies 和 devDependencies 的区别(回忆录1) - 魔王の博客">
 <meta property="twitter:description" content="dependencies 和devDependencies 的区别">
 <meta property="twitter:image" content="http://img.blog.loli.wang/2023-11-11-dependenciesAnddevDependencies/01.png">
-    <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
 </script></head>
-    <body>
-        <div id="app" class="main">
-            <div class="sidebar">
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
     <div class="top-container" data-aos="fade-right">
         <div class="top-header-container">
             <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
@@ -65,9 +65,9 @@
         </div>
     </div>
 </div>
-            <div class="main-container">
-                <div class="content-container" data-aos="fade-up">
-                    <div class="post-detail">
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
     <h2 class="post-title">dependencies 和 devDependencies 的区别(回忆录1)</h2>
     <div class="post-date">
         <time datetime="2023-11-11T15:27:24.000Z">2023-11-11 23:27</time>
@@ -75,7 +75,7 @@
     <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-11-11-dependenciesAnddevDependencies/01.png');"></div>
     <div class="post-content">
         
-                        <h2 id="回忆录1-一次给别人解决bug引发的问题">回忆录1: 一次给别人解决BUG引发的问题</h2>
+            <h2 id="回忆录1-一次给别人解决bug引发的问题">回忆录1: 一次给别人解决BUG引发的问题</h2>
 <p>事情是这样的，一个小伙伴问我一个问题。项目写了个插件，导出到NPM中了，但是通过npm install 下来无法使用，仔细检查，发现依赖都是装载在 <strong>devDependencies</strong> 中</p>
 <h3 id="理解">理解</h3>
 <p>区别:</p>
@@ -91,17 +91,19 @@ devDependencies部分</p>
 <p>项目部署到开发环境所必须的依赖包则安装在dependencies生产环境下。
 在项目编译时dependencies、devDependencies里的依赖其实没有影响，最重要的区别体现在:</p>
 <p>npm包发布的时候，其他的开发者可以从你发布的npm包中下载dependencies里的依赖包，而不能下载devDependencies里的内容。</p>
-                    
+          
     </div>
     <div class="tag-container">
         <a href="/tags/dependencies" class="tag" title="dependencies">dependencies</a><a href="/tags/devDependencies" class="tag" title="devDependencies">devDependencies</a><a href="/tags/学习折腾" class="tag" title="学习折腾">学习折腾</a>
     </div>
 </div>
-                </div>
-            </div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
         </div>
-        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script type="application/javascript">
-    AOS.init();
+  AOS.init();
 </script>
-    </body></html>
+  </body></html>
