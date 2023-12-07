@@ -1,0 +1,53 @@
+---
+import BaseHead from "@/theme-simple/_blocks/BaseHead.astro";
+import SideBar from "@/theme-simple/_blocks/SideBar.astro";
+import BaseFoot from "@/theme-simple/_blocks/BaseFoot.astro";
+import { config } from "@/theme-simple/config";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+
+// import GetAbstract from "@/theme-simple/components/GetAbstract.astro";
+
+import { getCollection } from "astro:content";
+// const posts = (await getCollection("blog")).sort(config.func.sortPosts);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={config.linkInfo.title}
+      subtitle={SITE_TITLE}
+      description={config.linkInfo.description}
+      image={config.site.image}
+    />
+  </head>
+  <body>
+    <div id="app" class="main">
+      <SideBar menus={config.menus} site={config.site} author={config.author} />
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="archives-title">{config.linkInfo.title}</h2>
+          <div class="archives-container">
+            {
+              config.link.map((item) => {
+                return (
+                  <div class="archives-item">
+                    <a href={item.href}>
+                      <div class="archives-item-img">
+                        <img src={item.icon} />
+                      </div>
+                      <div class="archives-item-info">
+                        <label>{item.name}</label>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <BaseFoot />
+  </body>
+</html>

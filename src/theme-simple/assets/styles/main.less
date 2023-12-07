@@ -326,6 +326,31 @@ a {
 
 .archives-container {
   padding-bottom: 32px;
+  display: grid;
+  gap:1rem;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  .archives-item{
+    width: 200px;
+    text-align: center;
+    border-radius: 5%;
+    cursor: pointer;
+    .archives-item-img{
+      img{
+        width: 64px;
+        height: 64px;
+        border-radius: 5%;
+      }
+    }
+    .archives-item-info{
+      line-height: 30px;
+    }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px); /* 调整模糊程度 */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    }
+  } 
   .year {
     font-size: 16px;
     padding-bottom: 16px;

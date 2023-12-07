@@ -23,9 +23,28 @@ export const config = {
         { name: 'Blog', path: '/' },
         { name: 'Life', path: '/life' },
         { name: 'Archive', path: '/archive' },
+        { name: 'Link', path: '/link' },
         { name: 'About', path: '/about' },
         
     ],
+    link:[
+        {
+            icon:"https://avatars.githubusercontent.com/u/137391282?v=4",
+            href:"https://github.com/itmowang",
+            name:"MWのBlog",
+            desc:"1111111"
+        },
+        {
+            icon:"https://www.wdssmq.com/zb_users/avatar/1.png",
+            href:"https://www.wdssmq.com/",
+            name:"沉冰浮水",
+            desc:"1111111"
+        },
+    ],
+    linkInfo:{
+        title: "Link",
+        description: "Link description",
+    },
     archive: {
         title: "Archive",
         description: "Archive description",
