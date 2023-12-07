@@ -32,7 +32,7 @@ export const config = {
         {
             icon:"https://avatars.githubusercontent.com/u/137391282?v=4",
             href:"https://github.com/itmowang",
-            name:"MWのBlog",
+            name:"魔王の博客",
             desc:"1111111"
         },
         {
