@@ -41,6 +41,12 @@ export const config = {
             name:"沉冰浮水",
             desc:"1111111"
         },
+        {
+            icon:"https://fastly.jsdelivr.net/gh/xiangshu233/cdn@2.8/img/custom/touxiang.jpg",
+            href:"https://xiangshu233.cn/",
+            name:"傲慢或香橙",
+            desc:"1111111"
+        },
     ],
     linkInfo:{
         title: "Link",

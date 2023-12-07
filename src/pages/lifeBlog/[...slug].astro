@@ -7,40 +7,48 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 import BlogSingle from "@/theme-simple/_blocks/BlogSingle.astro";
 
-import { CollectionEntry, getCollection } from 'astro:content';
+import { CollectionEntry, getCollection } from "astro:content";
 export async function getStaticPaths() {
-	const posts = await getCollection('life');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("life");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
 
-type Props = CollectionEntry<'life'>;
+type Props = CollectionEntry<"life">;
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <BaseHead title={post.data.title} subtitle={SITE_TITLE} description={post.data.description} image={post.data.heroImage || config.site.image} />
-    </head>
-    <body>
-        <div id="app" class="main">
-            <SideBar
-                menus={config.menus}
-                site={config.site}
-                author={config.author}
-            />
-            <div class="main-container">
-                <div class="content-container" data-aos="fade-up">
-                    <BlogSingle {...post.data}>
-                        <Content />
-                    </BlogSingle>
-                </div>
-            </div>
+  <head>
+    <BaseHead
+      title={post.data.title}
+      subtitle={SITE_TITLE}
+      description={post.data.description}
+      image={post.data.heroImage || config.site.image}
+    />
+  </head>
+  <body>
+    <div id="app" class="main">
+      <SideBar menus={config.menus} site={config.site} author={config.author} />
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <BlogSingle {...post.data}>
+            <Content />
+          </BlogSingle>
+          <script
+            src="https://utteranc.es/client.js"
+            repo="itmowang/blog-astro"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async></script>
         </div>
-        <BaseFoot />
-    </body>
+      </div>
+    </div>
+    <BaseFoot />
+  </body>
 </html>
