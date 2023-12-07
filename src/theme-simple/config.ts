@@ -47,6 +47,13 @@ export const config = {
             name:"傲慢或香橙",
             desc:"1111111"
         },
+        {
+            icon:"https://avatars.githubusercontent.com/u/7686097?v=4",
+            href:"https://blog.isluo.com/",
+            name:"Logic",
+            desc:"1111111"
+        },
+
     ],
     linkInfo:{
         title: "Link",
