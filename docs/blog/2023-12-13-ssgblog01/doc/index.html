@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-12-13-ssgblog01/doc/">
+
+<!-- Primary Meta Tags -->
+<title>ViteSSG 搭建博客 01 (ssg项目项目搭建) - 魔王の博客</title>
+<meta name="title" content="ViteSSG 搭建博客 01 (ssg项目项目搭建) - 魔王の博客">
+<meta name="description" content="ViteSSG 搭建博客 01 (ssg项目项目搭建)">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-12-13-ssgblog01/doc/">
+<meta property="og:title" content="ViteSSG 搭建博客 01 (ssg项目项目搭建) - 魔王の博客">
+<meta property="og:description" content="ViteSSG 搭建博客 01 (ssg项目项目搭建)">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-12-13-ssgblog01/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-12-13-ssgblog01/doc/">
+<meta property="twitter:title" content="ViteSSG 搭建博客 01 (ssg项目项目搭建) - 魔王の博客">
+<meta property="twitter:description" content="ViteSSG 搭建博客 01 (ssg项目项目搭建)">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-12-13-ssgblog01/01.png">
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">ViteSSG 搭建博客 01 (ssg项目项目搭建)</h2>
+    <div class="post-date">
+        <time datetime="2023-12-05T15:27:24.000Z">2023-12-05 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-12-13-ssgblog01/01.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="项目准备">项目准备</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 强烈建议使用 pnpm</span></span>
+<span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">i</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">pnpm</span><span style="color: #E1E4E8"> </span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装主要项目依赖</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vue</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">typescript</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">less</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vue-router</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@unhead/vue</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@vitejs/plugin-vue</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vite</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vite-plugin-pages</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">vite-ssg</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-D</span></span></code></pre>
+<h3 id="开始">开始</h3>
+<p>Node 版本需要高于 14 以上</p>
+<p>示例以多页应用为例</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// package.json</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"script"</span><span style="color: #E1E4E8">:{</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"dev"</span><span style="color: #E1E4E8">:</span><span style="color: #9ECBFF">"vite"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"build"</span><span style="color: #E1E4E8">:</span><span style="color: #9ECBFF">"vite-ssg build"</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// main.ts</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { ViteSSG } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vite-ssg"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> App </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"./App.vue"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> routes </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"~pages"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">createApp</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ViteSSG</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">  App,</span></span>
+<span class="line"><span style="color: #E1E4E8">  { routes },</span></span>
+<span class="line"><span style="color: #E1E4E8">  ({ </span><span style="color: #FFAB70">app</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">router</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">routes</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">isClient</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">initialState</span><span style="color: #E1E4E8"> }) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {}</span></span>
+<span class="line"><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// vite.config.ts</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { defineConfig } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vite"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> vue </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"@vitejs/plugin-vue"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> Pages </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"vite-plugin-pages"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">default</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">defineConfig</span><span style="color: #E1E4E8">({</span></span>
+<span class="line"><span style="color: #E1E4E8">  plugins: [</span><span style="color: #B392F0">vue</span><span style="color: #E1E4E8">(), </span><span style="color: #B392F0">Pages</span><span style="color: #E1E4E8">({ extensions: [</span><span style="color: #9ECBFF">"vue"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"md"</span><span style="color: #E1E4E8">] })],</span></span>
+<span class="line"><span style="color: #E1E4E8">  ssgOptions: {</span></span>
+<span class="line"><span style="color: #E1E4E8">    script: </span><span style="color: #9ECBFF">"async"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    formatting: </span><span style="color: #9ECBFF">"prettify"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  },</span></span>
+<span class="line"><span style="color: #E1E4E8">});</span></span></code></pre>
+<p>编写页面,在 pages 目录下新建文件夹 index 然后建立目录 index.vue</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// src/pages/index/index.vue</span></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;</span><span style="color: #85E89D">template</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">  &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">class</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"Index"</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">>Index&#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">>{{ index }}&#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">>{{ index2 }}&#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">  &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;/</span><span style="color: #85E89D">template</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;</span><span style="color: #85E89D">script</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">lang</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"tsx"</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">setup</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">import { ref } from "vue";</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">const index = ref("idx");</span></span>
+<span class="line"><span style="color: #E1E4E8">const index2 = ref("Leo");</span></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;/</span><span style="color: #85E89D">script</span><span style="color: #E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p>最后执行 <code>pnpm build</code> 即可生成静态构建的文件</p>
+<p><img src="http://img.blog.loli.wang/2023-12-13-ssgblog01/01.png" alt="切图2"></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/ViteSSG" class="tag" title="ViteSSG">ViteSSG</a><a href="/tags/ssg项目项目搭建" class="tag" title="ssg项目项目搭建">ssg项目项目搭建</a><a href="/tags/ViteSSG 搭建博客 01 (ssg项目项目搭建)" class="tag" title="ViteSSG 搭建博客 01 (ssg项目项目搭建)">ViteSSG 搭建博客 01 (ssg项目项目搭建)</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
