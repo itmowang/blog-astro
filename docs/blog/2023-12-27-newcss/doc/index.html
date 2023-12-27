@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-12-27-newcss/doc/">
+
+<!-- Primary Meta Tags -->
+<title>现代化 CSS 框架 - 魔王の博客</title>
+<meta name="title" content="现代化 CSS 框架 - 魔王の博客">
+<meta name="description" content="新生代 CSS 框架">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-12-27-newcss/doc/">
+<meta property="og:title" content="现代化 CSS 框架 - 魔王の博客">
+<meta property="og:description" content="新生代 CSS 框架">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-12-27-newcss/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-12-27-newcss/doc/">
+<meta property="twitter:title" content="现代化 CSS 框架 - 魔王の博客">
+<meta property="twitter:description" content="新生代 CSS 框架">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-12-27-newcss/01.png">
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">现代化 CSS 框架</h2>
+    <div class="post-date">
+        <time datetime="2023-12-24T15:27:24.000Z">2023-12-24 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-12-27-newcss/01.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="什么是原子化-css">什么是原子化 css</h3>
+<p>原子 CSS 是一种 CSS 架构方法，它有利于小型、单一用途的类，其名称基于视觉功能。</p>
+<p>原子化 CSS 是一种 CSS 的架构方式，它倾向于小巧且用途单一的 class，并且会以视觉效果进行命名。</p>
+<p>例如 <code>.mt-10</code> 代表 <code>margin-top: 10px</code>，<code>.bg-red</code> 代表 <code>background-color: red</code>。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">.mt-10</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #79B8FF">margin-top</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">10</span><span style="color: #F97583">px</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color: #B392F0">.bg-red</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #79B8FF">background-color</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">red</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h3 id="为什么要使用原子化-css">为什么要使用原子化 css</h3>
+<p>原子化 CSS 有助于减少 CSS 的大小，因为它只使用了少量的 class，而不是大量的 class 和大量的 style 引入。优化了 CSS 的大小，也就优化了 CSS 的加载速度。</p>
+<h3 id="常用的-css-框架选择">常用的 css 框架选择</h3>
+<ul>
+<li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
+<li><a href="https://unocss.dev/">UnoCSS</a></li>
+<li><a href="https://tachyons.io/">Tachyons</a>
+…</li>
+</ul>
+<h3 id="参考">参考</h3>
+<ul>
+<li>[重新构想原子化 CSS-antfu] <a href="https://antfu.me/posts/reimagine-atomic-css-zh">https://antfu.me/posts/reimagine-atomic-css-zh</a></li>
+</ul>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/CSS" class="tag" title="CSS">CSS</a><a href="/tags/tailwindcss" class="tag" title="tailwindcss">tailwindcss</a><a href="/tags/unocss" class="tag" title="unocss">unocss</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
