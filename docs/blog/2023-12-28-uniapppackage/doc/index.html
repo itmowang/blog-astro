@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-12-28-uniapppackage/doc/">
+
+<!-- Primary Meta Tags -->
+<title>UNI-APP 离线打包配置 - 魔王の博客</title>
+<meta name="title" content="UNI-APP 离线打包配置 - 魔王の博客">
+<meta name="description" content="UNI-APP 离线打包配置">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-12-28-uniapppackage/doc/">
+<meta property="og:title" content="UNI-APP 离线打包配置 - 魔王の博客">
+<meta property="og:description" content="UNI-APP 离线打包配置">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-12-28-uniappPackage/01.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-12-28-uniapppackage/doc/">
+<meta property="twitter:title" content="UNI-APP 离线打包配置 - 魔王の博客">
+<meta property="twitter:description" content="UNI-APP 离线打包配置">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-12-28-uniappPackage/01.jpg">
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">UNI-APP 离线打包配置</h2>
+    <div class="post-date">
+        <time datetime="2023-12-28T15:27:24.000Z">2023-12-28 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-12-28-uniappPackage/01.jpg');"></div>
+    <div class="post-content">
+        
+            <h3 id="起因">起因</h3>
+<p>公司有2款不同的PDA设备<code>霍尼韦尔</code>，<code>SUNMI</code> 这2款pda设备，在有一次项目升级后，发现<code>SUNMI</code>这种设备型号的PDA设备热更新失败，准确的说不是热更新是失败 是热更新下来的APK 安装时无法兼容</p>
+<p>如图</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/01.jpg" alt="切图1"></p>
+<h3 id="引发原因">引发原因</h3>
+<p>项目一直是用的离线打包，<code>Hbuilder X</code> 这款开发工具，之前使用云打包的时候会自动调用本地的离线打包，可是有次开发工具更新后，云打包不触发离线打包了。本来并不在意这件事情，毕竟就是打包个安卓包而已，并不在意，打完包就发布了。。</p>
+<p>后续就出现问题了，<code>霍尼韦尔</code>设备正常，<code>SUNMI</code>设备异常，前者设备安卓版本9.0, 后者安卓设备版本7.0，版本不兼容了。低版本的无法安装。</p>
+<p>本地模拟器同样的也是这个问题，低版本的无法安装，安装上也是白屏。</p>
+<p>经过排查，使用离线打包的就没有问题。</p>
+<h3 id="如何配置离线打包">如何配置离线打包</h3>
+<p>开始准备</p>
+<ul>
+<li><a href="https://www.java.com/zh-CN/download/">安装 jdk 8</a></li>
+<li><a href="https://developer.android.google.cn/studio?hl=zh-cn">安装 Android Studio</a></li>
+<li><a href="https://nativesupport.dcloud.net.cn/AppDocs/download/android.html">下载 UNIAPP 离线 SDK</a> (注意，下载的SDK版本必须和HubilderX版本对应上)</li>
+<li><a href="https://dev.dcloud.net.cn/pages/app/list">UNIAPP 开发者中心账号</a> (注意，提前实名认证啥破玩意都整完)</li>
+</ul>
+<h4 id="获取配置信息">获取配置信息</h4>
+<p>在UNIAPP项目中有个 <code>mainifest.json</code> 文件 ，里面会看到一些基础配置信息，其中有个<code>UNIAPP 引用标识</code>, 这个也同样是APPID, 也关系到开发中心对应的项目编号。</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/02.png" alt="切图2"></p>
+<h4 id="生成本地打包资源">生成本地打包资源</h4>
+<p>生成本地打包资源备用 后续放置到 Android Studio 内使用</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/03.png" alt="切图3"></p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/04.png" alt="切图4"></p>
+<h4 id="将本地资源文件夹移动至离线sdk中">将本地资源文件夹移动至离线SDK中</h4>
+<p>将本地资源包复制到该目录下</p>
+<p>HBuilder-Integrate-AS\simpleDemo\src\main\assets\apps</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/05.png" alt="切图4"></p>
+<h4 id="android-studio-导入sdk的示例项目">Android Studio 导入SDK的示例项目</h4>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/06.png" alt="切图4"></p>
+<h4 id="修改dcloud_controlxml-中的-appid">修改dcloud_control.xml 中的 appid</h4>
+<p>在新打开的编辑器中 , 找到 simpleDemo/src/main/assets/data/dcloud_control.xml</p>
+<p>进行修改</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/07.png" alt="切图7"></p>
+<p>修改为之前 <code>mainifest.json</code> 定义的APPID，还有当前准备发布的 <code>版本号</code></p>
+<h4 id="生成安卓签名">生成安卓签名</h4>
+<p>安卓打正式包必须要的，参考官方文档</p>
+<p><a href="https://ask.dcloud.net.cn/article/35777">https://ask.dcloud.net.cn/article/35777</a></p>
+<h4 id="前往开发者中心生成appkey">前往开发者中心生成AppKey</h4>
+<p>在我们使用 HbuilderX 后获取Appid后，登录账号,会在后台系统生成相应的应用，进入UNIAPP的开发者中心,选择相应的应用，获取离线的APPKEY</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/08.png" alt="切图8"></p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/09.png" alt="切图9"></p>
+<h4 id="修改包名-配置appkey">修改包名 配置appKey</h4>
+<p>在 AndroidManifest.xml 中修改包名，在<code>开发者中心</code>可以看到相关的包名，一般都是uni.xxx 开头的</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/10.png" alt="切图10"></p>
+<p>在下方找到</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8"> &#x3C;</span><span style="color: #85E89D">meta-data</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">android:name</span><span style="color: #E1E4E8">=</span><span style="color: #9ECBFF">"dcloud_appkey"</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">android:value</span><span style="color: #E1E4E8">=</span><span style="color: #9ECBFF">"239898****************b2d9dbcbf2bc"</span><span style="color: #E1E4E8"> /></span></span></code></pre>
+<p>android:value 修改成自己的离线 appKey 即可</p>
+<h4 id="修改原有的默认app图标还有打包出来的应用名">修改原有的默认APP图标还有打包出来的应用名</h4>
+<p>修改应用名 /simpleDemo/src/main/res/values/strings.xml</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">&#x3C;</span><span style="color: #85E89D">resources</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">string</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">name</span><span style="color: #E1E4E8">=</span><span style="color: #9ECBFF">"app_name"</span><span style="color: #E1E4E8">>修改自己的应用名&#x3C;/</span><span style="color: #85E89D">string</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;/</span><span style="color: #85E89D">resources</span><span style="color: #E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<p>icon 启动图替换 /simpleDemo/src/main/res/drawable 中的 icon.png push.png splash.png 图片进行替换就好</p>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/11.png" alt="切图10"></p>
+<h3 id="最后尝试构建">最后尝试构建</h3>
+<p><img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/12.png" alt="切图12">
+<img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/13.png" alt="切图13">
+<img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/14.png" alt="切图14">
+<img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/15.png" alt="切图15">
+<img src="http://img.blog.loli.wang/2023-12-28-uniappPackage/16.png" alt="切图16"></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">完成 ，，，总而言之，写UNIAPP的坑很多，如果不是赶时间的话，建议去使用Flutter 等框架，（--）</span></span></code></pre>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/uniapp" class="tag" title="uniapp">uniapp</a><a href="/tags/离线打包" class="tag" title="离线打包">离线打包</a><a href="/tags/SDK" class="tag" title="SDK">SDK</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
