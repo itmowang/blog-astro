@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2023-12-30-tsup/doc/">
+
+<!-- Primary Meta Tags -->
+<title>简单使用 tsup 进行打包 - 魔王の博客</title>
+<meta name="title" content="简单使用 tsup 进行打包 - 魔王の博客">
+<meta name="description" content="简单使用 tsup 进行打包">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2023-12-30-tsup/doc/">
+<meta property="og:title" content="简单使用 tsup 进行打包 - 魔王の博客">
+<meta property="og:description" content="简单使用 tsup 进行打包">
+<meta property="og:image" content="http://img.blog.loli.wang/2023-12-27-newcss/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2023-12-30-tsup/doc/">
+<meta property="twitter:title" content="简单使用 tsup 进行打包 - 魔王の博客">
+<meta property="twitter:description" content="简单使用 tsup 进行打包">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2023-12-27-newcss/01.png">
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2023 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">简单使用 tsup 进行打包</h2>
+    <div class="post-date">
+        <time datetime="2023-12-27T15:27:24.000Z">2023-12-27 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2023-12-27-newcss/01.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="起因">起因。</h3>
+<p>最近在编写自己的组件库，使用<code>monorepo</code>模式进行开发,<code>monorepo</code>开发将utils单独作为工具库，原本打算使用tsc编译出去的，无意中发现了打包工具。</p>
+<h3 id="介绍">介绍</h3>
+<p>tsup 是一个基于 ESBuild 实现在零配置的情况下快速打包 Typescript 模块的库，支持 .ts、.tsx的转换。它基于esbuild，但是同时也选择融合其他的构建工具共同参与，弥补了esbuild的不足。</p>
+<h3 id="安装使用">安装使用</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># pnpm 安装 同样也可以npm yarn 等</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">tsup</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-D</span></span>
+<span class="line"></span></code></pre>
+<p>packages.json 文件中声明</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">"build"</span><span style="color: #E1E4E8">:</span><span style="color: #9ECBFF">"tsup"</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>简单使用可以在命令后面加输出路径等 也可以添加配置文件去使用</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">"build"</span><span style="color: #E1E4E8">:</span><span style="color: #9ECBFF">"tsup src/index.ts src/cli.ts"</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>也可以使用配置文件，根目录下面新建一个 <code>tsup.config.ts</code> 文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { defineConfig } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'tsup'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">default</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">defineConfig</span><span style="color: #E1E4E8">({</span></span>
+<span class="line"><span style="color: #E1E4E8">  entry: [</span><span style="color: #9ECBFF">'./src/index.ts'</span><span style="color: #E1E4E8">], </span><span style="color: #6A737D">// 打包入口</span></span>
+<span class="line"><span style="color: #E1E4E8">  splitting: </span><span style="color: #79B8FF">false</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  sourcemap: </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  clean: </span><span style="color: #79B8FF">true</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">})</span></span>
+<span class="line"></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #9ECBFF">"scripts"</span><span style="color: #E1E4E8">: {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">"build"</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"tsup --format esm,cjs,iife --config tsup.config.ts"</span></span>
+<span class="line"><span style="color: #E1E4E8">},</span></span></code></pre>
+<p>这里也可以定义打包目录之类的，详情查看官网。配置信息比较完全
+<a href="https://tsup.egoist.dev/#what-can-it-bundle">https://tsup.egoist.dev/#what-can-it-bundle</a></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/tsup" class="tag" title="tsup">tsup</a><a href="/tags/打包工具" class="tag" title="打包工具">打包工具</a><a href="/tags/组件库" class="tag" title="组件库">组件库</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
