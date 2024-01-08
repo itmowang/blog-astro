@@ -67,6 +67,9 @@ export const config = {
         postsSize: 10,
     },
     func: {
+        shareClick: (e: any) => {
+            console.log(e);
+        },
         sortPosts: (a: any, b: any) => {
             return a.data.pubDate < b.data.pubDate ? 1 : -1;
         },
@@ -91,5 +94,6 @@ export const config = {
                 },
             };
         }
-    }
+    },
+    
 };

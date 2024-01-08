@@ -5,12 +5,16 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props;
 
 import FormattedDate from "@/theme-simple/components/FormattedDate.astro";
+import PostShare from "../components/PostShare.astro";
 ---
 
 <div class="post-detail">
     <h2 class="post-title">{title}</h2>
     <div class="post-date">
         <FormattedDate date={pubDate} />
+    </div>
+    <div class="post-share">
+        <PostShare title={title} />
     </div>
     {
         heroImage && (

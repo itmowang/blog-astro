@@ -153,6 +153,28 @@ a {
 .post-detail {
   max-width: 720px;
   margin: 0 auto;
+  .post-share{
+    margin-bottom: 10px;
+    .postShare{
+      width: 100%;
+      text-align: center;
+      .postShare-List{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        i{
+          margin-left: 4px;
+          font-size: 28px;
+          cursor: pointer;
+          &:hover {
+            color: @oc-indigo-8;
+            border-bottom: 1px dotted @oc-indigo-8;
+          }
+        }
+         
+      }
+    }
+  }
   .feature-container {
     padding-top: 56.25%;
     background-size: cover;
@@ -481,8 +503,10 @@ a {
       }
     }
   }
-
+ 
   .post-detail {
+    
+    
     .post-title {
       font-size: 28px;
     }
@@ -524,3 +548,5 @@ a {
     margin: 4px 8px;
   }
 }
+
+

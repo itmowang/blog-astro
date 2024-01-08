@@ -14,7 +14,7 @@ tags:
 在我们开发场景中，如果在`node`环境中使用`node-sass`，经常会有`python`版本安装问题，也有和`node版本`是否和`node-sass`版本有关联关系，还强制安装NET Framework版本，总而言之会出现各种问题，尤其是老项目居多...
 
 
-![切图1](http://img.blog.loli.wang/2024-01-08-draksass/01.jpg)
+![切图1](http://img.blog.loli.wang/2024-01-08-draksass/01.png)
 
 ### 什么是Dart Sass
  

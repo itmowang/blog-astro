@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import "@/theme-simple/assets/styles/main.less";
+import "@/theme-simple/assets/styles/iconfont/iconfont.css"
 import { config } from "@/theme-simple/config";
 
 export interface Props {
@@ -22,7 +23,7 @@ const {
 
 const titleText = subtitle ? `${title} - ${subtitle}` : title;
 
-// ¸ù¾Ý config.site.favicon ºó×ºÅÐ¶Ï favicon ÀàÐÍ
+// ï¿½ï¿½ï¿½ï¿½ config.site.favicon ï¿½ï¿½×ºï¿½Ð¶ï¿½ favicon ï¿½ï¿½ï¿½ï¿½
 const favInfo = {
     ext: config.site.favicon.split(".").pop(),
     url: config.site.favicon,

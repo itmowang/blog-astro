@@ -1,0 +1,57 @@
+---
+const { title } = Astro.props;
+import { config } from "@/theme-simple/config";
+const {func}  = config
+const shareJson = [
+    {
+        icon:"icon-xinlang",
+        href:`http://service.weibo.com/share/share.php?url=&title=${title}&pic=&appkey=`,
+        title:"新浪微博",
+        key:"sina",
+        color:"#ff763b"
+    },
+    {
+        icon:"icon-weichat",
+        href:`http://qr.liantu.com/api.php?text=`,
+        title:"微信",
+        key:"wechat",
+        color:"#33b045"
+    },
+    {
+        icon:"icon-QQ",
+        href:`http://connect.qq.com/widget/shareqq/index.html?url=&title=${title}&source=`,
+        title:"QQ",
+        key:"qq",
+        color:"#56b6e7"
+    },
+    {
+        icon:"icon-facebook",
+        href:`https://www.facebook.com/sharer/sharer.php?u=`,
+        title:"Facebook",
+        key:"facebook",
+        color:"#44619D"
+    },
+    {
+        icon:"icon-fenxiang1",
+        href:`https://www.facebook.com/sharer/sharer.php?u=`,
+        title:"Copy",
+        key:"copy",
+        color:"#33b045"
+    },
+]
+
+---
+
+<div class="postShare">
+    <div>
+        <div class="postShare-List" >
+            分享本文 :  {shareJson.map((share)=>{
+                return <a href="javascript;" onclick={func.shareClick(share)} > <i class={`iconfont  ${share.icon} `} style={`color:${share.color}`}></i></a>
+            })}
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
