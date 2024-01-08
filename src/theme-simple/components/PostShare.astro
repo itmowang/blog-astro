@@ -46,7 +46,7 @@ const shareJson = [
     <div>
         <div class="postShare-List" >
             分享本文 :  {shareJson.map((share)=>{
-                return <a href="javascript;" onclick={func.shareClick(share)} > <i class={`iconfont  ${share.icon} `} style={`color:${share.color}`}></i></a>
+                return <a onclick={func.shareClick(share)} > <i class={`iconfont  ${share.icon} `} style={`color:${share.color}`}></i></a>
             })}
         </div>
     </div>
