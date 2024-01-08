@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-01-08-draksass/doc/">
+
+<!-- Primary Meta Tags -->
+<title>dart-sass 和 node-sass 的区别以及使用 - 魔王の博客</title>
+<meta name="title" content="dart-sass 和 node-sass 的区别以及使用 - 魔王の博客">
+<meta name="description" content="dart-sass 和 node-sass 的区别以及使用">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-01-08-draksass/doc/">
+<meta property="og:title" content="dart-sass 和 node-sass 的区别以及使用 - 魔王の博客">
+<meta property="og:description" content="dart-sass 和 node-sass 的区别以及使用">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-01-08-draksass/02.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-01-08-draksass/doc/">
+<meta property="twitter:title" content="dart-sass 和 node-sass 的区别以及使用 - 魔王の博客">
+<meta property="twitter:description" content="dart-sass 和 node-sass 的区别以及使用">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-01-08-draksass/02.png">
+  <link rel="stylesheet" href="/_astro/about.08d32cbb.css" /><script type="module">const e=document.querySelector(".menu-btn"),t=document.querySelector(".sidebar");e?.addEventListener("click",()=>{t?.classList.toggle("full-height")});
+</script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">dart-sass 和 node-sass 的区别以及使用</h2>
+    <div class="post-date">
+        <time datetime="2023-01-08T15:27:24.000Z">2023-01-08 23:27</time>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-01-08-draksass/02.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="序">序</h3>
+<p>在我们开发场景中，如果在<code>node</code>环境中使用<code>node-sass</code>，经常会有<code>python</code>版本安装问题，也有和<code>node版本</code>是否和<code>node-sass</code>版本有关联关系，还强制安装NET Framework版本，总而言之会出现各种问题，尤其是老项目居多…</p>
+<p><img src="http://img.blog.loli.wang/2024-01-08-draksass/01.jpg" alt="切图1"></p>
+<h3 id="什么是dart-sass">什么是Dart Sass</h3>
+<p><code>Dart Sass</code> 是官方力推的 <code>sass</code> 继任者。官网主推项目，用来替代<code>node-sass</code>，由<code>dart</code>开发，对css新特性支持的更加全面，最大的好处是没有<code>node版本之间的依赖关系</code>。</p>
+<h3 id="node-sass-和-dart-sass的区别">node-sass 和 dart-sass的区别</h3>
+<ul>
+<li>node-sass
+node-sass 是顺应前端工程化而出现的node包，是使用c++实现的libSass的封装，因为使用c++编译，所以速度比较快，前期支撑住了前端工程化的潮流。前端工程化项目的大功臣，遗留缺点有很多，比如硬性要求对应node版本之类的奇怪的错误</li>
+<li>dart-sass
+dart-sass 是基于dart开发的，他的速度更快， 更易于安装，并且可以编译成纯JavaScript，并且对css新特性获得了更好的支持</li>
+</ul>
+<h3 id="总结">总结</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">后面使用预处理器，直接使用dart-sass啦。毕竟要适应新的时代</span></span></code></pre>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/dart-sass" class="tag" title="dart-sass">dart-sass</a><a href="/tags/node-sass" class="tag" title="node-sass">node-sass</a><a href="/tags/区别" class="tag" title="区别">区别</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>

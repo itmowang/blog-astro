@@ -1,7 +1,7 @@
 ---
 title: "简单使用 tsup 进行打包"
 description: "简单使用 tsup 进行打包"
-pubDate: "2023-12-27  23:27:24"
+pubDate: "2023-12-30  23:27:24"
 heroImage: "http://img.blog.loli.wang/2023-12-30-tsup/01.png"
 tags:
     - tsup
