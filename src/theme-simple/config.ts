@@ -53,6 +53,12 @@ export const config = {
             name:"Logic",
             desc:"1111111"
         },
+        {
+            icon:"https://gravatar.fghrsh.net/avatar/0c5d77513a08b8c3e38336859b53b027?s=80&d=mm&r=G",
+            href:"https://www.fghrsh.net/",
+            name:"FGHRSH 的博客",
+            desc:"1111111"
+        },
 
     ],
     linkInfo:{

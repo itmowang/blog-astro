@@ -34,7 +34,7 @@ const pagination = config.func.getPagination(allPost.length, config.opt.postsSiz
 
                             <article class="post-item">
                                 <div class="left">
-                                    <a href={`/blog/${post.slug}/`} title={post.data.title}>
+                                    <a href={`/blog/${post.slug}/index.html`} title={post.data.title}>
                                         <h2 class="post-title">
                                             {post.data.title}
                                         </h2>
@@ -51,7 +51,7 @@ const pagination = config.func.getPagination(allPost.length, config.opt.postsSiz
                                     </div>
                                 </div>
                                 {post.data.heroImage && (
-                                    <a class="right" href={`/blog/${post.slug}/`} title={post.data.title}>
+                                    <a class="right" href={`/blog/${post.slug}/index.html`} title={post.data.title}>
                                         <div
                                             class="feature-container"
                                             style={`background-image: url('${post.data.heroImage}');`}

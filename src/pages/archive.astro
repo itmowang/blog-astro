@@ -32,7 +32,7 @@ const posts = (await getCollection("blog")).sort(config.func.sortPosts);
                             posts.map((post) => (
                                 <article class="post">
                                     <a
-                                        href={`/blog/${post.slug}/`}
+                                        href={`/blog/${post.slug}/index.html`}
                                         title={post.data.title}
                                     >
                                         <h2 class="post-title">
