@@ -1,1 +1,0 @@
-import"./hoisted.eeacada9.js";const t=document.getElementById("wechatIcon"),e=document.getElementById("wechatModal");function c(){e&&(e.style.display="block")}function o(){e&&(e.style.display="none")}t&&t.addEventListener("click",c);window.addEventListener("click",function(n){n.target===e&&o()});

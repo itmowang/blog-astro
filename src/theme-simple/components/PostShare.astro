@@ -1,51 +1,84 @@
 ---
-const { title,heroImage } = Astro.props;
+const { title, heroImage } = Astro.props;
 import { config } from "@/theme-simple/config";
-const {site} = config
-const {func}  = config
-const url = Astro.url
-
+const { site } = config;
+const { func } = config;
+const url = Astro.url;
 ---
 
 <div class="postShare">
-    <div>
-        <div class="postShare-List" >
-            分享本文 :
-            <a href={`http://service.weibo.com/share/share.php?url=${url}&title=${title} - ${site.title}&pic=${heroImage}`}  target="_blank"> <i class={`iconfont icon-xinlang`} style={`color:#ff763b`}></i></a>
-            <a  id="wechatIcon" > <i class={`iconfont icon-weichat`} style={`color:#33b045`} ></i></a>
-            <a href={`https://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${title} - ${site.title}&source=${title} - ${site.title}&desc=${site.description}&pics=${heroImage}`} target="_blank"> <i class={`iconfont icon-QQ`} style={`color:#56b6e7`}></i></a>
-            <a href={``} target="_blank"> <i class={`iconfont icon-facebook`} style={`color:#44619D`}></i></a>
-            <a href={``} target="_blank"> <i class={`iconfont icon-fenxiang1`} style={`color:#33b045`}></i></a>
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a
+        href={`http://service.weibo.com/share/share.php?url=${url}&title=${title} - ${site.title}&pic=${heroImage}`}
+        target="_blank"
+      >
+        <i class={`iconfont icon-xinlang`} style={`color:#ff763b`}></i></a
+      >
+      <div class="wechat-container">
+        <a href="#">
+          <i
+            id="wechatIcon"
+            class={`iconfont icon-weichat`}
+            style={`color:#33b045`}></i></a
+        >
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
         </div>
+      </div>
+      <a
+        href={`https://connect.qq.com/widget/shareqq/index.html?url=${url}&title=${title} - ${site.title}&source=${title} - ${site.title}&desc=${site.description}&pics=${heroImage}`}
+        target="_blank"
+      >
+        <i class={`iconfont icon-QQ`} style={`color:#56b6e7`}></i></a
+      >
+      <a href={``} target="_blank">
+        <i class={`iconfont icon-facebook`} style={`color:#44619D`}></i></a
+      >
+      <a href={``} target="_blank">
+        <i class={`iconfont icon-fenxiang1`} style={`color:#33b045`}></i></a
+      >
     </div>
-</div>
-
-<div class="modal" id="wechatModal">
-    分享到wx
-    <button onclick="closeWechatModal()">Close</button>
+  </div>
 </div>
 
 <script>
-    const wechatIcon = document.getElementById('wechatIcon');
-    const wechatModal = document.getElementById('wechatModal');
+  
 
-    // Function to open the WeChat modal
-    function openWechatModal() {
-        wechatModal && (wechatModal.style.display = 'block');
-    }
+  document.addEventListener("DOMContentLoaded", function () {
+    const wechatIcon = document.getElementById("wechatIcon");
+    const wechatDropdown = document.getElementById("wechatDropdown");
 
-    // Function to close the WeChat modal
-    function closeWechatModal() {
-        wechatModal && (wechatModal.style.display = 'none');
-    }
-
-    // Add a click event listener to the WeChat icon
-    wechatIcon && wechatIcon.addEventListener('click', openWechatModal);
-
-    // Add a click event listener to close the modal if clicked outside of it
-    window.addEventListener('click', function(event) {
-        if (event.target === wechatModal) {
-            closeWechatModal();
-        }
+    // Show dropdown on click
+    wechatIcon?.addEventListener("click", function (event) {
+      event.stopPropagation();
+      wechatDropdown &&
+        (wechatDropdown.style.display =
+          wechatDropdown.style.display === "block" ? "none" : "block");
     });
+
+    // Hide dropdown when clicking outside the dropdown
+    document.addEventListener("click", function (event: any) {
+      if (
+        !wechatIcon?.contains(event.target) &&
+        !wechatDropdown?.contains(event.target)
+      ) {
+        wechatDropdown && (wechatDropdown.style.display = "none");
+      }
+    });
+
+    // Keep dropdown visible on hover
+    wechatDropdown?.addEventListener("mouseenter", function () {
+      wechatDropdown.style.display = "block";
+    });
+
+    // Hide dropdown on mouse leave
+    wechatDropdown?.addEventListener("mouseleave", function () {
+      wechatDropdown.style.display = "none";
+    });
+  });
 </script>
