@@ -58,4 +58,4 @@ const Todo: TodoNewPreView = {
 
 ### 相关文档
 
-[SWC - 官方文档](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)
+[typescriptlang](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys)

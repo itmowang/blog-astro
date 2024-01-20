@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-01-20-typescriptuitls/doc/">
+
+<!-- Primary Meta Tags -->
+<title>TS 中的常用类型 (经常需要使用的) - 魔王の博客</title>
+<meta name="title" content="TS 中的常用类型 (经常需要使用的) - 魔王の博客">
+<meta name="description" content="TS 中的常用类型 (经常需要使用的)">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-01-20-typescriptuitls/doc/">
+<meta property="og:title" content="TS 中的常用类型 (经常需要使用的) - 魔王の博客">
+<meta property="og:description" content="TS 中的常用类型 (经常需要使用的)">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-01-20-typescriptuitls/doc/">
+<meta property="twitter:title" content="TS 中的常用类型 (经常需要使用的) - 魔王の博客">
+<meta property="twitter:description" content="TS 中的常用类型 (经常需要使用的)">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png">
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.c41d9641.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">TS 中的常用类型 (经常需要使用的)</h2>
+    <div class="post-date">
+        <time datetime="2024-01-20T15:27:24.000Z">2024-01-20 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-01-20-typescriptuitls/doc/&#38;title=TS 中的常用类型 (经常需要使用的) - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-01-20-typescriptuitls/doc/&#38;title=TS 中的常用类型 (经常需要使用的) - 魔王の博客&#38;source=TS 中的常用类型 (经常需要使用的) - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="前言">前言</h3>
+<p>本篇介绍的是 Typescript 中经常使用的一些类型,这些类型一般都是做一个项目中经常需要用上的.</p>
+<h3 id="required">Required<type></type></h3>
+<p>将类型<code>非必填</code>改为<code>必填</code></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">username</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">age</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">address</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 正常使用情况</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todo</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 整个类型都必须填写</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todoa</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Required</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 配合Pick(选取) 选取单个属性必须填写</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todob</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Required</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Pick</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"username"</span><span style="color: #E1E4E8">>> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {};</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typescriptUitls/01.png" alt="切图1"></p>
+<h3 id="readonly">Readonly<type></type></h3>
+<p>将类型改为<code>只读</code>,类型中所有属性都无法被重新分配</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">title</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color: #6A737D">// todo 改为了只读属性</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todo</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Readonly</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    title: </span><span style="color: #9ECBFF">"魔王Blog - 一个前端程序员的个人博客"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 如果重新分配将会报错</span></span>
+<span class="line"><span style="color: #E1E4E8">todo.title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"魔王Blog - 一个前端程序员的个人博客"</span><span style="color: #E1E4E8">;</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typescriptUitls/02.png" alt="切图2"></p>
+<h3 id="recordkeys-type">Record&#x3C;Keys, Type></h3>
+<p>构建一个<code>对象类型</code> ,属性键名为<code>Keys</code>,属性值为<code>Type</code></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// 简单实用 对象结构为 key value 并且类型都为string</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">value</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Record</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    name: </span><span style="color: #9ECBFF">"魔王"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    age: </span><span style="color: #9ECBFF">"18"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    address: </span><span style="color: #9ECBFF">"地狱"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Info</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">name</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">age</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">address</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CityName</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"北京"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"上海"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"广州"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"深圳"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 复杂实用 对象结构为 key value 并且类型都为Info 且key只能为CityName</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">info</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Record</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">CityName</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">Info</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    北京: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        name: </span><span style="color: #9ECBFF">"魔王"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        age: </span><span style="color: #79B8FF">18</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        address: </span><span style="color: #9ECBFF">"地狱"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">    上海: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        name: </span><span style="color: #9ECBFF">"魔王"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        age: </span><span style="color: #79B8FF">18</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        address: </span><span style="color: #9ECBFF">"地狱"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">    广州: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        name: </span><span style="color: #9ECBFF">"魔王"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        age: </span><span style="color: #79B8FF">18</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        address: </span><span style="color: #9ECBFF">"地狱"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">    深圳: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        name: </span><span style="color: #9ECBFF">"魔王"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        age: </span><span style="color: #79B8FF">18</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        address: </span><span style="color: #9ECBFF">"地狱"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typescriptUitls/03.png" alt="切图3"></p>
+<h3 id="pick选取选择-看上一篇文章">Pick(选取,选择) 看上一篇文章</h3>
+<p><a href="https://blog.loli.wang/blog/2024-01-18-tspickomit/doc/index.html">https://blog.loli.wang/blog/2024-01-18-tspickomit/doc/index.html</a></p>
+<h3 id="omit排除-上一篇文章">Omit(排除) 上一篇文章</h3>
+<p><a href="https://blog.loli.wang/blog/2024-01-18-tspickomit/doc/index.html">https://blog.loli.wang/blog/2024-01-18-tspickomit/doc/index.html</a></p>
+<h3 id="excludeuniontype-excludedmembers-排除联合类型中指定类型">Exclude&#x3C;UnionType, ExcludedMembers> (排除联合类型中指定类型)</h3>
+<p>Exclude 是一个工具类型,用于<code>排除</code> <code>联合类型</code>指定的类型,得到新的类型</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// 原始联合类型</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CityName</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"北京"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"上海"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"广州"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"深圳"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 通过Exclude排除类型 '北京' | '上海'  得到新的联合类型</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">City</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Exclude</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">CityName</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"北京"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"上海"</span><span style="color: #E1E4E8">>;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 如果实用原有的联合类型已排除过的 会报错</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">city</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">City</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"北京"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 如果使用未排除的联合类型 会正常</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">cityName</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CityName</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"北京"</span><span style="color: #E1E4E8">;</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typescriptUitls/04.png" alt="切图4"></p>
+<p>如果联合类型比较复杂 是对象类型的,也同样</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Shape</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> { </span><span style="color: #FFAB70">kind</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"circle"</span><span style="color: #E1E4E8">; </span><span style="color: #FFAB70">radius</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8"> }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> { </span><span style="color: #FFAB70">kind</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"square"</span><span style="color: #E1E4E8">; </span><span style="color: #FFAB70">x</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8"> }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> { </span><span style="color: #FFAB70">kind</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"triangle"</span><span style="color: #E1E4E8">; </span><span style="color: #FFAB70">x</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">; </span><span style="color: #FFAB70">y</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8"> };</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">T3</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Exclude</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Shape</span><span style="color: #E1E4E8">, { </span><span style="color: #FFAB70">kind</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"circle"</span><span style="color: #E1E4E8"> }></span></span></code></pre>
+<h3 id="returntype">ReturnType<type></type></h3>
+<p>构造一个由 <code>function</code> 的返回的数据组成的<code>类型</code>, 用来指定函数返回的数据类型为什么格式</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// 指定返回值类型为 string</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Fun</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ReturnType</span><span style="color: #E1E4E8">&#x3C;() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 正常写法</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">fn</span><span style="color: #E1E4E8">()</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Fun</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"123"</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 错误写法</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">fn2</span><span style="color: #E1E4E8">()</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Fun</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">123</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 指定返回值类型为对象</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Fun2</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ReturnType</span><span style="color: #E1E4E8">&#x3C;()</span><span style="color: #F97583">=></span><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">name</span><span style="color: #F97583">:</span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">age</span><span style="color: #F97583">:</span><span style="color: #79B8FF">number</span></span>
+<span class="line"><span style="color: #E1E4E8">}></span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 正常写法</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">fn3</span><span style="color: #E1E4E8">()</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Fun2</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    name:</span><span style="color: #9ECBFF">"123"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    age:</span><span style="color: #79B8FF">123</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typescriptUitls/05.png" alt="切图5"></p>
+<h3 id="字符串操作类型">字符串操作类型</h3>
+<h4 id="uppercase">Uppercase<stringtype></stringtype></h4>
+<p>用于将字符串类型的所有字符转换为大写。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">UppercaseString</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Uppercase</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #9ECBFF">'hello'</span><span style="color: #E1E4E8">>; </span><span style="color: #6A737D">// 类型为 'HELLO'</span></span></code></pre>
+<h4 id="lowercase">Lowercase<stringtype></stringtype></h4>
+<p>用于将字符串类型的所有字符转换为小写。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">LowercaseString</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Lowercase</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #9ECBFF">'WORLD'</span><span style="color: #E1E4E8">>; </span><span style="color: #6A737D">// 类型为 'world'</span></span></code></pre>
+<h4 id="capitalize">Capitalize<stringtype></stringtype></h4>
+<p>用于将字符串类型的首字母转换为大写。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CapitalizedString</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Capitalize</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #9ECBFF">'typescript'</span><span style="color: #E1E4E8">>; </span><span style="color: #6A737D">// 类型为 'Typescript'</span></span></code></pre>
+<h4 id="uncapitalize">Uncapitalize<stringtype></stringtype></h4>
+<p>用于将字符串类型的首字母转换为小写。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">UncapitalizedString</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Uncapitalize</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #9ECBFF">'JavaScript'</span><span style="color: #E1E4E8">>; </span><span style="color: #6A737D">// 类型为 'javaScript'</span></span>
+<span class="line"></span></code></pre>
+<h4 id="相关参考文档">相关参考文档</h4>
+<h3 id="相关文档">相关文档</h3>
+<p><a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys">typescriptlang</a></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/TS 中的常用类型" class="tag" title="TS 中的常用类型">TS 中的常用类型</a><a href="/tags/Typescript" class="tag" title="Typescript">Typescript</a><a href="/tags/前端进阶" class="tag" title="前端进阶">前端进阶</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
