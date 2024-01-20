@@ -53,7 +53,6 @@ const url = Astro.url;
     const wechatIcon = document.getElementById("wechatIcon");
     const wechatDropdown = document.getElementById("wechatDropdown");
 
-    // Show dropdown on click
     wechatIcon?.addEventListener("click", function (event) {
       event.stopPropagation();
       wechatDropdown &&
@@ -61,7 +60,6 @@ const url = Astro.url;
           wechatDropdown.style.display === "block" ? "none" : "block");
     });
 
-    // Hide dropdown when clicking outside the dropdown
     document.addEventListener("click", function (event: any) {
       if (
         !wechatIcon?.contains(event.target) &&
@@ -71,12 +69,10 @@ const url = Astro.url;
       }
     });
 
-    // Keep dropdown visible on hover
     wechatDropdown?.addEventListener("mouseenter", function () {
       wechatDropdown.style.display = "block";
     });
 
-    // Hide dropdown on mouse leave
     wechatDropdown?.addEventListener("mouseleave", function () {
       wechatDropdown.style.display = "none";
     });
