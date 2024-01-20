@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-01-20-typeofkeyof/doc/">
+
+<!-- Primary Meta Tags -->
+<title>TS 中 keyof 和 typeof - 魔王の博客</title>
+<meta name="title" content="TS 中 keyof 和 typeof - 魔王の博客">
+<meta name="description" content="TS 中 keyof 和 typeof">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-01-20-typeofkeyof/doc/">
+<meta property="og:title" content="TS 中 keyof 和 typeof - 魔王の博客">
+<meta property="og:description" content="TS 中 keyof 和 typeof">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-01-20-typeofkeyof/doc/">
+<meta property="twitter:title" content="TS 中 keyof 和 typeof - 魔王の博客">
+<meta property="twitter:description" content="TS 中 keyof 和 typeof">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png">
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.c41d9641.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">TS 中 keyof 和 typeof</h2>
+    <div class="post-date">
+        <time datetime="2024-01-21T15:27:24.000Z">2024-01-21 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-01-20-typeofkeyof/doc/&#38;title=TS 中 keyof 和 typeof - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-01-20-typeofkeyof/doc/&#38;title=TS 中 keyof 和 typeof - 魔王の博客&#38;source=TS 中 keyof 和 typeof - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-01-18-tspickomit/bg.png');"></div>
+    <div class="post-content">
+        
+            <h3 id="keyof">keyof</h3>
+<p><code>keyof</code> 是一个类型操作符, 用于获取一个类型所有的键值(属性名的)联合类型</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Todo</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">name</span><span style="color: #F97583">:</span><span style="color: #79B8FF">string</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">age</span><span style="color: #F97583">:</span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">address</span><span style="color: #F97583">:</span><span style="color: #79B8FF">string</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 通过keyof 获取类型的key</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">todoKeys</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">keyof</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Todo</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 获得类型的key</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todoKeys</span><span style="color: #F97583">:</span><span style="color: #B392F0">todoKeys</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'name'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// todoKeys的类型为 'naem' | 'age' | 'address'</span></span>
+<span class="line"></span></code></pre>
+<h2 id="typeof">typeof</h2>
+<p><code>typeof</code> 是一个是一个类型查询操作符,用于获取一个值,或者表达式,用于获取已有数据的数据类型</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">todo</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  title: </span><span style="color: #9ECBFF">'Todo'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  dataIndex: </span><span style="color: #9ECBFF">'todo'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  key: </span><span style="color: #9ECBFF">'todo'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 等于复制了 todo 的类型</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">TodoType</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> todo</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-01-20-typeofkeyof/01.png" alt="切图1"></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/keyof" class="tag" title="keyof">keyof</a><a href="/tags/typeof" class="tag" title="typeof">typeof</a><a href="/tags/Typescript" class="tag" title="Typescript">Typescript</a><a href="/tags/前端进阶" class="tag" title="前端进阶">前端进阶</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
