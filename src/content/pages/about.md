@@ -18,32 +18,18 @@ tags: []
 技能：
   - 写前端的，擅长 Vue、React, 会不少新热门的东西，但是设计比老师还烂;
   - 比较喜欢写 Node 程序，写过一些自用的系统，会 Koa2、Mysql、Prisma... 等 ；
-  - 以前做过服务器运营商，对服务器相关比较熟悉，会一点 CICD、Directadmin、linux、VPS等相关的东西 有点杂 ;
+  - 以前开过服务器销售网站 熟悉whmcs,clientexec等销售系统,并熟悉esxi,ovz,kvm虚拟机工具;
 ```
 
 <!--more-->
 
 ## 哪儿能找到我
 
-Github：[https://github.com/itmowang](https://github.com/itmowang " 魔王，应该有魔王的姿态 ")
+Github：[https://github.com/itmowang](https://github.com/itmowang "魔王，应该有魔王的姿态 ")
 
 QQ: 1531780018
 
-   
 
 
-## 待办事项
-❌ JavaScript - 集合引用类型 new WeakMap (ES6 新特性)    
-❌ JavaScript - Proxy    
-❌ diff 算法   
-❌ diff 算法   
-
-
-
-
-## 已完成
-✅ JavaScript 之 Reflect      
-✅ 怎样有一个自己的CLI工具     
-✅ css新单位dvh，svh 解释      
-✅ JSAPI Web Works   
-✅ 一个脚手架从0-1的历程      
+### 下一步准备去做什么
+....
