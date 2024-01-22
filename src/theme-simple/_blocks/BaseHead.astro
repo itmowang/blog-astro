@@ -55,6 +55,7 @@ switch (favInfo.ext) {
 
 <!-- Primary Meta Tags -->
 <title>{titleText}</title>
+
 <meta name="title" content={titleText} />
 <meta name="description" content={description} />
 
@@ -71,3 +72,14 @@ switch (favInfo.ext) {
 <meta property="twitter:title" content={titleText} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RH0BZRF88N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RH0BZRF88N');
+</script>
