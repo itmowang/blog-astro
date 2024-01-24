@@ -1,7 +1,7 @@
 ---
 title: "Vue3 打包组件库出错 Cannot read properties of null (reading 'isCE')"
 description: "Vue3 打包组件库出错 Cannot read properties of null (reading 'isCE')"
-pubDate: "2024-01-20  23:27:24"
+pubDate: "2024-01-24  23:27:24"
 heroImage: "http://img.blog.loli.wang/2024-01-24-vueComponentsErrorIsCe/01.png"
 tags:
     - Vue3
