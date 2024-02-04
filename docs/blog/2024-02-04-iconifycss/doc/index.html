@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-02-04-iconifycss/doc/">
+
+<!-- Primary Meta Tags -->
+<title>tailwindcss中iconify的使用 - 魔王の博客</title>
+
+<meta name="title" content="tailwindcss中iconify的使用 - 魔王の博客">
+<meta name="description" content="iconify的使用">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-02-04-iconifycss/doc/">
+<meta property="og:title" content="tailwindcss中iconify的使用 - 魔王の博客">
+<meta property="og:description" content="iconify的使用">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-02-04-iconifycss/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-02-04-iconifycss/doc/">
+<meta property="twitter:title" content="tailwindcss中iconify的使用 - 魔王の博客">
+<meta property="twitter:description" content="iconify的使用">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-02-04-iconifycss/01.png">
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RH0BZRF88N"></script>
+
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.12906087.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">tailwindcss中iconify的使用</h2>
+    <div class="post-date">
+        <time datetime="2024-02-04T15:27:24.000Z">2024-02-04 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-02-04-iconifycss/doc/&#38;title=tailwindcss中iconify的使用 - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-02-04-iconifycss/01.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-02-04-iconifycss/doc/&#38;title=tailwindcss中iconify的使用 - 魔王の博客&#38;source=tailwindcss中iconify的使用 - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-02-04-iconifycss/01.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-02-04-iconifycss/01.png');"></div>
+    <div class="post-content">
+        
+            <h2 id="起因">起因</h2>
+<p>最近正在业余时间编写 Vue 的组件库, 设计完按钮组件后正准备设计 Icon 组件，看大佬 antfu 巨佬的开源的 iconify 组件库，发现 iconify 的使用方法和我之前使用的 iconfont、font-awesome 等图标库的使用方法完全一致，于是决定使用 iconify 来替换 iconfont、font-awesome 等图标库。</p>
+<h2 id="iconify-的介绍">iconify 的介绍</h2>
+<p>iconify 是基于 SVG 的图标库，可以使用 iconify 来替换 iconfont、font-awesome 等图标库。拥有市面上所有的流行图标库。</p>
+<h2 id="个人使用场景">个人使用场景</h2>
+<p><code>tailwindcss</code> 和 <code>vue3</code></p>
+<h2 id="使用">使用</h2>
+<p>安装</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@iconify-json/mdi-light</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--D</span></span></code></pre>
+<p>安装 tailwind 插件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@iconify/tailwind</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-D</span></span></code></pre>
+<p>tailwindcss 中使用</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">import { addDynamicIconSelectors } from '@iconify/tailwind'</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">{</span></span>
+<span class="line"><span style="color: #e1e4e8">    "plugins": [</span></span>
+<span class="line"><span style="color: #e1e4e8">        addDynamicIconSelectors()</span></span>
+<span class="line"><span style="color: #e1e4e8">    ]</span></span>
+<span class="line"><span style="color: #e1e4e8">}</span></span></code></pre>
+<p>代码中使用</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #E1E4E8"> &#x3C;</span><span style="color: #85E89D">span</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">class</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"icon-[mdi-light--home]"</span><span style="color: #E1E4E8"> /></span></span>
+<span class="line"></span></code></pre>
+<p>成功演示</p>
+<p><img src="http://img.blog.loli.wang/2024-02-04-iconifycss/02.png" alt="切图2"></p>
+<h2 id="相关资料">相关资料</h2>
+<p><a href="https://iconify.design/">iconify 官方文档</a>
+<a href="https://github.com/iconify/iconify/tree/main/plugins/tailwind">tailwindcss 如何使用 入口文档</a></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/iconify" class="tag" title="iconify">iconify</a><a href="/tags/Vue3 使用 iconify" class="tag" title="Vue3 使用 iconify">Vue3 使用 iconify</a><a href="/tags/前端进阶" class="tag" title="前端进阶">前端进阶</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
