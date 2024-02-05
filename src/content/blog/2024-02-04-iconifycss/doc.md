@@ -11,7 +11,7 @@ tags:
 
 ## 起因
 
-最近正在业余时间编写 Vue 的组件库, 设计完按钮组件后正准备设计 Icon 组件，看大佬 antfu 巨佬的开源的 iconify 组件库，发现 iconify 的使用方法和我之前使用的 iconfont、font-awesome 等图标库的使用方法完全一致，于是决定使用 iconify 来替换 iconfont、font-awesome 等图标库。
+最近正在业余时间编写 Vue 的组件库, 设计完按钮组件后正准备设计 Icon 组件，看大佬 antfu 巨佬的支持过的 iconify 组件库，发现 iconify 的使用方法和我之前使用的 iconfont、font-awesome 等图标库的使用方法完全一致，于是决定使用 iconify 来替换 iconfont、font-awesome 等图标库。
 
 ## iconify 的介绍
 
@@ -59,6 +59,16 @@ import { addDynamicIconSelectors } from '@iconify/tailwind'
 成功演示 
 
 ![切图2](http://img.blog.loli.wang/2024-02-04-iconifycss/02.png)
+
+
+### 如果你不喜欢 tailwindcss 的插件，也可以使用原生的代码或者vue代码使用
+
+```jsx
+// vue代码
+import { Icon } from '@iconify/vue'
+
+<Icon icon="mdi-light:home" />
+```
 
 
 ## 相关资料

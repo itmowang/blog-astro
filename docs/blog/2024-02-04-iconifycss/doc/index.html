@@ -108,7 +108,7 @@
     <div class="post-content">
         
             <h2 id="起因">起因</h2>
-<p>最近正在业余时间编写 Vue 的组件库, 设计完按钮组件后正准备设计 Icon 组件，看大佬 antfu 巨佬的开源的 iconify 组件库，发现 iconify 的使用方法和我之前使用的 iconfont、font-awesome 等图标库的使用方法完全一致，于是决定使用 iconify 来替换 iconfont、font-awesome 等图标库。</p>
+<p>最近正在业余时间编写 Vue 的组件库, 设计完按钮组件后正准备设计 Icon 组件，看大佬 antfu 巨佬的支持过的 iconify 组件库，发现 iconify 的使用方法和我之前使用的 iconfont、font-awesome 等图标库的使用方法完全一致，于是决定使用 iconify 来替换 iconfont、font-awesome 等图标库。</p>
 <h2 id="iconify-的介绍">iconify 的介绍</h2>
 <p>iconify 是基于 SVG 的图标库，可以使用 iconify 来替换 iconfont、font-awesome 等图标库。拥有市面上所有的流行图标库。</p>
 <h2 id="个人使用场景">个人使用场景</h2>
@@ -132,6 +132,11 @@
 <span class="line"></span></code></pre>
 <p>成功演示</p>
 <p><img src="http://img.blog.loli.wang/2024-02-04-iconifycss/02.png" alt="切图2"></p>
+<h3 id="如果你不喜欢-tailwindcss-的插件也可以使用原生的代码或者vue代码使用">如果你不喜欢 tailwindcss 的插件，也可以使用原生的代码或者vue代码使用</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// vue代码</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Icon } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@iconify/vue'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">Icon</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">icon</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"mdi-light:home"</span><span style="color: #E1E4E8"> /></span></span></code></pre>
 <h2 id="相关资料">相关资料</h2>
 <p><a href="https://iconify.design/">iconify 官方文档</a>
 <a href="https://github.com/iconify/iconify/tree/main/plugins/tailwind">tailwindcss 如何使用 入口文档</a></p>
