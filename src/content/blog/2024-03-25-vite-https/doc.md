@@ -2,7 +2,7 @@
 title: "Windows情况下，Vite配置https证书"
 description: "Windows情况下，Vite配置https证书"
 pubDate: "2024-03-25  23:27:24"
-heroImage: "http://img.blog.loli.wang/2024-02-04-iconifycss/01.png"
+heroImage: "http://img.blog.loli.wang/2024-03-25-vite-https/13.png"
 tags:
     - vite
     - Windows情况下，Vite配置https证书
@@ -19,7 +19,7 @@ tags:
 crypto.randomUUID()
 ```
 
-![切图1](http://imglife.blog.loli.wang/2024-03-25-vite-https/01.png)
+![切图1](http://img.blog.loli.wang/2024-03-25-vite-https/01.png)
 
 我只是生成个UUID，有什么问题？？？
 
@@ -28,7 +28,7 @@ crypto.randomUUID()
 打开MDN 翻看API兼容程度，以及正常的使用操作
 
 tips
-![切图2](http://imglife.blog.loli.wang/2024-03-25-vite-https/02.png)
+![切图2](http://img.blog.loli.wang/2024-03-25-vite-https/02.png)
 
 我明白了问题所在，但是又不想使用第三方库，考虑在本地配置下Https
 
@@ -80,14 +80,14 @@ mkcert create-ca
 
 mkcert create-cert --domains localhost 127.0.0.1 192.168.0.61
 ```
-![切图3](http://imglife.blog.loli.wang/2024-03-25-vite-https/03.png) 
+![切图3](http://img.blog.loli.wang/2024-03-25-vite-https/03.png) 
 
 ##  windows 安装证书
 
 打开 cert文件夹 ，双击ca.crt 和 cert.crt , 点开后选择 **"安装证书"**
 
-![切图4](http://imglife.blog.loli.wang/2024-03-25-vite-https/04.png) 
-![切图5](http://imglife.blog.loli.wang/2024-03-25-vite-https/05.png) 
+![切图4](http://img.blog.loli.wang/2024-03-25-vite-https/04.png) 
+![切图5](http://img.blog.loli.wang/2024-03-25-vite-https/05.png) 
 
 
 但是看我们生成的证书 windows 还是不受信任的，我们需要将此证书启用信任
@@ -100,24 +100,24 @@ mkcert create-cert --domains localhost 127.0.0.1 192.168.0.61
 
 选择 左上角 "文件"，选择管理或删除管理单元
 
-![切图6](http://imglife.blog.loli.wang/2024-03-25-vite-https/06.png) 
+![切图6](http://img.blog.loli.wang/2024-03-25-vite-https/06.png) 
 
 在 **"管理或删除管理单元"** 选择证书，并**添加证书**，回到**mmc**控制台
 
-![切图7](http://imglife.blog.loli.wang/2024-03-25-vite-https/07.png) 
+![切图7](http://img.blog.loli.wang/2024-03-25-vite-https/07.png) 
 
-![切图8](http://imglife.blog.loli.wang/2024-03-25-vite-https/08.png) 
+![切图8](http://img.blog.loli.wang/2024-03-25-vite-https/08.png) 
 
 选择 **受信任的根证书颁发机构**，然后选择**证书**, 右键选择**任务**， 导入我们项目文件里的证书
 
 
-![切图9](http://imglife.blog.loli.wang/2024-03-25-vite-https/09.png) 
+![切图9](http://img.blog.loli.wang/2024-03-25-vite-https/09.png) 
 
-![切图10](http://imglife.blog.loli.wang/2024-03-25-vite-https/10.png) 
+![切图10](http://img.blog.loli.wang/2024-03-25-vite-https/10.png) 
 
 接下来就重回上面的步骤 双击ca.crt 和 cert.crt ，然后点击安装证书，可以看到当前证书是受信任的了，导入选择 **本地计算机**
 
-![切图11](http://imglife.blog.loli.wang/2024-03-25-vite-https/11.png) 
+![切图11](http://img.blog.loli.wang/2024-03-25-vite-https/11.png) 
 
 
 
@@ -137,13 +137,13 @@ server: {
 
 
 
-![切图12](http://imglife.blog.loli.wang/2024-03-25-vite-https/12.png)
+![切图12](http://img.blog.loli.wang/2024-03-25-vite-https/12.png)
 
 
 验证成功
 
-![切图13](http://imglife.blog.loli.wang/2024-03-25-vite-https/13.png)
-![切图14](http://imglife.blog.loli.wang/2024-03-25-vite-https/14.png)
+![切图13](http://img.blog.loli.wang/2024-03-25-vite-https/13.png)
+![切图14](http://img.blog.loli.wang/2024-03-25-vite-https/14.png)
 
 
 ### 后续。

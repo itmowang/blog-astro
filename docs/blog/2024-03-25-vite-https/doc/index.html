@@ -21,14 +21,14 @@
 <meta property="og:url" content="https://blog.loli.wang/blog/2024-03-25-vite-https/doc/">
 <meta property="og:title" content="Windows情况下，Vite配置https证书 - 魔王の博客">
 <meta property="og:description" content="Windows情况下，Vite配置https证书">
-<meta property="og:image" content="http://img.blog.loli.wang/2024-02-04-iconifycss/01.png">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-03-25-vite-https/13.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://blog.loli.wang/blog/2024-03-25-vite-https/doc/">
 <meta property="twitter:title" content="Windows情况下，Vite配置https证书 - 魔王の博客">
 <meta property="twitter:description" content="Windows情况下，Vite配置https证书">
-<meta property="twitter:image" content="http://img.blog.loli.wang/2024-02-04-iconifycss/01.png">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-03-25-vite-https/13.png">
 
 
 <!-- Google tag (gtag.js) -->
@@ -82,7 +82,7 @@
   <div>
     <div class="postShare-List">
       分享本文 :
-      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-03-25-vite-https/doc/&#38;title=Windows情况下，Vite配置https证书 - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-02-04-iconifycss/01.png" target="_blank">
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-03-25-vite-https/doc/&#38;title=Windows情况下，Vite配置https证书 - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-03-25-vite-https/13.png" target="_blank">
         <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
       <div class="wechat-container">
         <a href="#">
@@ -94,7 +94,7 @@
           <p>可在微信查看或分享至朋友圈。</p>
         </div>
       </div>
-      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-03-25-vite-https/doc/&#38;title=Windows情况下，Vite配置https证书 - 魔王の博客&#38;source=Windows情况下，Vite配置https证书 - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-02-04-iconifycss/01.png" target="_blank">
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-03-25-vite-https/doc/&#38;title=Windows情况下，Vite配置https证书 - 魔王の博客&#38;source=Windows情况下，Vite配置https证书 - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-03-25-vite-https/13.png" target="_blank">
         <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
       <a href="" target="_blank">
         <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
@@ -104,19 +104,19 @@
   </div>
 </div>
     </div>
-    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-02-04-iconifycss/01.png');"></div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-03-25-vite-https/13.png');"></div>
     <div class="post-content">
         
             <h1 id="出现问题">出现问题</h1>
 <p>和往常一样，工作日工作没做完，默默地的周六来公司加班修改项目代码，周末写没人打扰写代码真的是太爽了！，感觉一切顺顺利利没什么问题。下班走的时候还心里想像 <strong>我写的代码就是诗</strong></p>
 <p>直到周一，同事问我开发环境有BUG，我还在想我写的代码怎么可能会有Bug，迅速查看问题，发现问题</p>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">crypto.</span><span style="color: #B392F0">randomUUID</span><span style="color: #E1E4E8">()</span></span></code></pre>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/01.png" alt="切图1"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/01.png" alt="切图1"></p>
 <p>我只是生成个UUID，有什么问题？？？</p>
 <p>本地开发环境下看上去也没问题啊，我对我同事产生了质疑，我以为是他浏览器的问题，但是我发现开发环境没问题，发现localhost环境地址上确实没问题，内网地址上确实这个问题，</p>
 <p>打开MDN 翻看API兼容程度，以及正常的使用操作</p>
 <p>tips
-<img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/02.png" alt="切图2"></p>
+<img src="http://img.blog.loli.wang/2024-03-25-vite-https/02.png" alt="切图2"></p>
 <p>我明白了问题所在，但是又不想使用第三方库，考虑在本地配置下Https</p>
 <h2 id="vite-修改">vite 修改</h2>
 <p>Vite 默认使用的是http 需要修改下</p>
@@ -149,24 +149,24 @@
 <span class="line"><span style="color: #B392F0">mkcert</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">create-ca</span><span style="color: #E1E4E8"> </span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #B392F0">mkcert</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">create-cert</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--domains</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">localhost</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">127.0</span><span style="color: #9ECBFF">.0.1</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">192.168</span><span style="color: #9ECBFF">.0.61</span></span></code></pre>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/03.png" alt="切图3"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/03.png" alt="切图3"></p>
 <h2 id="windows-安装证书">windows 安装证书</h2>
 <p>打开 cert文件夹 ，双击ca.crt 和 cert.crt , 点开后选择 <strong>“安装证书”</strong></p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/04.png" alt="切图4">
-<img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/05.png" alt="切图5"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/04.png" alt="切图4">
+<img src="http://img.blog.loli.wang/2024-03-25-vite-https/05.png" alt="切图5"></p>
 <p>但是看我们生成的证书 windows 还是不受信任的，我们需要将此证书启用信任</p>
 <h3 id="windows-将ca证书启用信任">windows 将CA证书启用信任</h3>
 <p>使用 ” win+R ” 打开运行对话框。输入 “mmc” 然后回车</p>
 <p>选择 左上角 “文件”，选择管理或删除管理单元</p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/06.png" alt="切图6"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/06.png" alt="切图6"></p>
 <p>在 <strong>“管理或删除管理单元”</strong> 选择证书，并<strong>添加证书</strong>，回到<strong>mmc</strong>控制台</p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/07.png" alt="切图7"></p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/08.png" alt="切图8"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/07.png" alt="切图7"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/08.png" alt="切图8"></p>
 <p>选择 <strong>受信任的根证书颁发机构</strong>，然后选择<strong>证书</strong>, 右键选择<strong>任务</strong>， 导入我们项目文件里的证书</p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/09.png" alt="切图9"></p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/10.png" alt="切图10"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/09.png" alt="切图9"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/10.png" alt="切图10"></p>
 <p>接下来就重回上面的步骤 双击ca.crt 和 cert.crt ，然后点击安装证书，可以看到当前证书是受信任的了，导入选择 <strong>本地计算机</strong></p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/11.png" alt="切图11"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/11.png" alt="切图11"></p>
 <h3 id="vite中验证证书是否生效">vite中验证证书是否生效</h3>
 <p>修改 vite.config.ts</p>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">server</span><span style="color: #E1E4E8">: { </span></span>
@@ -176,10 +176,10 @@
 <span class="line"><span style="color: #E1E4E8"> },</span></span>
 <span class="line"><span style="color: #E1E4E8">}</span></span>
 <span class="line"></span></code></pre>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/12.png" alt="切图12"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/12.png" alt="切图12"></p>
 <p>验证成功</p>
-<p><img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/13.png" alt="切图13">
-<img src="http://imglife.blog.loli.wang/2024-03-25-vite-https/14.png" alt="切图14"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-25-vite-https/13.png" alt="切图13">
+<img src="http://img.blog.loli.wang/2024-03-25-vite-https/14.png" alt="切图14"></p>
 <h3 id="后续">后续。</h3>
 <p>虽然可以本地可以https了，但是去同事那边访问，也要去他那边导入证书 这样会显得很麻烦，因为是开发环境，做不了什么很好的操作，所以还是不用浏览器的生成 UUID的API了 。</p>
 <p>还有，如果是为了本地测试，并且是Vite的话，完全没必要使用 <strong>mkcert</strong> , 有相关的Vite插件。</p>
