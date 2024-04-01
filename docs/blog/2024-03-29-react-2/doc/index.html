@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-03-29-react-2/doc/">
+
+<!-- Primary Meta Tags -->
+<title>(使用一年React后的回顾) React 常用 Hooks - 魔王の博客</title>
+
+<meta name="title" content="(使用一年React后的回顾) React 常用 Hooks - 魔王の博客">
+<meta name="description" content="React 常用Hooks">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-03-29-react-2/doc/">
+<meta property="og:title" content="(使用一年React后的回顾) React 常用 Hooks - 魔王の博客">
+<meta property="og:description" content="React 常用Hooks">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-03-29-react-2/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-03-29-react-2/doc/">
+<meta property="twitter:title" content="(使用一年React后的回顾) React 常用 Hooks - 魔王の博客">
+<meta property="twitter:description" content="React 常用Hooks">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-03-29-react-2/01.png">
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RH0BZRF88N"></script>
+
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.12906087.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar">
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">(使用一年React后的回顾) React 常用 Hooks</h2>
+    <div class="post-date">
+        <time datetime="2024-03-25T15:27:24.000Z">2024-03-25 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-03-29-react-2/doc/&#38;title=(使用一年React后的回顾) React 常用 Hooks - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-03-29-react-2/01.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-03-29-react-2/doc/&#38;title=(使用一年React后的回顾) React 常用 Hooks - 魔王の博客&#38;source=(使用一年React后的回顾) React 常用 Hooks - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-03-29-react-2/01.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-03-29-react-2/01.png');"></div>
+    <div class="post-content">
+        
+            <h1 id="usestate">useState</h1>
+<p><strong>useState</strong> 是一个 React 的 hook ，它的作用是让你向组件添加一个状态变量。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> [</span><span style="color: #79B8FF">state</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">setState</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">useState</span><span style="color: #E1E4E8">(initialState);</span></span></code></pre>
+<p>useState 有两个参数</p>
+<ol>
+<li>useState 返回的第一个参数，为我们需要展示或者使用的最新的值</li>
+<li>useState 的第二个参数，这个函数是一个 set 函数，可以传入任意变量，让其 state 返回新的值。</li>
+</ol>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> [</span><span style="color: #79B8FF">num</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">setNum</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">useState</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">className</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"App"</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">onClick</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">setNum</span><span style="color: #E1E4E8">(num </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)}>{num}&#x3C;/</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h1 id="useeffect">useEffect</h1>
+<p>useEffect ，是副作用，副作用是指在组件在渲染期间发生的操作，如数据获取，订阅事件，手动操作 dom 等，在函数组件中，由于没有生命周期方法，我们无法再特定的时间执行这些操作，useEffect 正好解决了这个问题</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">async</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">getData</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Promise</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">resolve</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">reject</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">setTimeout</span><span style="color: #E1E4E8">(() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">666</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">        }, </span><span style="color: #79B8FF">3000</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    });</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> [</span><span style="color: #79B8FF">num</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">setNum</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">useState</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">useEffect</span><span style="color: #E1E4E8">(() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">getData</span><span style="color: #E1E4E8">().</span><span style="color: #B392F0">then</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">data</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">setNum</span><span style="color: #E1E4E8">(data);</span></span>
+<span class="line"><span style="color: #E1E4E8">        });</span></span>
+<span class="line"><span style="color: #E1E4E8">    }, []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">className</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"App"</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">onClick</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">setNum</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">prevNum</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> prevNum </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">)}></span></span>
+<span class="line"><span style="color: #E1E4E8">                {num}</span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;/</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h1 id="uselayouteffect">useLayoutEffect</h1>
+<p>在 react 中 useLayoutEffect 和 useEffect 是差不都的，在绝大多数情况下，但是事实上是有一定的区别</p>
+<p>useEffect 会在渲染内容更新到 dom 上后执行，不会阻塞 dom 的更新
+useLayoutEffect 会在渲染更新到 dom 之前就执行，会阻塞 dom 的更新</p>
+<h1 id="usereducer">useReducer</h1>
+<p>用 useState 是直接修改值，如果想在修改值之前，执行一些操作，可以使用 useReducer</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Data</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">result</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">interface</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Action</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">type</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'add'</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'minus'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">num</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">reducer</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">state</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Data</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">action</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Action</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">switch</span><span style="color: #E1E4E8"> (action.type) {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">case</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'add'</span><span style="color: #E1E4E8">:</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">          result: state.result </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> action.num</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">case</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'minus'</span><span style="color: #E1E4E8">:</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">          result: state.result </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> action.num</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> state</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> [</span><span style="color: #79B8FF">res</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">dispatch</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">useReducer</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Reducer</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">Data</span><span style="color: #E1E4E8">,</span><span style="color: #B392F0">Action</span><span style="color: #E1E4E8">>>(reducer, { result: </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8"> })</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">className</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"App"</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">      &#x3C;</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">onClick</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #B392F0">dispatch</span><span style="color: #E1E4E8">({ type: </span><span style="color: #9ECBFF">'add'</span><span style="color: #E1E4E8">, num: </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8"> })</span></span>
+<span class="line"><span style="color: #E1E4E8">      }}>{res.result }&#x3C;/</span><span style="color: #85E89D">button</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">  );</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">default</span><span style="color: #E1E4E8"> App;</span></span></code></pre>
+<h1 id="useref">useRef</h1>
+<p>useRef 用来获取 dom 节点，或者获取组件的实例</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">inputRef</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> useRef </span><span style="color: #F97583">&#x3C;</span><span style="color: #E1E4E8"> HTMLInputElement </span><span style="color: #F97583">></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">useEffect</span><span style="color: #E1E4E8">(() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">        inputRef.current?.</span><span style="color: #B392F0">focus</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"><span style="color: #E1E4E8">    }, []);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">className</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"App"</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;</span><span style="color: #85E89D">input</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">type</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">"text"</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ref</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{inputRef} /></span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h1 id="forwardref--useimperativehandle">forwardRef + useImperativeHandle</h1>
+<p>如果想把子组件的 ref 传递给父组件使用，可以使用 forwardRef 和 useImperativeHandle</p>
+<p>比如</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> React, { useRef } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"react"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"./App.css"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">childrenComponent</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">React</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">ForwardRefRenderFunction</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">HTMLInputElement</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">props</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">ref</span></span>
+<span class="line"><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;</span><span style="color: #85E89D">input</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ref</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{ref}>&#x3C;/</span><span style="color: #85E89D">input</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Wraped</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> React.</span><span style="color: #B392F0">forwardRef</span><span style="color: #E1E4E8">(childrenComponent);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">ref</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> useRef </span><span style="color: #F97583">&#x3C;</span><span style="color: #E1E4E8"> HTMLInputElement </span><span style="color: #F97583">></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">            &#x3C;</span><span style="color: #79B8FF">Wraped</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ref</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">{ref} /></span></span>
+<span class="line"><span style="color: #E1E4E8">        &#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    );</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">default</span><span style="color: #E1E4E8"> App;</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-03-29-react-2/01.png" alt="切图01"></p>
+<h1 id="usecontext">useContext</h1>
+<p>跨任意组件传递数据，一般都会使用useContext来完成</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> React, { createContext, useContext } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'react'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'./App.css'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Context</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">createContext</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"test"</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Components</span><span style="color: #F97583">:</span><span style="color: #B392F0">React</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">FC</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> () </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">value</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">useContext</span><span style="color: #E1E4E8">(Context)</span></span>
+<span class="line"><span style="color: #E1E4E8"> </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">>Context的值是 {value}&#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">App</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> &#x3C;</span><span style="color: #79B8FF">Context.Provider</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">value</span><span style="color: #F97583">=</span><span style="color: #9ECBFF">'222'</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">    &#x3C;</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">>&#x3C;</span><span style="color: #79B8FF">Components</span><span style="color: #E1E4E8">/>&#x3C;/</span><span style="color: #85E89D">div</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">  &#x3C;/</span><span style="color: #79B8FF">Context.Provider</span><span style="color: #E1E4E8">> </span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">default</span><span style="color: #E1E4E8"> App;</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-03-29-react-2/02.png" alt="切图02"></p>
+<p><img src="http://img.blog.loli.wang/2024-03-29-react-2/03.png" alt="切图03"></p>
+<h1 id="memo--usememo--usecallback">memo + useMemo + useCallback</h1>
+<p>memo : 只有组件的props发生变化的时候，才会触发组件的重新渲染，否则总是返回缓存中的结果</p>
+<p>useMemo : 一般通过减少不必要的复杂计算来优化性能,类似于计算属性</p>
+<p>useCallback : 一般用于给子组件传递回调函数时，减少子组件的渲染次数，从而优化性能。</p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/react" class="tag" title="react">react</a><a href="/tags/React 常用hook" class="tag" title="React 常用hook">React 常用hook</a><a href="/tags/前端进阶" class="tag" title="前端进阶">前端进阶</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
