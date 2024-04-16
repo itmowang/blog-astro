@@ -2,7 +2,7 @@
 title: "记一次配置小主机装Ubuntu"
 description: "记一次配置小主机装Ubuntu"
 pubDate: "2024-04-15  23:27:24"
-heroImage: "http://img.blog.loli.wang/2024-03-29-react-2/01.png"
+heroImage: "http://img.blog.loli.wang/2024-04-15-linuxServer/17.jpg"
 tags:
     - 小主机
     - 折腾
