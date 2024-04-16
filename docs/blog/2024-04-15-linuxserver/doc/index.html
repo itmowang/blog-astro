@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-04-15-linuxserver/doc/">
+
+<!-- Primary Meta Tags -->
+<title>记一次配置小主机装Ubuntu - 魔王の博客</title>
+
+<meta name="title" content="记一次配置小主机装Ubuntu - 魔王の博客">
+<meta name="description" content="记一次配置小主机装Ubuntu">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-04-15-linuxserver/doc/">
+<meta property="og:title" content="记一次配置小主机装Ubuntu - 魔王の博客">
+<meta property="og:description" content="记一次配置小主机装Ubuntu">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-03-29-react-2/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-04-15-linuxserver/doc/">
+<meta property="twitter:title" content="记一次配置小主机装Ubuntu - 魔王の博客">
+<meta property="twitter:description" content="记一次配置小主机装Ubuntu">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-03-29-react-2/01.png">
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RH0BZRF88N"></script>
+
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.12906087.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.1.0/themes/reset-min.css" integrity="sha256-2AeJLzExpZvqLUxMfcs+4DWcMwNfpnjUeAAvEtPr0wU=" crossorigin="anonymous">
+
+<div class="sidebar"> 
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">记一次配置小主机装Ubuntu</h2>
+    <div class="post-date">
+        <time datetime="2024-04-15T15:27:24.000Z">2024-04-15 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-04-15-linuxserver/doc/&#38;title=记一次配置小主机装Ubuntu - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-03-29-react-2/01.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-04-15-linuxserver/doc/&#38;title=记一次配置小主机装Ubuntu - 魔王の博客&#38;source=记一次配置小主机装Ubuntu - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-03-29-react-2/01.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-03-29-react-2/01.png');"></div>
+    <div class="post-content">
+        
+            <h2 id="因为-switch-送人了而在-pc-上玩模拟不痛快就想着整个小主机装个-ubuntu-然后装模拟器给电视机用">因为 Switch 送人了，而在 PC 上玩模拟不痛快，就想着整个小主机装个 ubuntu 然后装模拟器给电视机用</h2>
+<h1 id="预算定为-500-块"><strong>预算定为 500 块</strong></h1>
+<ol>
+<li>
+<p>选购小主机</p>
+<p>在选择小主机的时候，我观察了很多，如果买现成的 ，网上大部分 cpu 大部分都是 N100 的处理器，性能偏弱，价格也在 1000 块钱左右，并且硬盘很少，内存也就给 8g，并不能满足日常生活需要，所以考虑选择自己配，看了许多配置后，选定如下配置。</p>
+<ol>
+<li>
+<p>CPU：酷睿 i5-8500T 散片 (淘宝:357 RMB)</p>
+</li>
+<li>
+<p>RAM：海力士 ddr4 3200mhz *2 (咸鱼: 160 RMB)</p>
+</li>
+<li>
+<p>硬盘：金士顿 m2 500G SSD (咸鱼: 210 RMB)</p>
+</li>
+<li>
+<p>主机: 准系统 DELL 戴尔 7060MFF (咸鱼:330 RMB)</p>
+</li>
+</ol>
+<p>合计 : 1057 RMB</p>
+<p>以上配置，个人感觉还是能够接受的，虽然超预算了。。。</p>
+</li>
+</ol>
+<p><img src="http://img.blog.loli.wang/2024-04-15-linuxServer/01.jpg" alt="切图01">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/02.png" alt="切图02"></p>
+<ol start="2">
+<li>装配小主机</li>
+</ol>
+<p>准系统的小主机装配很简单，把内存 cpu 硬盘安装好，插上电源直接用就行。</p>
+<p><img src="http://img.blog.loli.wang/2024-04-15-linuxServer/03.jpg" alt="切图03">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/04.jpg" alt="切图04">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/05.jpg" alt="切图05">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/06.jpg" alt="切图06">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/07.jpg" alt="切图07">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/08.jpg" alt="切图08"></p>
+<ol start="3">
+<li>点亮小主机</li>
+</ol>
+<p>顺利点亮小主机，二手收的硬盘里装有一个自带的windows 11，发现上一任硬盘装的各种资料。。</p>
+<p><img src="http://img.blog.loli.wang/2024-04-15-linuxServer/09.jpg" alt="切图09">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/10.jpg" alt="切图10">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/11.jpg" alt="切图11">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/12.jpg" alt="切图12">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/13.jpg" alt="切图13"></p>
+<p>嗯。。。 虽然离谱。给他格式化吧。</p>
+<ol start="4">
+<li>给小主机装ubuntu系统</li>
+</ol>
+<p>小主机装配完毕了，是时候安装linux系统了，我自己的想法是先安装图形化界面的，后面再看着办，</p>
+<p>原本的想法</p>
+<ul>
+<li><strong>分配10G的硬盘，10G的硬盘里装ios镜像，然后安装ubuntu</strong></li>
+</ul>
+<p>因为u盘忘记放哪儿了，就准备采取上面的方案。但是试了很多次，总是出现错误。一会说不能插入网卡，等各种问题，好不容易进了安装界面，一会说不能找不到U盘。 (毕竟我也只有一块硬盘)</p>
+<p><img src="http://img.blog.loli.wang/2024-04-15-linuxServer/14.jpg" alt="切图14">
+<img src="http://img.blog.loli.wang/2024-04-15-linuxServer/15.jpg" alt="切图15"></p>
+<ul>
+<li><strong>连夜买了个u盘</strong></li>
+</ul>
+<p>因为这问题纠结太久了，夜晚比较浮躁，美团买了个u盘，用了优惠券 16g 20RMB，</p>
+<p>使用 <strong>Etcher</strong> 工具少烧录了，直接uefi模式启动，顺利安装 unbuntu</p>
+<p><img src="http://img.blog.loli.wang/2024-04-15-linuxServer/17.jpg" alt="切图16"></p>
+<ol start="5">
+<li>最终结果。</li>
+</ol>
+<p>我最后还是失败了。在安装模拟器的过程中，发现到生态多烂多不完善，各种工具安装不上，安装好模拟器模拟器还乱码。和服务器语言有关，切换后正常了，下载模拟器游戏也各种不方便，最后还是放弃。。。 （或许过几天我还是会继续尝试下），但是感觉除了做服务器环境，用linux的话，还是不怎么好用的。。。</p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/小主机" class="tag" title="小主机">小主机</a><a href="/tags/折腾" class="tag" title="折腾">折腾</a><a href="/tags/折腾小主机" class="tag" title="折腾小主机">折腾小主机</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>

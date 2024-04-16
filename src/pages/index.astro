@@ -13,6 +13,8 @@ import { getCollection } from "astro:content";
 const allPost = (await getCollection("blog")).sort(config.func.sortPosts);
 const posts = allPost.slice(0, config.opt.postsSize);
 const pagination = config.func.getPagination(allPost.length, config.opt.postsSize);
+
+
 ---
 
 <!DOCTYPE html>
