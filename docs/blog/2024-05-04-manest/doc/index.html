@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<meta name="generator" content="Astro v2.10.9">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://blog.loli.wang/blog/2024-05-04-manest/doc/">
+
+<!-- Primary Meta Tags -->
+<title>Nestjs的微服务 - 魔王の博客</title>
+
+<meta name="title" content="Nestjs的微服务 - 魔王の博客">
+<meta name="description" content="使用NestJs的微服务">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.loli.wang/blog/2024-05-04-manest/doc/">
+<meta property="og:title" content="Nestjs的微服务 - 魔王の博客">
+<meta property="og:description" content="使用NestJs的微服务">
+<meta property="og:image" content="http://img.blog.loli.wang/2024-05-04-MANest/01.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://blog.loli.wang/blog/2024-05-04-manest/doc/">
+<meta property="twitter:title" content="Nestjs的微服务 - 魔王の博客">
+<meta property="twitter:description" content="使用NestJs的微服务">
+<meta property="twitter:image" content="http://img.blog.loli.wang/2024-05-04-MANest/01.png">
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RH0BZRF88N"></script>
+
+  <link rel="stylesheet" href="/_astro/about.a4624501.css" /><script type="module" src="/_astro/hoisted.12906087.js"></script></head>
+  <body>
+    <div id="app" class="main">
+      <div class="sidebar"> 
+    <div class="top-container" data-aos="fade-right">
+        <div class="top-header-container">
+            <a href="/" title="Mowang - Your bio" class="site-title-container"><img src="https://avatars.githubusercontent.com/u/137391282?v=4" alt="Mowang" class="site-logo">
+                <h1 class="site-title">魔王の博客</h1></a>
+            <div class="menu-btn">
+                <div class="line"></div>
+            </div>
+        </div>
+        <div>
+            <a href="/" title="Blog" class="site-nav">
+                        Blog
+                    </a><a href="/life" title="Life" class="site-nav">
+                        Life
+                    </a><a href="/archive" title="Archive" class="site-nav">
+                        Archive
+                    </a><a href="/link" title="Link" class="site-nav">
+                        Link
+                    </a><a href="/about" title="About" class="site-nav">
+                        About
+                    </a><a href="https://github.com/itmowang" title="Github" class="site-nav">
+                        Github
+                    </a>
+        </div>
+    </div>
+    <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+        <div class="social-container"></div>
+        <div class="site-description">高兴的使用astro构建</div>
+        <div class="site-footer">
+            © 2024 YOUR NAME HERE. | <a href="/rss.xml" title="RSS" target="_blank" class="rss">RSS</a>
+        </div>
+    </div>
+</div>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+    <h2 class="post-title">Nestjs的微服务</h2>
+    <div class="post-date">
+        <time datetime="2024-05-04T15:27:24.000Z">2024-05-04 23:27</time>
+    </div>
+    <div class="post-share">
+        <div class="postShare">
+  <div>
+    <div class="postShare-List">
+      分享本文 :
+      <a href="http://service.weibo.com/share/share.php?url=https://blog.loli.wang/blog/2024-05-04-manest/doc/&#38;title=Nestjs的微服务 - 魔王の博客&#38;pic=http://img.blog.loli.wang/2024-05-04-MANest/01.png" target="_blank">
+        <i class="iconfont icon-xinlang" style="color:#ff763b"></i></a>
+      <div class="wechat-container">
+        <a href="#">
+          <i id="wechatIcon" class="iconfont icon-weichat" style="color:#33b045"></i></a>
+        <div class="wechat-dropdown" id="wechatDropdown">
+          <p>分享到微信</p>
+          <div id="qrcode"></div>
+          <p>扫描二维码</p>
+          <p>可在微信查看或分享至朋友圈。</p>
+        </div>
+      </div>
+      <a href="https://connect.qq.com/widget/shareqq/index.html?url=https://blog.loli.wang/blog/2024-05-04-manest/doc/&#38;title=Nestjs的微服务 - 魔王の博客&#38;source=Nestjs的微服务 - 魔王の博客&#38;desc=高兴的使用astro构建&#38;pics=http://img.blog.loli.wang/2024-05-04-MANest/01.png" target="_blank">
+        <i class="iconfont icon-QQ" style="color:#56b6e7"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-facebook" style="color:#44619D"></i></a>
+      <a href="" target="_blank">
+        <i class="iconfont icon-fenxiang1" style="color:#33b045"></i></a>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="feature-container" style="background-image: url('http://img.blog.loli.wang/2024-05-04-MANest/01.png');"></div>
+    <div class="post-content">
+        
+            <h2 id="2024-年-5月-3日">2024 年 5月 3日</h2>
+<p>到晚上了，QQ没人找，微信没人回。当然这么好的假日应该出去玩才对，但是我不愿意浪费这点时间给自己好好休息。偶然看到了某技术群聊微服务，很有兴趣，看资料折腾下吧。</p>
+<h2 id="使用nest的cli工具创建项目">使用nest的cli工具创建项目</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 全局安装nestjs的cli</span></span>
+<span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">i</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@nestjs/cli</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装第一个项目</span></span>
+<span class="line"><span style="color: #B392F0">nest</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">aa</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 启动aa项目</span></span>
+<span class="line"><span style="color: #79B8FF">cd</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">aa</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">run</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">start</span></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-05-04-MANest/01.png" alt="切1"></p>
+<p>启动访问成功</p>
+<p><img src="http://img.blog.loli.wang/2024-05-04-MANest/02.png" alt="切2"></p>
+<h2 id="创建一个-微服务项目">创建一个 微服务项目</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 通过cli安装一个新的项目</span></span>
+<span class="line"><span style="color: #B392F0">nest</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">new</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">micro-service</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 安装nestjs 微服务插件</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@nestjs/microservices</span></span></code></pre>
+<h2 id="引用-nestjsmicroservices-修改maints">引用 @nestjs/microservices 修改main.ts</h2>
+<p>将原本启动http服务,改为启动微服务</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// main.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { NestFactory } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/core'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { AppModule } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'./app.module'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Transport, MicroserviceOptions } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/microservices'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">async</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">bootstrap</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// const app = await NestFactory.create(AppModule);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">app</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> NestFactory.</span><span style="color: #B392F0">createMicroservice</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">MicroserviceOptions</span><span style="color: #E1E4E8">>(</span></span>
+<span class="line"><span style="color: #E1E4E8">    AppModule,</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">      transport: Transport.</span><span style="color: #79B8FF">TCP</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      options: {</span></span>
+<span class="line"><span style="color: #E1E4E8">        port: </span><span style="color: #79B8FF">8888</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">      },</span></span>
+<span class="line"><span style="color: #E1E4E8">    },</span></span>
+<span class="line"><span style="color: #E1E4E8">  );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> app.</span><span style="color: #B392F0">listen</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color: #B392F0">bootstrap</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"></span></code></pre>
+<p>修改 <strong>app.controller.ts</strong> 改为接受Message通知，</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// app.controller.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Controller, Get } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/common'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { AppService } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'./app.service'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { MessagePattern } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/microservices'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">@</span><span style="color: #B392F0">Controller</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">class</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">AppController</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">constructor</span><span style="color: #E1E4E8">(</span><span style="color: #F97583">private</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">readonly</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">appService</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">AppService</span><span style="color: #E1E4E8">) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  @</span><span style="color: #B392F0">MessagePattern</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'sum'</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">sum</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">numArr</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Array</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">>)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> numArr.</span><span style="color: #B392F0">reduce</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">total</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">item</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> total </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> item, </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h2 id="改造-aa-项目让他能够连接微服务">改造 aa 项目，让他能够连接微服务</h2>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 安装微服务依赖</span></span>
+<span class="line"><span style="color: #B392F0">pnpm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">add</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">@nestjs/microservices</span></span>
+<span class="line"></span></code></pre>
+<p>进入 app.module.ts 注册<strong>微服务</strong>那个项目,指定TCP端口为8888，让他直到我们的微服务项目端口是8888</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Module } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/common'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { AppController } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'./app.controller'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { AppService } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'./app.service'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { ClientsModule, Transport } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/microservices'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">@</span><span style="color: #B392F0">Module</span><span style="color: #E1E4E8">({</span></span>
+<span class="line"><span style="color: #E1E4E8">  imports: [</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    ClientsModule.</span><span style="color: #B392F0">register</span><span style="color: #E1E4E8">([</span></span>
+<span class="line"><span style="color: #E1E4E8">      {</span></span>
+<span class="line"><span style="color: #E1E4E8">        name: </span><span style="color: #9ECBFF">'MICRO_SERVICE'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        transport: Transport.</span><span style="color: #79B8FF">TCP</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        options: {</span></span>
+<span class="line"><span style="color: #E1E4E8">          port: </span><span style="color: #79B8FF">8888</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        },</span></span>
+<span class="line"><span style="color: #E1E4E8">      },</span></span>
+<span class="line"><span style="color: #E1E4E8">    ]),</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  ],</span></span>
+<span class="line"><span style="color: #E1E4E8">  controllers: [AppController],</span></span>
+<span class="line"><span style="color: #E1E4E8">  providers: [AppService],</span></span>
+<span class="line"><span style="color: #E1E4E8">})</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">class</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">AppModule</span><span style="color: #E1E4E8"> {}</span></span>
+<span class="line"></span></code></pre>
+<p><img src="http://img.blog.loli.wang/2024-05-04-MANest/03.png" alt="切2"></p>
+<p>这样就注册完了。 然后在 <strong>aa</strong> 项目中注册客户端代理<strong>clientProxy</strong></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">//app.controller.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Controller, Get, Query, Inject } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/common'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #6A737D">// import { AppService } from './app.service';</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { ClientProxy } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'@nestjs/microservices'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> { Observable } </span><span style="color: #F97583">from</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'rxjs'</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">@</span><span style="color: #B392F0">Controller</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">class</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">AppController</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">constructor</span><span style="color: #E1E4E8">(@</span><span style="color: #B392F0">Inject</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'MICRO_SERVICE'</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">private</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">serviceClient</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ClientProxy</span><span style="color: #E1E4E8">) {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  @</span><span style="color: #B392F0">Get</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">server</span><span style="color: #E1E4E8">(@</span><span style="color: #B392F0">Query</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'num'</span><span style="color: #E1E4E8">) </span><span style="color: #FFAB70">str</span><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Observable</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">numArr</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> str.</span><span style="color: #B392F0">split</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">','</span><span style="color: #E1E4E8">).</span><span style="color: #B392F0">map</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">item</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">parseInt</span><span style="color: #E1E4E8">(item));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">.serviceClient.</span><span style="color: #B392F0">send</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'sum'</span><span style="color: #E1E4E8">, numArr);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<p>重启下微服务，查看结果</p>
+<p>访问 aa 服务的看看是否有进行一个累加的计算 <a href="http://localhost:3000/?num=1,2,3">http://localhost:3000/?num=1,2,3</a></p>
+<p>能够正常进行的互相传递接收，微服务配置成功</p>
+<p><img src="http://img.blog.loli.wang/2024-05-04-MANest/04.png" alt="切2">
+<img src="http://img.blog.loli.wang/2024-05-04-MANest/05.png" alt="切2"></p>
+<h2 id="总结">总结</h2>
+<p>照葫芦画瓢整的，虽然能够理解，但是目前没有合适的东西能让我启用这一套，当作学习记录一下吧</p>
+<p><a href="https://juejin.cn/post/7207637337571901495?searchId=202405032014240A690D4981415C621CB4">神说要有光 - 掘金</a></p>
+<p><a href="https://github.com/itmowang/nest-microservices-demo">我的github - nestjs 微服务demo</a></p>
+          
+    </div>
+    <div class="tag-container">
+        <a href="/tags/nestjs" class="tag" title="nestjs">nestjs</a><a href="/tags/微服务" class="tag" title="微服务">微服务</a><a href="/tags/RESTAPI" class="tag" title="RESTAPI">RESTAPI</a>
+    </div>
+</div>
+          <script src="https://utteranc.es/client.js" repo="itmowang/blog-astro" issue-term="pathname" theme="github-light" crossorigin="anonymous" async></script>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script type="application/javascript">
+  AOS.init();
+</script>
+  </body></html>
